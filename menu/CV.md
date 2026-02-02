@@ -1,6 +1,6 @@
 # CV
 
-> 최종 업데이트: 2025.01.01  
+> 최종 업데이트: 2025.01.30  
 
 <!-- ===================== -->
 <!-- TOC (왼쪽 목차용)      -->
@@ -14,12 +14,8 @@
     <li><a href="#project-experience">Project Experience</a></li>
     <li><a href="#research-questions-analysis">Research Questions & Analysis</a></li>
     <li><a href="#work-experience">Work Experience</a></li>
-    <li><a href="#student-governance-activities">Student Governance Activities</a></li>
-    <li><a href="#language-exchange-activities">Language Exchange Activities</a></li>
-    <li><a href="#additional-information">Additional Information</a></li>
-    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#honors-and-awards">Honors and Awards</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#others">Others</a></li>
   </ul>
 </nav>
 
@@ -131,7 +127,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 ---
 
-## 🏛 Policy Communication Project  
+## Policy Communication Project  
 [🔗View Project](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5B%EC%8A%A4%ED%8A%9C%EC%96%B4%ED%8A%B8+%ED%99%80%EC%9D%98+%EA%B8%B0%ED%98%B8%EB%8B%B4%EB%A1%A0%EC%9C%BC%EB%A1%9C+%EC%9D%BD%EB%8A%94+%EB%B2%84%EC%B6%94%EC%96%BC+%EC%95%84%EC%9D%B4%EB%8F%8C+%ED%94%8C%EB%A0%88%EC%9D%B4%EB%B8%8C_%EB%B2%84%EC%B6%94%EC%96%BC+%EC%95%84%EC%9D%B4%EB%8F%8C%EC%9D%98+%EB%8B%B4%EB%A1%A0%EA%B3%BC+%EC%88%98%EC%9A%A9%EA%B3%BC%EC%A0%95%5D_%5Bproject%5D_%5B%ED%94%8C%EB%A0%88%EC%9D%B4%EB%B8%8C1.jpg%5D_%5B%EC%98%81%EC%83%81%EC%BB%A4%EB%AE%A4%EB%8B%88%EC%BC%80%EC%9D%B4%EC%85%98%5D_%5B%5D.md)  
 
 **(공공 데이터 분석)**  
@@ -156,53 +152,6 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 ---
 
-<section id="student-governance-activities" class="cv-box">
-
-## Student Council
-
-- **2025.01 – 2025.12** 경희대학교 정경대학 제57대 학생회 교육권리국장  
-- **2022.01 – 2022.09** 경희대학교 사회학과 제34대 학생회 사무부장  
-- **2021.05 – 2021.12** 경희대학교 사회학과 제33대 학생회 복지부원  
-
-</section>
-
----
-
-<section id="language-exchange-activities" class="cv-box">
-
-## Language Exchange Activities
-
-- **2024.10 – 2025.01** 경희대학교 글로벌버디 (언어교류 봉사활동)  
-- **2024.10 – 2024.12** 경희대학교 국제교육원 일본 자매교 한국어 도우미  
-- **2024.04 – 2024.06** 경희대학교 국제교육원 정규 한국어 도우미  
-
-</section>
-
----
-
-<section id="additional-information" class="cv-box">
-
-## Additional Information
-
-**2024.06 – 2024.07**  
-해외전공연수 (Canada / Thompson Rivers University)  
-Global citizenship & Intercultural Business Communications (3학점)  
-
-</section>
-
----
-
-<section id="certifications" class="cv-box">
-
-## Certifications
-
-- **2025.12.24** 사회조사분석사 2급  
-- **2025.11.28** 데이터 분석 준전문가 (ADSP)  
-- **2023.08.25** 한국사능력검정시험 심화 1급  
-
-</section>
-
----
 
 <section id="honors-and-awards" class="cv-box">
 
@@ -222,9 +171,38 @@ Global citizenship & Intercultural Business Communications (3학점)
 
 ---
 
-<section id="skills" class="cv-box">
+<section id="others" class="cv-box">  
 
-## Skills
+## Others
+
+---
+
+### Certifications
+- **2025.12.24** 사회조사분석사 2급  
+- **2025.11.28** 데이터 분석 준전문가 (ADSP)  
+- **2023.08.25** 한국사능력검정시험 심화 1급  
+
+---
+
+### Student Council
+
+- **2025.01 – 2025.12** 경희대학교 정경대학 제57대 학생회 교육권리국장  
+- **2022.01 – 2022.09** 경희대학교 사회학과 제34대 학생회 사무부장  
+- **2021.05 – 2021.12** 경희대학교 사회학과 제33대 학생회 복지부원  
+
+---
+
+### Language Exchange Activities
+
+- **2024.10 – 2025.01** 경희대학교 글로벌버디 (언어교류 봉사활동)  
+- **2024.10 – 2024.12** 경희대학교 국제교육원 일본 자매교 한국어 도우미
+- **2024.06 – 2024.07** 해외전공연수 (Canada / Thompson Rivers University)  
+Global citizenship & Intercultural Business Communications (3학점)  
+- **2024.04 – 2024.06** 경희대학교 국제교육원 정규 한국어 도우미  
+
+---
+
+### Skills
 
 **Python**
 - Pandas, NumPy, Matplotlib을 이용한 데이터 분석과 시각화  
