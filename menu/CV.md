@@ -96,7 +96,8 @@ Tel: +82) 010-9496-9146
 
 ## Research Questions & Analysis
 
-### Question 1: News Engagement and Article Characteristics on Naver
+### Question 1: News Engagement and Article Characteristics on Naver  
+[프로젝트 바로가기](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5BQ1_News+Engagemnet%5D_%5Bproject%5D_%5B.jpg%5D_%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B3%BC%EC%BD%94%EB%94%A9%5D_%5B%5D.md)  
 
 **(데이터 분석·통계 모델링)**  
 Python의 Pandas, NumPy를 중심으로 Naver 뉴스 데이터 전처리 및 피처 엔지니어링을 통해 데이터셋을 구축하고, Pearson 상관분석, One-way ANOVA, 다중선형회귀(OLS)를 수행하여 기사 특성이 뉴스 engagement에 미치는 영향을 통계적으로 검증함.
