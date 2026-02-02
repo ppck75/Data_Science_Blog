@@ -1,9 +1,32 @@
-# CV  
-Curriculum Vitae
+# CV
 
 > 최종 업데이트: 2025.01.01  
 
-<section id="General Information" section class="cv-box">
+<!-- ===================== -->
+<!-- TOC (왼쪽 목차용)      -->
+<!-- ===================== -->
+<nav class="cv-toc">
+  <div class="cv-toc-title">Contents</div>
+  <ul>
+    <li><a href="#general-information">General Information</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research-interest">Research Interest</a></li>
+    <li><a href="#project-experience">Project Experience</a></li>
+    <li><a href="#research-questions-analysis">Research Questions & Analysis</a></li>
+    <li><a href="#policy-communication-project">Policy Communication Project</a></li>
+    <li><a href="#work-experience">Work Experience</a></li>
+    <li><a href="#student-governance-activities">Student Governance Activities</a></li>
+    <li><a href="#language-exchange-activities">Language Exchange Activities</a></li>
+    <li><a href="#additional-information">Additional Information</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#honors-and-awards">Honors and Awards</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+</nav>
+
+<div class="cv-content">
+
+<section id="general-information" class="cv-box">
 
 ## General Information
 
@@ -11,11 +34,12 @@ Full Name: 박찬규 (Changyu Park)
 Department of Sociology & Media, Kyunghee University  
 E-mail: ppck75@khu.ac.kr  
 Tel: +82) 010-9496-9146  
----
 
 </section>
 
-<section id="Education" section class="cv-box">
+---
+
+<section id="education" class="cv-box">
 
 ## Education
 
@@ -25,17 +49,23 @@ Tel: +82) 010-9496-9146
 - **전체 평점:** 4.4 / 4.5  
 - **전공 평점:** 4.42 / 4.5  
 - **취득 학점:** 129 / 120  
+
 </section>
+
 ---
-<section id="Research Interest" section class="cv-box">
+
+<section id="research-interest" class="cv-box">
 
 ## Research Interest
 
 - Computational Social Science  
 - Data Science  
+
 </section>
+
 ---
-<section id="Project Experience" section class="cv-box">
+
+<section id="project-experience" class="cv-box">
 
 ## Project Experience
 
@@ -60,9 +90,12 @@ Tel: +82) 010-9496-9146
 - Elbow Method와 Silhouette Score를 함께 분석하여 군집 응집도와 분리도가 가장 우수한 **k=5**를 최적 군집 수로 결정하여 K-Means Clustering 알고리즘을 적용함
 - PCA를 통해 K-Means 군집 분포를 시각화함으로써 군집을 구분하는 핵심 행동 축을 해석함  
 - 이를 바탕으로 5개 시청자 세그먼트를 행동 기반 페르소나로 정리하여, 스트리밍 플랫폼의 시청자 구조와 콘텐츠 소비 패턴을 분석함  
+
 </section>
+
 ---
-<section id="Research Questions & Analysis" section class="cv-box">
+
+<section id="research-questions-analysis" class="cv-box">
 
 ## Research Questions & Analysis
 
@@ -96,7 +129,11 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 **(PCA 기반 세그먼트 인사이트 도출)**  
 고차원 장르 시청시간 변수를 PCA로 축소하여 주요 변동을 설명하는 두 개의 주성분을 도출하고, PCA 공간에서 K-Means 군집 분포를 시각화함으로써 군집을 구분하는 핵심 행동 축을 해석함. 이를 바탕으로 5개 시청자 세그먼트를 행동 기반 페르소나로 정리하여, 스트리밍 플랫폼의 시청자 구조와 콘텐츠 소비 패턴에 대한 머신러닝 기반 인사이트를 도출함.
 
+</section>
+
 ---
+
+<section id="policy-communication-project" class="cv-box">
 
 ## 🏛 Policy Communication Project
 
@@ -105,55 +142,72 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 **(정책 분석·커뮤니케이션 제안)**    
 조달청 나라장터의 RFP를 기반으로 국민건강증진법 일부개정법률안 및 시행규칙 개정령안을 분석하고, 데이터 기반 PCP(Policy Communication Proposal)를 기획·발표하여 동일 주제 경쟁 팀 중 최종 선정.  
----
+
 </section>
 
-<section id="Work Experience" section class="cv-box">
+---
+
+<section id="work-experience" class="cv-box">
 
 ## Work Experience
 
 - **2026.02 –** 학생연구원  
 - **2024.09 – 2025.06** 경희대학교 사회학과 학부 조교  
 - **2024.04 – 2025.02** 대한민국 국방부 온라인 서포터즈 대학생 기자단  
+
 </section>
+
 ---
-<section id="Student Governance Activities" section class="cv-box">
+
+<section id="student-governance-activities" class="cv-box">
 
 ## Student Governance Activities
 
 - **2025.01 – 2025.12** 경희대학교 정경대학 제57대 학생회 교육권리국장  
 - **2022.01 – 2022.09** 경희대학교 사회학과 제34대 학생회 사무부장  
 - **2021.05 – 2021.12** 경희대학교 사회학과 제33대 학생회 복지부원  
+
 </section>
+
 ---
-<section id="Language Exchange Activities" section class="cv-box">
+
+<section id="language-exchange-activities" class="cv-box">
 
 ## Language Exchange Activities
 
 - **2024.10 – 2025.01** 경희대학교 글로벌버디 (언어교류 봉사활동)  
 - **2024.10 – 2024.12** 경희대학교 국제교육원 일본 자매교 한국어 도우미  
 - **2024.04 – 2024.06** 경희대학교 국제교육원 정규 한국어 도우미  
+
 </section>
+
 ---
-<section id="Additional Information" section class="cv-box">
+
+<section id="additional-information" class="cv-box">
 
 ## Additional Information
 
 **2024.06 – 2024.07**  
 해외전공연수 (Canada / Thompson Rivers University)  
 Global citizenship & Intercultural Business Communications (3학점)  
+
 </section>
+
 ---
-<section id="Certifications" section class="cv-box">
+
+<section id="certifications" class="cv-box">
 
 ## Certifications
 
 - **2025.12.24** 사회조사분석사 2급  
 - **2025.11.28** 데이터 분석 준전문가 (ADSP)  
 - **2023.08.25** 한국사능력검정시험 심화 1급  
+
 </section>
+
 ---
-<section id="Honors and Awards" section class="cv-box">
+
+<section id="honors-and-awards" class="cv-box">
 
 ## Honors and Awards
 
@@ -166,9 +220,12 @@ Global citizenship & Intercultural Business Communications (3학점)
 - 2024/1학기 단과대학 해외연수 (밝은사회장학)  
 - 2022/1학기 우수장학  
 - 2021/2학기 모범장학  
+
 </section>
+
 ---
-<section id="Skills" section class="cv-box">
+
+<section id="skills" class="cv-box">
 
 ## Skills
 
@@ -177,4 +234,7 @@ Global citizenship & Intercultural Business Communications (3학점)
 - Scipy, Statsmodels 기반 통계 분석  
 
 **SQL**
+
 </section>
+
+</div>

@@ -301,3 +301,64 @@
     border-radius: 14px;
   }
 }
+
+/* CV 레이아웃 */
+.cv-toc{
+  position: fixed;
+  top: 120px;
+  left: 24px;
+  width: 240px;
+  padding: 16px 14px;
+  background: #fff;
+  border: 1px solid #e6e8ee;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  font-size: 14px;
+  z-index: 20;
+}
+
+.cv-toc-title{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cv-toc ul{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.cv-toc li{
+  margin: 8px 0;
+}
+
+.cv-toc a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.cv-toc a:hover{
+  text-decoration: underline;
+}
+
+/* 본문은 목차 폭만큼 밀기 */
+.cv-content{
+  max-width: 900px;
+  margin-left: 300px;
+  padding: 10px 16px;
+}
+
+/* 박스 UI */
+.cv-box{
+  background: #fff;
+  border: 1px solid #e6e8ee;
+  border-radius: 14px;
+  padding: 22px 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+/* 모바일에서는 목차 숨기기 */
+@media (max-width: 900px){
+  .cv-toc{ display:none; }
+  .cv-content{ margin-left: 0; }
+}
