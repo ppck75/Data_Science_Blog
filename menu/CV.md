@@ -97,7 +97,7 @@ Tel: +82) 010-9496-9146
 ## Research Questions & Analysis
 
 ### Question 1: News Engagement and Article Characteristics on Naver  
-[프로젝트 바로가기](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5BQ1_News+Engagemnet%5D_%5Bproject%5D_%5B.jpg%5D_%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B3%BC%EC%BD%94%EB%94%A9%5D_%5B%5D.md)  
+[🔗 View Project](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5BQ1_News+Engagemnet%5D_%5Bproject%5D_%5B.jpg%5D_%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B3%BC%EC%BD%94%EB%94%A9%5D_%5B%5D.md)  
 
 **(데이터 분석·통계 모델링)**  
 Python의 Pandas, NumPy를 중심으로 Naver 뉴스 데이터 전처리 및 피처 엔지니어링을 통해 데이터셋을 구축하고, Pearson 상관분석, One-way ANOVA, 다중선형회귀(OLS)를 수행하여 기사 특성이 뉴스 engagement에 미치는 영향을 통계적으로 검증함.
@@ -107,7 +107,8 @@ Random Forest 회귀 모델을 적용해 뉴스 engagement를 예측하고 (R² 
 
 ---
 
-### Question 2: Examining Creator-Level and Video-Level Factors
+### Question 2: Examining Creator-Level and Video-Level Factors  
+[🔗 View Project](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5BQ2_Examining+Creator-Level+and+Video-Level%5D_%5Bproject%5D_%5B.jpg%5D_%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B3%BC%EC%BD%94%EB%94%A9%5D_%5B%5D.md)  
 
 **(데이터 분석·통계 모델링)**  
 Python의 Pandas, NumPy를 중심으로 뉴스 및 YouTube 플랫폼 데이터 전처리 및 피처 엔지니어링을 통해 데이터셋을 구축하고, Pearson 상관분석, One-way ANOVA, 다중선형회귀 및 로지스틱 회귀를 수행하여 사용자 행동(engagement·subscription)에 영향을 미치는 요인을 통계적으로 검증함.
@@ -119,7 +120,8 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 ---
 
-### Question 3: Viewer Segmentation for Korean Streaming Platforms
+### Question 3: Viewer Segmentation for Korean Streaming Platforms  
+[🔗 View Project](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5BQ3_Viewer+Segmentation%5D_%5Bproject%5D_%5B.jpg%5D_%5B%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B3%BC%EC%BD%94%EB%94%A9%5D_%5B%5D.md)  
 
 **(K-Means 모델링 및 군집 수 결정 전략)**  
 한국 스트리밍 플랫폼 이용자의 주간 장르별 시청시간 데이터에서 시청자 군집을 도출하기 위해 K-Means Clustering 알고리즘을 적용함. Elbow Method와 Silhouette Score를 함께 분석하여 군집 응집도와 분리도가 가장 우수한 k=5를 최적 군집 수로 결정함.
@@ -129,7 +131,8 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 ---
 
-## 🏛 Policy Communication Project
+## 🏛 Policy Communication Project  
+[🔗 View Project](https://ppck75.github.io/Data_Science/?post=%5B20250615%5D_%5B%EC%8A%A4%ED%8A%9C%EC%96%B4%ED%8A%B8+%ED%99%80%EC%9D%98+%EA%B8%B0%ED%98%B8%EB%8B%B4%EB%A1%A0%EC%9C%BC%EB%A1%9C+%EC%9D%BD%EB%8A%94+%EB%B2%84%EC%B6%94%EC%96%BC+%EC%95%84%EC%9D%B4%EB%8F%8C+%ED%94%8C%EB%A0%88%EC%9D%B4%EB%B8%8C_%EB%B2%84%EC%B6%94%EC%96%BC+%EC%95%84%EC%9D%B4%EB%8F%8C%EC%9D%98+%EB%8B%B4%EB%A1%A0%EA%B3%BC+%EC%88%98%EC%9A%A9%EA%B3%BC%EC%A0%95%5D_%5Bproject%5D_%5B%ED%94%8C%EB%A0%88%EC%9D%B4%EB%B8%8C1.jpg%5D_%5B%EC%98%81%EC%83%81%EC%BB%A4%EB%AE%A4%EB%8B%88%EC%BC%80%EC%9D%B4%EC%85%98%5D_%5B%5D.md)  
 
 **(공공 데이터 분석)**  
 경찰청 음주운전 공공데이터(2010–2024)를 Python의 Pandas와 matplotlib을 중심으로 분석하여 연도별 음주운전 사고 추세를 분석하고 연령대별 적발 패턴을 도출함. 이를 기반으로 정책 PR 핵심 타깃(30~50대 직장인·청년층) 설정에 근거로 활용함.
