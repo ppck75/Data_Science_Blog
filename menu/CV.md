@@ -1,4 +1,5 @@
-# CV
+# CV  
+Curriculum Vitae
 
 > 최종 업데이트: 2025.01.01  
 
