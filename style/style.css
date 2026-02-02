@@ -343,6 +343,7 @@
 
 /* 본문은 목차 폭만큼 밀기 */
 .cv-content{
+  width: calc(100% - 320px);
   max-width: 1200px;
   margin-left: 300px;
   padding: 10px 16px;
