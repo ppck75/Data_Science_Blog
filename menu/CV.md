@@ -1,9 +1,9 @@
 
----
+
 # CV
----
+
 > 최종 업데이트: 2025.01.01  
----
+
 <section class="cv-box">
 
 ## General Information
@@ -106,9 +106,9 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 **(정책 분석·커뮤니케이션 제안)**  
 조달청 나라장터에 공개된 RFP를 기반으로 국민건강증진법 일부개정법률안 및 시행규칙 개정령안을 분석하고, 데이터 기반 PCP(Policy Communication Proposal)를 기획·발표하여 동일 주제 경쟁 팀 중 최종 선정.
-
-</section>
 ---
+</section>
+
 <section class="cv-box">
 
 ## Work Experience
