@@ -1,24 +1,28 @@
-# about
 
 ---
-title: "Curriculum Vitae"
-layout: page
+# CV
+### Curriculum Vitae
+
 ---
 
 > **최종 업데이트:** 2025.01.01  
 
 ---
 <section class="cv-box">
-## 📌 General Information
 
-**박찬규 (Changyu Park)**  
+## General Information
+
+**Full Name**: 박찬규 (Changyu Park)  
+
 Department of Sociology & Media, Kyunghee University  
 E-mail: ppck75@khu.ac.kr  
-Tel: +82) 010-9496-9146  
+Tel: +82) 010-9496-9146
+
 </section>
 ---
 <section class="cv-box">
-## 🎓 Education
+
+## Education
 
 **2021 – 현재 | 경희대학교 서울캠퍼스**  
 - **Major:** 사회학 학사과정. 경희대학교 정경대학 사회학과  
@@ -29,14 +33,16 @@ Tel: +82) 010-9496-9146
 </section>
 ---
 <section class="cv-box">
-## 🔍 Research Interest
+
+## Research Interest
 
 - Computational Social Science  
 - Data Science  
 </section>
 ---
 <section class="cv-box">
-## 🧪 Project Experience
+
+## Project Experience
 
 ### 데이터분석과 코딩 프로젝트 1
 
@@ -62,7 +68,8 @@ Tel: +82) 010-9496-9146
 </section>
 ---
 <section class="cv-box">
-## 📊 Research Questions & Analysis
+
+## Research Questions & Analysis
 
 ### Question 1: News Engagement and Article Characteristics on Naver
 
@@ -106,7 +113,8 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 </section>
 ---
 <section class="cv-box">
-## 💼 Work Experience
+
+## Work Experience
 
 - **2026.02 –** 학생연구원  
 - **2024.09 – 2025.06** 경희대학교 사회학과 학부 조교  
@@ -114,7 +122,8 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 </section>
 ---
 <section class="cv-box">
-## 🏫 Student Governance Activities
+
+## Student Governance Activities
 
 - **2025.01 – 2025.12** 경희대학교 정경대학 제57대 학생회 교육권리국장  
 - **2022.01 – 2022.09** 경희대학교 사회학과 제34대 학생회 사무부장  
@@ -122,7 +131,8 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 </section>
 ---
 <section class="cv-box">
-## 🌏 Language Exchange Activities
+
+## Language Exchange Activities
 
 - **2024.10 – 2025.01** 경희대학교 글로벌버디 (언어교류 봉사활동)  
 - **2024.10 – 2024.12** 경희대학교 국제교육원 일본 자매교 한국어 도우미  
@@ -130,7 +140,8 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 </section>
 ---
 <section class="cv-box">
-## ➕ Additional Information
+
+## Additional Information
 
 **2024.06 – 2024.07**  
 해외전공연수 (Canada / Thompson Rivers University)  
@@ -138,7 +149,8 @@ Global citizenship & Intercultural Business Communications (3학점)
 </section>
 ---
 <section class="cv-box">
-## 📜 Certifications
+
+## Certifications
 
 - **2025.12.24** 사회조사분석사 2급  
 - **2025.11.28** 데이터 분석 준전문가 (ADSP)  
@@ -146,7 +158,8 @@ Global citizenship & Intercultural Business Communications (3학점)
 </section>
 ---
 <section class="cv-box">
-## 🏅 Honors and Awards
+
+## Honors and Awards
 
 - 2025/2학기 우수장학  
 - 2025/2학기 단과대학 학생회 (밝은사회장학)  
@@ -160,7 +173,8 @@ Global citizenship & Intercultural Business Communications (3학점)
 </section>
 ---
 <section class="cv-box">
-## 🛠 Skills
+
+## Skills
 
 **Python**
 - Pandas, NumPy, Matplotlib을 이용한 데이터 분석과 시각화  
