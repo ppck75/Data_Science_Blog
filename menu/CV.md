@@ -14,6 +14,7 @@ Department of Sociology & Media, Kyunghee University
 E-mail: ppck75@khu.ac.kr  
 Tel: +82) 010-9496-9146
 ---
+
 </section>
 
 <section class="cv-box">
