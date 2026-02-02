@@ -239,7 +239,7 @@
   margin: 0;
 }
 
-/* ===== CV Box UI (mz-kim style inspired) ===== */
+/* ===== CV Box UI  ===== */
 .cv-wrap {
   max-width: 1400px;
   margin: 0 auto;
@@ -295,7 +295,7 @@
 }
 
 /* 모바일 최적화 */
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .cv-box {
     padding: 18px 16px;
     border-radius: 14px;
