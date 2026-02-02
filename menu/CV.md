@@ -13,7 +13,6 @@
     <li><a href="#research-interest">Research Interest</a></li>
     <li><a href="#project-experience">Project Experience</a></li>
     <li><a href="#research-questions-analysis">Research Questions & Analysis</a></li>
-    <li><a href="#policy-communication-project">Policy Communication Project</a></li>
     <li><a href="#work-experience">Work Experience</a></li>
     <li><a href="#student-governance-activities">Student Governance Activities</a></li>
     <li><a href="#language-exchange-activities">Language Exchange Activities</a></li>
@@ -30,7 +29,7 @@
 
 ## General Information
 
-Full Name: 박찬규 (Changyu Park)  
+Name: 박찬규 (Changyu Park)  
 Department of Sociology & Media, Kyunghee University  
 E-mail: ppck75@khu.ac.kr  
 Tel: +82) 010-9496-9146  
@@ -69,12 +68,10 @@ Tel: +82) 010-9496-9146
 
 ## Project Experience
 
-### 데이터분석과 코딩 프로젝트 1
-
 ---
 
 ### 데이터분석과 코딩 프로젝트 2 (Q2)  
-**Team Member**
+**Team Leader**
 
 - Project in the Data analysis and coding using ‘YouTube 플랫폼 데이터’
 - **(데이터 분석·통계 모델링)**  
@@ -84,7 +81,7 @@ Tel: +82) 010-9496-9146
 ---
 
 ### 데이터분석과 코딩 프로젝트 2 (Q3)  
-**Team Member**
+**Team Leader**
 
 - Project in the Data analysis and coding using ‘한국 스트리밍 플랫폼 이용자의 주간 장르별 시청시간 데이터’
 - Elbow Method와 Silhouette Score를 함께 분석하여 군집 응집도와 분리도가 가장 우수한 **k=5**를 최적 군집 수로 결정하여 K-Means Clustering 알고리즘을 적용함
@@ -129,11 +126,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 **(PCA 기반 세그먼트 인사이트 도출)**  
 고차원 장르 시청시간 변수를 PCA로 축소하여 주요 변동을 설명하는 두 개의 주성분을 도출하고, PCA 공간에서 K-Means 군집 분포를 시각화함으로써 군집을 구분하는 핵심 행동 축을 해석함. 이를 바탕으로 5개 시청자 세그먼트를 행동 기반 페르소나로 정리하여, 스트리밍 플랫폼의 시청자 구조와 콘텐츠 소비 패턴에 대한 머신러닝 기반 인사이트를 도출함.
 
-</section>
-
 ---
-
-<section id="policy-communication-project" class="cv-box">
 
 ## 🏛 Policy Communication Project
 
