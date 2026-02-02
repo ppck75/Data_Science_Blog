@@ -8,11 +8,10 @@
 
 ## General Information
 
-**Full Name**: 박찬규 (Changyu Park)  
-
+Full Name: 박찬규 (Changyu Park)  
 Department of Sociology & Media, Kyunghee University  
 E-mail: ppck75@khu.ac.kr  
-Tel: +82) 010-9496-9146
+Tel: +82) 010-9496-9146  
 ---
 
 </section>
@@ -106,7 +105,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 경찰청 음주운전 공공데이터(2010–2024)를 Python의 Pandas와 matplotlib을 중심으로 분석하여 연도별 음주운전 사고 추세를 분석하고 연령대별 적발 패턴을 도출함. 이를 기반으로 정책 PR 핵심 타깃(30~50대 직장인·청년층) 설정에 근거로 활용함.
 
 **(정책 분석·커뮤니케이션 제안)**    
-조달청 나라장터의 RFP를 기반으로 국민건강증진법 일부개정법률안 및 시행규칙 개정령안을 분석하고, 데이터 기반 PCP(Policy Communication Proposal)를 기획·발표하여 동일 주제 경쟁 팀 중 최종 선정.
+조달청 나라장터의 RFP를 기반으로 국민건강증진법 일부개정법률안 및 시행규칙 개정령안을 분석하고, 데이터 기반 PCP(Policy Communication Proposal)를 기획·발표하여 동일 주제 경쟁 팀 중 최종 선정.  
 ---
 </section>
 
@@ -143,7 +142,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 **2024.06 – 2024.07**  
 해외전공연수 (Canada / Thompson Rivers University)  
-Global citizenship & Intercultural Business Communications (3학점)
+Global citizenship & Intercultural Business Communications (3학점)  
 </section>
 ---
 <section class="cv-box">
