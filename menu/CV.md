@@ -158,7 +158,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 <section id="student-governance-activities" class="cv-box">
 
-## Student Governance Activities
+## Student Council
 
 - **2025.01 – 2025.12** 경희대학교 정경대학 제57대 학생회 교육권리국장  
 - **2022.01 – 2022.09** 경희대학교 사회학과 제34대 학생회 사무부장  
