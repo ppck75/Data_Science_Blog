@@ -4,7 +4,7 @@
 
 > 최종 업데이트: 2025.01.01  
 
-<section class="cv-box">
+<section id="General Information" section class="cv-box">
 
 ## General Information
 
@@ -16,7 +16,7 @@ Tel: +82) 010-9496-9146
 
 </section>
 
-<section class="cv-box">
+<section id="Education" section class="cv-box">
 
 ## Education
 
@@ -28,7 +28,7 @@ Tel: +82) 010-9496-9146
 - **취득 학점:** 129 / 120  
 </section>
 ---
-<section class="cv-box">
+<section id="Research Interest" section class="cv-box">
 
 ## Research Interest
 
@@ -36,7 +36,7 @@ Tel: +82) 010-9496-9146
 - Data Science  
 </section>
 ---
-<section class="cv-box">
+<section id="Project Experience" section class="cv-box">
 
 ## Project Experience
 
@@ -63,7 +63,7 @@ Tel: +82) 010-9496-9146
 - 이를 바탕으로 5개 시청자 세그먼트를 행동 기반 페르소나로 정리하여, 스트리밍 플랫폼의 시청자 구조와 콘텐츠 소비 패턴을 분석함  
 </section>
 ---
-<section class="cv-box">
+<section id="Research Questions & Analysis" section class="cv-box">
 
 ## Research Questions & Analysis
 
@@ -109,7 +109,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 ---
 </section>
 
-<section class="cv-box">
+<section id="Work Experience" section class="cv-box">
 
 ## Work Experience
 
@@ -118,7 +118,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 - **2024.04 – 2025.02** 대한민국 국방부 온라인 서포터즈 대학생 기자단  
 </section>
 ---
-<section class="cv-box">
+<section id="Student Governance Activities" section class="cv-box">
 
 ## Student Governance Activities
 
@@ -127,7 +127,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 - **2021.05 – 2021.12** 경희대학교 사회학과 제33대 학생회 복지부원  
 </section>
 ---
-<section class="cv-box">
+<section id="Language Exchange Activities" section class="cv-box">
 
 ## Language Exchange Activities
 
@@ -136,7 +136,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 - **2024.04 – 2024.06** 경희대학교 국제교육원 정규 한국어 도우미  
 </section>
 ---
-<section class="cv-box">
+<section id="Additional Information" section class="cv-box">
 
 ## Additional Information
 
@@ -145,7 +145,7 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 Global citizenship & Intercultural Business Communications (3학점)  
 </section>
 ---
-<section class="cv-box">
+<section id="Certifications" section class="cv-box">
 
 ## Certifications
 
@@ -154,7 +154,7 @@ Global citizenship & Intercultural Business Communications (3학점)
 - **2023.08.25** 한국사능력검정시험 심화 1급  
 </section>
 ---
-<section class="cv-box">
+<section id="Honors and Awards" section class="cv-box">
 
 ## Honors and Awards
 
@@ -169,7 +169,7 @@ Global citizenship & Intercultural Business Communications (3학점)
 - 2021/2학기 모범장학  
 </section>
 ---
-<section class="cv-box">
+<section id="Skills" section class="cv-box">
 
 ## Skills
 
