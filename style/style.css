@@ -361,3 +361,24 @@
   .cv-toc{ display:none; }
   .cv-content{ margin-left: 0; }
 }
+
+/* ===== CV 폭 확장: 사이트 공통 컨테이너(#contents)가 폭을 막는 경우 해결 ===== */
+#contents {
+  max-width: none !important;     /* 가장 흔한 병목 제거 */
+}
+
+/* CV 페이지에서만 더 넓게 쓰고 싶으면(안전하게 cv-content 기준) */
+#contents .cv-content{
+  width: calc(100% - 320px) !important;
+  max-width: 1400px !important;  /* 여기 숫자 키우면 박스도 같이 길어짐 */
+  margin-left: 300px !important;
+}
+
+/* 모바일에서는 정상 동작 유지 */
+@media (max-width: 900px){
+  #contents .cv-content{
+    width: 100% !important;
+    margin-left: 0 !important;
+    max-width: none !important;
+  }
+}
