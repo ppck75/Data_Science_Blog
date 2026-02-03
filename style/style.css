@@ -382,3 +382,54 @@
     max-width: none !important;
   }
 }
+
+/* =========================
+   CV FULL-WIDTH OVERRIDE
+   (Paste at VERY BOTTOM)
+   ========================= */
+
+/* CV가 있는 페이지에서만(= cv-content가 존재할 때) 공통 레이아웃 폭 제한을 강제로 해제 */
+#contents,
+#contents .container,
+#contents .inner,
+#contents .wrapper,
+#contents .content,
+#contents .post,
+#contents .post-content,
+#contents article,
+#contents section {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* CV 전체 영역 자체를 넓게 */
+#contents .cv-wrap{
+  max-width: 1600px !important;   /* 더 넓게 원하면 1800까지 올려도 됨 */
+  margin: 0 auto !important;
+  padding: 24px 16px !important;
+  box-sizing: border-box;
+}
+
+/* TOC가 고정일 때: 본문은 TOC만큼 빼고 나머지를 꽉 쓰게 */
+#contents .cv-content{
+  width: calc(100% - 320px) !important; /* TOC 영역 제외 */
+  max-width: 1400px !important;         /* 박스 폭 상한 */
+  margin-left: 300px !important;        /* TOC만큼 밀기 */
+  padding: 10px 16px !important;
+  box-sizing: border-box;
+}
+
+/* 박스는 본문 폭을 그대로 따라가게 */
+#contents .cv-box{
+  width: 100% !important;
+}
+
+/* 반응형: 900px 이하에서는 TOC 숨기고 본문 전체폭 */
+@media (max-width: 900px){
+  #contents .cv-toc{ display: none !important; }
+  #contents .cv-content{
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+  }
+}
