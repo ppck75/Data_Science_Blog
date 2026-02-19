@@ -5,7 +5,7 @@
 <!-- ===================== -->
 <!-- TOC (왼쪽 목차용)      -->
 <!-- ===================== -->
-<nav class="cv-toc">
+<!-- <nav class="cv-toc">
   <div class="cv-toc-title">Contents</div>
   <ul>
     <li><a href="#general-information">General Information</a></li>
@@ -21,7 +21,7 @@
 
 <div class="cv-content">
 
-<section id="general-information" class="cv-box">
+<section id="general-information" class="cv-box"> -->
 
 ## General Information
 
@@ -144,8 +144,11 @@ Creator-level, Video-level, 통합 feature set을 단계적으로 확장한 로�
 
 ## Work Experience
 
-2026.02 – **학생연구원**   
-2024.09 – 2025.06 **경희대학교 사회학과 학부 조교**    
+2026.03 – **학생연구원**   
+2026.03 - **경의기독교인교수회 조교**
+2024.09 – 2025.06 **경희대학교 사회학과 학부 조교**  
+- 여행사회학, 질적연구방법론 교과목 조교
+
 2024.04 – 2025.02 **대한민국 국방부 대학생 기자단(온라인 서포터즈)**  
 
 </section>
