@@ -7,17 +7,31 @@ function waitForMathJax(maxWaitMs = 5000) {
       setTimeout(check, 50);
     })();
   });
+  
+}function preprocessMathDelimiters(text) {
+  if (!text) return text;
+
+  // marked(CommonMark 계열)는 \[ \] \( \) 를 escape로 처리해서 "\"를 제거할 수 있음
+  // → MathJax가 구분자를 못 보므로, 미리 "\\"로 만들어서 최종 HTML에 "\"가 남게 함
+  return text
+    .replace(/\\\[/g, "\\\\[")
+    .replace(/\\\]/g, "\\\\]")
+    .replace(/\\\(/g, "\\\\(")
+    .replace(/\\\)/g, "\\\\)");
 }
 
 async function typesetMath() {
   const ready = await waitForMathJax();
-  if (!ready) return; // MathJax 로드 실패/지연이면 그냥 종료
+  if (!ready) return;
+
   try {
-    // 컨텐츠 영역만 다시 렌더링(빠르고 안전)
     const target = document.getElementById("contents") || document.body;
+
+    // ✅ 이전 렌더링 흔적 제거 후 다시 렌더
+    if (window.MathJax.typesetClear) window.MathJax.typesetClear([target]);
     await window.MathJax.typesetPromise([target]);
   } catch (e) {
-    console.error(e);
+    console.error("MathJax typeset error:", e);
   }
 }
 function search(keyword, kinds) {
