@@ -2,9 +2,6 @@
 
 # KNN과 SVM_분류모델
 
-> 정리 범위: Lesson4_머신러닝1_최종.pdf 27p ~ 39p  
-> 참고 자료: :contentReference[oaicite:0]{index=0}  
-
 ---
 
 ## 1. kNN (K-Nearest Neighbor)
