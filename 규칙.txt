@@ -1,0 +1,22 @@
+✅ 1️⃣ 절대 안 꼬이는 Git 작업 루틴 (5줄 치트시트)
+🟢 기본 원칙
+
+👉 “작업 시작 전에 pull, 작업 끝나면 push”
+
+💻 로컬 VS Code에서 작업할 때
+git pull origin main     # 시작 전에 항상 최신 상태 받기
+(파일 수정)
+git add .
+git commit -m "작업 내용"
+git push origin main
+
+끝.
+
+🌐 github.dev에서 작업했을 때
+
+dev에서 commit 했다면
+👉 로컬에서 작업하기 전에 반드시:
+
+git pull origin main
+
+이 한 줄만 지키면 99% 안 꼬여.
