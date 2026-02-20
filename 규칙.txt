@@ -20,3 +20,22 @@ dev에서 commit 했다면
 git pull origin main
 
 이 한 줄만 지키면 99% 안 꼬여.
+
+💻 로컬 VS Code에서는?
+
+여기서만 Pull이 중요해.
+
+상황 예시
+① dev에서 작업하고 commit 했다
+
+그 다음에
+👉 로컬에서 작업하려면
+
+🔄 Pull 해야 함
+
+왜냐하면:
+
+dev → 원격(main) 변경
+로컬은 아직 예전 상태
+
+그래서 로컬에서 Pull 해야 최신 상태로 맞춰짐
