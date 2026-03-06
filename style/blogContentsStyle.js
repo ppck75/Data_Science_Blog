@@ -4,8 +4,14 @@ function styleMarkdown(kinds, text, title_info = null) {
     */
   // console.log(kinds, text, title_info);
 
+  // Preprocess text for MathJax delimiters
+  // Ensure preprocessMathDelimiters is globally available or imported if necessary
+  // For this context, assuming it's available from render.js which is loaded prior.
+  const processedText = typeof preprocessMathDelimiters !== 'undefined' ? preprocessMathDelimiters(text) : text;
+
   const tempDiv = document.createElement("div");
-  const html = marked.parse(text);
+  // Use processedText instead of original text for marked.parse
+  const html = marked.parse(processedText);
   tempDiv.innerHTML = html;
 
   tempDiv
@@ -195,6 +201,11 @@ function styleMarkdown(kinds, text, title_info = null) {
     contentsDiv.removeChild(contentsDiv.firstChild);
   }
   contentsDiv.appendChild(tempDiv);
+
+  // Call typesetMath to render math expressions after content is rendered
+  if (typeof typesetMath !== 'undefined') {
+      typesetMath();
+  }
 
   hljs.highlightAll();
 }
