@@ -14,16 +14,16 @@ PyTorch를 활용한 딥러닝의 핵심 구성 요소인 신경망(Neural Netwo
 
 ### 1.1. 선형 계층의 정의 및 연산
 
-입력($X$)과 출력($Y$)을 가중치(Weight)를 통해 연결하는 구조다. 모든 입력 노드가 모든 출력 노드와 연결되어 있어 전결합 계층이라는 명칭을 사용한다.
+입력(\( X \))과 출력(\( Y \))을 가중치(Weight)를 통해 연결하는 구조다. 모든 입력 노드가 모든 출력 노드와 연결되어 있어 전결합 계층이라는 명칭을 사용한다.
 
-* **수식**: $y = f(W^T x + b)$ (이게 회귀식의 ax+b와 비슷해서 우리가 linear layer라고 부르는 것이다.)  
-    * $x$: 입력 벡터 (예: $\mathbb{R}^4$)
-    * $y$: 출력 벡터 (예: $\mathbb{R}^3$)
-    * $W$: 가중치 행렬 (예: $\mathbb{R}^{4 \times 3}$)
-    * $b$: 편향(Bias) 벡터 (예: $\mathbb{R}^3$)
-    * $f$: 활성화 함수 (Activation Function)
+* **수식**: \( y = f(W^T x + b) \) (이게 회귀식의 ax+b와 비슷해서 우리가 linear layer라고 부르는 것이다.)  
+    * \( x \): 입력 벡터 (예: \( \mathbb{R}^4 \))
+    * \( y \): 출력 벡터 (예: \( \mathbb{R}^3 \))
+    * \( W \): 가중치 행렬 (예: \( \mathbb{R}^{4 \times 3} \))
+    * \( b \): 편향(Bias) 벡터 (예: \( \mathbb{R}^3 \))
+    * \( f \): 활성화 함수 (Activation Function)
 
-* **계산 방식**: 입력 벡터 $x$에 가중치 행렬 $W$를 곱하고 편향 벡터 $b$를 더하는 선형 변환 과정을 거친다.
+* **계산 방식**: 입력 벡터 \( x \)에 가중치 행렬 \( W \)를 곱하고 편향 벡터 \( b \)를 더하는 선형 변환 과정을 거친다.
 
 **이때, 함수 f는 4차원 inpiut 벡터를 3차원 output 벡터로 변환하는 선형 변환을 수행한다.**
 
@@ -33,8 +33,11 @@ PyTorch를 활용한 딥러닝의 핵심 구성 요소인 신경망(Neural Netwo
 
 $$\begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} \\ w_{21} & w_{22} & w_{23} & w_{24} \\ w_{31} & w_{32} & w_{33} & w_{34} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + \begin{bmatrix} b_1 \\ b_2 \\ b_3 \end{bmatrix} = \begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}$$
 
-이 연산은 $y = Wx + b$로 표현되며, 4차원 입력을 3차원 출력으로 변환하는 선형 변환을 수행한다.
+이 연산은 \( y = Wx + b \)로 표현되며, 4차원 입력을 3차원 출력으로 변환하는 선형 변환을 수행한다.
 
+
+
+[Image of a Fully Connected Neural Network Layer]
 
 
 <br>
@@ -48,13 +51,13 @@ $$\begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} \\ w_{21} & w_{22} & w_{23} 
 
 <br>
 
-* **Sigmoid**: $g(z) = \frac{1}{1 + e^{-z}}$
+* **Sigmoid**: \( g(z) = \frac{1}{1 + e^{-z}} \)
     * 출력 범위: (0, 1)
     * 이진 분류의 출력층에서 확률값 표현 시 주로 사용된다.
-* **Tanh (Hyperbolic Tangent)**: $g(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$
+* **Tanh (Hyperbolic Tangent)**: \( g(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}} \)
     * 출력 범위: (-1, 1)
     * 출력의 중심이 0에 위치하여 Sigmoid보다 학습 효율이 높은 경향이 있다.
-* **ReLU (Rectified Linear Unit)**: $g(z) = \max(0, z)$
+* **ReLU (Rectified Linear Unit)**: \( g(z) = \max(0, z) \)
     * 가장 보편적으로 사용되는 활성화 함수다.
     * 음수는 0으로 처리하고 양수는 그대로 통과시켜 연산 속도가 빠르며 기울기 소실(Vanishing Gradient) 문제를 완화한다.
 
@@ -71,7 +74,7 @@ $$\begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} \\ w_{21} & w_{22} & w_{23} 
 다중 클래스 분류(Multi-Class Classification) 문제의 최종 출력 단계에서 사용된다. 각 클래스에 대한 점수를 확률 분포로 변환하며, 모든 출력값의 총합은 1이 된다. (즉, 이 친구는 출력에서 일을 해주는 함수이다.)
 
 * **목적**: 각 클래스에 대한 로짓(Logit) 점수를 실제 확률값으로 변환한다.
-* **수식**: $\sigma(x_i) = \frac{e^{x_i}}{\sum_{k} e^{x_k}}$
+* **수식**: \( \sigma(x_i) = \frac{e^{x_i}}{\sum_{k} e^{x_k}} \)
 * **특징**:
     * 출력값은 항상 0과 1 사이이며, 모든 클래스의 확률 합은 1이 된다.
     * Sigmoid 함수를 다중 클래스로 일반화한 형태다. (클래스가 두개일 경우 시그모이드 함수와 똑같아 진다) 
