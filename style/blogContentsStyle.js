@@ -1,3 +1,22 @@
+function detachNativeMarkdownBlocks(root) {
+  const nativeBlocks = [];
+
+  root.querySelectorAll("[data-native-markdown]").forEach((node, index) => {
+    const placeholder = document.createElement("div");
+    placeholder.setAttribute("data-native-markdown-placeholder", index);
+    node.parentNode.replaceChild(placeholder, node);
+    nativeBlocks.push({ placeholder, node });
+  });
+
+  return nativeBlocks;
+}
+
+function restoreNativeMarkdownBlocks(nativeBlocks) {
+  nativeBlocks.forEach(({ placeholder, node }) => {
+    placeholder.replaceWith(node);
+  });
+}
+
 function styleMarkdown(kinds, text, title_info = null) {
   /* 
     메뉴와 블로그 상세 목록을 globalStyle.js에 정의된 tailwind css로 스타일링 합니다. 
@@ -13,6 +32,7 @@ function styleMarkdown(kinds, text, title_info = null) {
   // Use processedText instead of original text for marked.parse
   const html = marked.parse(processedText);
   tempDiv.innerHTML = html;
+  const nativeMarkdownBlocks = detachNativeMarkdownBlocks(tempDiv);
 
   tempDiv
     .querySelectorAll("h1")
@@ -197,10 +217,17 @@ function styleMarkdown(kinds, text, title_info = null) {
 
   // innerHTML을 사용하면 click이벤트가 사라지므로, appendChild를 사용하여 렌더링
   const contentsDiv = document.getElementById("contents");
+  restoreNativeMarkdownBlocks(nativeMarkdownBlocks);
+  if (typeof cleanupCustomPageBehaviors === "function") {
+    cleanupCustomPageBehaviors();
+  }
   while (contentsDiv.firstChild) {
     contentsDiv.removeChild(contentsDiv.firstChild);
   }
   contentsDiv.appendChild(tempDiv);
+  if (typeof initializeCustomPageBehaviors === "function") {
+    initializeCustomPageBehaviors(contentsDiv);
+  }
 
   // Call typesetMath to render math expressions after content is rendered
   if (typeof typesetMath !== 'undefined') {
@@ -328,6 +355,9 @@ function styleJupyter(kinds, text, title_info = null) {
   });
 
   const contentsDiv = document.getElementById("contents");
+  if (typeof cleanupCustomPageBehaviors === "function") {
+    cleanupCustomPageBehaviors();
+  }
   while (contentsDiv.firstChild) {
     contentsDiv.removeChild(contentsDiv.firstChild);
   }
@@ -416,5 +446,8 @@ function styleJupyter(kinds, text, title_info = null) {
   });
   contentsDiv.appendChild(downloadButton);
   contentsDiv.appendChild(tempDiv);
+  if (typeof initializeCustomPageBehaviors === "function") {
+    initializeCustomPageBehaviors(contentsDiv);
+  }
   hljs.highlightAll();
 }

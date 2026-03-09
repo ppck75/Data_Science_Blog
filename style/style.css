@@ -13,7 +13,8 @@
   mask-repeat: no-repeat;
   mask-position: center center;
 }
-#menu-button:hover, #menu-button.active {
+#menu-button:hover,
+#menu-button.active {
   background-color: #121314;
 }
 
@@ -31,7 +32,8 @@
   mask-repeat: no-repeat;
   mask-position: center center;
 }
-#search-button:hover, #search-button.active {
+#search-button:hover,
+#search-button.active {
   background-color: #121314;
 }
 
@@ -55,7 +57,8 @@
     background-color: #47494d;
   }
 }
-.search-inp-btn:hover, .search-inp-btn.active {
+.search-inp-btn:hover,
+.search-inp-btn.active {
   background-color: #47494d;
 }
 
@@ -81,7 +84,8 @@
   mask-repeat: no-repeat;
   mask-position: center center;
 }
-.reset-inp-btn:hover, .reset-inp-btn.active {
+.reset-inp-btn:hover,
+.reset-inp-btn.active {
   background-color: #47494d;
 }
 
@@ -92,7 +96,8 @@
   align-items: center;
   justify-content: center;
 }
-#copy-button:hover::after, #copy-button.active::after {
+#copy-button:hover::after,
+#copy-button.active::after {
   background-color: #121314;
 }
 #copy-button::after {
@@ -112,15 +117,14 @@
 
 #aside-button {
   margin-left: auto;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#aside-button:active, #aside-button:focus {
+#aside-button:active,
+#aside-button:focus {
   outline: none;
 }
 #aside-button::after {
@@ -230,206 +234,11 @@
   mask-size: 100%;
   mask-repeat: no-repeat;
   mask-position: center center;
-}/*# sourceMappingURL=style.css.map */
+}
 
-/* ✅ 리스트에서 점(•)과 문장이 줄바꿈되는 현상 방지 */
+/* Keep paragraph text inline inside list items within rendered content. */
 #contents ul > li > p,
 #contents ol > li > p {
   display: inline;
   margin: 0;
-}
-
-/* ===== CV Box UI  ===== */
-.cv-wrap{
-  max-width: 1400px;
-}
-
-.cv-box {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 16px;
-  padding: 22px 22px;
-  margin: 18px 0;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-.cv-box > h2 {
-  margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  font-weight: 800;
-}
-
-.cv-box h3 {
-  margin-top: 18px;
-  font-weight: 700;
-}
-
-.cv-box p {
-  line-height: 1.7;
-  margin: 10px 0;
-}
-
-.cv-box ul, .cv-box ol {
-  margin: 10px 0 0 18px;
-}
-
-.cv-box li {
-  margin: 6px 0;
-}
-
-/* 작은 정보(연락처 등) 보기 좋게 */
-.cv-box strong {
-  font-weight: 750;
-}
-
-/* 인용문(> 블록)도 카드 톤에 맞추기 */
-.cv-box blockquote {
-  margin: 12px 0 0;
-  padding: 12px 14px;
-  border-left: 4px solid rgba(46,111,242,0.55);
-  background: rgba(46,111,242,0.06);
-  border-radius: 12px;
-}
-
-/* 모바일 최적화 */
-@media (max-width: 840px) {
-  .cv-box {
-    padding: 18px 16px;
-    border-radius: 14px;
-  }
-}
-
-/* CV 레이아웃 */
-.cv-toc{
-  position: fixed;
-  top: 120px;
-  left: 24px;
-  width: 240px;
-  padding: 16px 14px;
-  background: #fff;
-  border: 1px solid #e6e8ee;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  font-size: 14px;
-  z-index: 20;
-}
-
-.cv-toc-title{
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.cv-toc ul{
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.cv-toc li{
-  margin: 8px 0;
-}
-
-.cv-toc a{
-  color: inherit;
-  text-decoration: none;
-}
-
-.cv-toc a:hover{
-  text-decoration: underline;
-}
-
-/* 본문은 목차 폭만큼 밀기 */
-.cv-content{
-  width: calc(100% - 320px);
-  max-width: 1200px;
-  margin-left: 300px;
-  padding: 10px 16px;
-}
-
-/* 박스 UI */
-.cv-box{
-  background: #fff;
-  border: 1px solid #e6e8ee;
-  border-radius: 14px;
-  padding: 22px 22px;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-}
-
-/* 모바일에서는 목차 숨기기 */
-@media (max-width: 900px){
-  .cv-toc{ display:none; }
-  .cv-content{ margin-left: 0; }
-}
-
-/* ===== CV 폭 확장: 사이트 공통 컨테이너(#contents)가 폭을 막는 경우 해결 ===== */
-#contents {
-  max-width: none !important;     /* 가장 흔한 병목 제거 */
-}
-
-/* CV 페이지에서만 더 넓게 쓰고 싶으면(안전하게 cv-content 기준) */
-#contents .cv-content{
-  width: calc(100% - 320px) !important;
-  max-width: 1400px !important;  /* 여기 숫자 키우면 박스도 같이 길어짐 */
-  margin-left: 300px !important;
-}
-
-/* 모바일에서는 정상 동작 유지 */
-@media (max-width: 900px){
-  #contents .cv-content{
-    width: 100% !important;
-    margin-left: 0 !important;
-    max-width: none !important;
-  }
-}
-
-/* =========================
-   CV FULL-WIDTH OVERRIDE
-   (Paste at VERY BOTTOM)
-   ========================= */
-
-/* CV가 있는 페이지에서만(= cv-content가 존재할 때) 공통 레이아웃 폭 제한을 강제로 해제 */
-#contents,
-#contents .container,
-#contents .inner,
-#contents .wrapper,
-#contents .content,
-#contents .post,
-#contents .post-content,
-#contents article,
-#contents section {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-/* CV 전체 영역 자체를 넓게 */
-#contents .cv-wrap{
-  max-width: 1600px !important;   /* 더 넓게 원하면 1800까지 올려도 됨 */
-  margin: 0 auto !important;
-  padding: 24px 16px !important;
-  box-sizing: border-box;
-}
-
-/* TOC가 고정일 때: 본문은 TOC만큼 빼고 나머지를 꽉 쓰게 */
-#contents .cv-content{
-  width: calc(100% - 320px) !important; /* TOC 영역 제외 */
-  max-width: 1400px !important;         /* 박스 폭 상한 */
-  margin-left: 300px !important;        /* TOC만큼 밀기 */
-  padding: 10px 16px !important;
-  box-sizing: border-box;
-}
-
-/* 박스는 본문 폭을 그대로 따라가게 */
-#contents .cv-box{
-  width: 100% !important;
-}
-
-/* 반응형: 900px 이하에서는 TOC 숨기고 본문 전체폭 */
-@media (max-width: 900px){
-  #contents .cv-toc{ display: none !important; }
-  #contents .cv-content{
-    width: 100% !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-  }
 }
