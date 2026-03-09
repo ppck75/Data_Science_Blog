@@ -17,437 +17,315 @@ function restoreNativeMarkdownBlocks(nativeBlocks) {
   });
 }
 
-function styleMarkdown(kinds, text, title_info = null) {
-  /* 
-    메뉴와 블로그 상세 목록을 globalStyle.js에 정의된 tailwind css로 스타일링 합니다. 
-    */
-  // console.log(kinds, text, title_info);
+function applyCommonPostStyles(scope) {
+  scope.querySelectorAll("h1").forEach((node) => {
+    node.classList.add(...posth1Style.split(" "));
+  });
+  scope.querySelectorAll("h2").forEach((node) => {
+    node.classList.add(...posth2Style.split(" "));
+  });
+  scope.querySelectorAll("h3").forEach((node) => {
+    node.classList.add(...posth3Style.split(" "));
+  });
+  scope.querySelectorAll("h4").forEach((node) => {
+    node.classList.add(...posth4Style.split(" "));
+  });
+  scope.querySelectorAll("h5").forEach((node) => {
+    node.classList.add(...posth5Style.split(" "));
+  });
+  scope.querySelectorAll("h6").forEach((node) => {
+    node.classList.add(...posth6Style.split(" "));
+  });
 
-  // Preprocess text for MathJax delimiters
-  // Ensure preprocessMathDelimiters is globally available or imported if necessary
-  // For this context, assuming it's available from render.js which is loaded prior.
-  const processedText = typeof preprocessMathDelimiters !== 'undefined' ? preprocessMathDelimiters(text) : text;
+  scope.querySelectorAll("p").forEach((node) => {
+    node.classList.add(...postpStyle.split(" "));
+  });
+  scope.querySelectorAll("img").forEach((node) => {
+    node.classList.add(...postimgStyle.split(" "));
+  });
+  scope.querySelectorAll("a").forEach((node) => {
+    node.classList.add(...postaStyle.split(" "));
+  });
 
-  const tempDiv = document.createElement("div");
-  // Use processedText instead of original text for marked.parse
-  const html = marked.parse(processedText);
-  tempDiv.innerHTML = html;
-  const nativeMarkdownBlocks = detachNativeMarkdownBlocks(tempDiv);
+  scope.querySelectorAll("ul").forEach((node) => {
+    node.classList.add(...postulStyle.split(" "));
+  });
+  scope.querySelectorAll("ol").forEach((node) => {
+    node.classList.add(...postolStyle.split(" "));
+  });
+  scope.querySelectorAll("li").forEach((node) => {
+    node.classList.add(...postliStyle.split(" "));
+  });
 
-  tempDiv
-    .querySelectorAll("h1")
-    .forEach((h1) => h1.classList.add(...posth1Style.split(" ")));
-  tempDiv
-    .querySelectorAll("h2")
-    .forEach((h2) => h2.classList.add(...posth2Style.split(" ")));
-  tempDiv
-    .querySelectorAll("h3")
-    .forEach((h3) => h3.classList.add(...posth3Style.split(" ")));
-  tempDiv
-    .querySelectorAll("h4")
-    .forEach((h4) => h4.classList.add(...posth4Style.split(" ")));
-  tempDiv
-    .querySelectorAll("h5")
-    .forEach((h5) => h5.classList.add(...posth5Style.split(" ")));
-  tempDiv
-    .querySelectorAll("h6")
-    .forEach((h6) => h6.classList.add(...posth6Style.split(" ")));
+  scope.querySelectorAll("blockquote").forEach((node) => {
+    node.classList.add(...postblockquoteStyle.split(" "));
+  });
 
-  tempDiv
-    .querySelectorAll("p")
-    .forEach((p) => p.classList.add(...postpStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("img")
-    .forEach((img) => img.classList.add(...postimgStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("a")
-    .forEach((a) => a.classList.add(...postaStyle.split(" ")));
-
-  tempDiv
-    .querySelectorAll("ul")
-    .forEach((ul) => ul.classList.add(...postulStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("ol")
-    .forEach((ol) => ol.classList.add(...postolStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("li")
-    .forEach((li) => li.classList.add(...postliStyle.split(" ")));
-
-  tempDiv
-    .querySelectorAll("blockquote")
-    .forEach((blockquote) =>
-      blockquote.classList.add(...postblockquoteStyle.split(" "))
-    );
-  tempDiv.querySelectorAll("pre").forEach((pre) => {
+  scope.querySelectorAll("pre").forEach((pre) => {
     pre.classList.add(...postpreStyle.split(" "));
 
     const code = pre.textContent;
-
-    // 복사 버튼 생성
     const copyButton = document.createElement("button");
-    copyButton.innerHTML = '<span class="sr-only">코드 복사하기</span>';
+    copyButton.type = "button";
+    copyButton.innerHTML = '<span class="sr-only">코드 복사</span>';
     copyButton.classList.add(...notebookcopyButtonStyle.split(" "));
     copyButton.setAttribute("id", "copy-button");
 
-    // 복사 버튼 클릭 이벤트, pre에 텍스트가 있는 경우에만 활성화
-    copyButton.addEventListener("click", async function (event) {
-      event.stopPropagation(); // 이벤트 버블링을 막습니다.
+    copyButton.addEventListener("click", async (event) => {
+      event.stopPropagation();
       try {
         await navigator.clipboard.writeText(code);
-        alert("복사되었습니다");
-      } catch (err) {
-        console.error("Failed to copy text: ", err);
-        alert("복사에 실패했습니다.");
+        alert("코드를 복사했습니다.");
+      } catch (error) {
+        console.error("Failed to copy text:", error);
+        alert("코드 복사에 실패했습니다.");
       }
     });
 
-    // pre 요소 안에 버튼 삽입
     pre.appendChild(copyButton);
   });
-  tempDiv
-    .querySelectorAll("code")
-    .forEach((code) => code.classList.add(...postcodeStyle.split(" ")));
 
-  tempDiv
-    .querySelectorAll("table")
-    .forEach((table) => table.classList.add(...posttableStyle.split(" ")));
-  tempDiv.querySelectorAll("table").forEach((table) => {
-    const tableWrapper = document.createElement("div");
-    tableWrapper.classList.add(
-      "w-auto",
-      "max-w-[990px]",
-      "overflow-auto",
-      "overflow-y-visible"
-    );
-    table.parentNode.insertBefore(tableWrapper, table);
-    tableWrapper.appendChild(table);
+  scope.querySelectorAll("code").forEach((node) => {
+    node.classList.add(...postcodeStyle.split(" "));
   });
 
-  tempDiv
-    .querySelectorAll("thead")
-    .forEach((thead) => thead.classList.add(...posttheadStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("th")
-    .forEach((th) => th.classList.add(...postthStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("tbody")
-    .forEach((tbody) => tbody.classList.add(...posttbodyStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("td")
-    .forEach((td) => td.classList.add(...posttdStyle.split(" ")));
+  scope.querySelectorAll("table").forEach((table) => {
+    table.classList.add(...posttableStyle.split(" "));
+    if (!table.parentElement.classList.contains("post-table-wrap")) {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("post-table-wrap");
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
 
-  tempDiv
-    .querySelectorAll("hr")
-    .forEach((hr) => hr.classList.add(...posthrStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("em")
-    .forEach((em) => em.classList.add(...postemStyle.split(" ")));
-  tempDiv
-    .querySelectorAll("strong")
-    .forEach((strong) => strong.classList.add(...poststrongStyle.split(" ")));
+  scope.querySelectorAll("thead").forEach((node) => {
+    node.classList.add(...posttheadStyle.split(" "));
+  });
+  scope.querySelectorAll("th").forEach((node) => {
+    node.classList.add(...postthStyle.split(" "));
+  });
+  scope.querySelectorAll("tbody").forEach((node) => {
+    node.classList.add(...posttbodyStyle.split(" "));
+  });
+  scope.querySelectorAll("td").forEach((node) => {
+    node.classList.add(...posttdStyle.split(" "));
+  });
 
-  if (kinds === "post") {
-    // 일반 마크다운 블로그 포스트
-    const title_section = document.createElement("div");
+  scope.querySelectorAll("hr").forEach((node) => {
+    node.classList.add(...posthrStyle.split(" "));
+  });
+  scope.querySelectorAll("em").forEach((node) => {
+    node.classList.add(...postemStyle.split(" "));
+  });
+  scope.querySelectorAll("strong").forEach((node) => {
+    node.classList.add(...poststrongStyle.split(" "));
+  });
+}
 
-    // category
-    // category는 클릭하면 해당 카테고리의 블로그 리스트를 렌더링
-    const category = document.createElement("a");
-    category.classList.add(...postcategoryStyle.split(" "));
-    category.textContent = title_info.category;
+function buildPostHeader(titleInfo, rawText) {
+  const titleSection = document.createElement("div");
+  titleSection.classList.add(...postsectionStyle.split(" "));
+  titleSection.setAttribute("id", "title_section");
 
-    category.onclick = (event) => {
-      event.preventDefault();
-      // console.log('click')
-      search(title_info.category);
-      const url = new URL(origin);
-      url.searchParams.set("search", title_info.category);
-      window.history.pushState({}, "", url);
-    };
-    title_section.appendChild(category);
+  const category = document.createElement("a");
+  category.classList.add(...postcategoryStyle.split(" "));
+  category.textContent = titleInfo.category;
+  category.onclick = (event) => {
+    event.preventDefault();
+    search(titleInfo.category, "category");
+    const nextUrl = new URL(origin);
+    nextUrl.searchParams.set("search", titleInfo.category);
+    window.history.pushState({}, "", nextUrl);
+  };
+  titleSection.appendChild(category);
 
-    // title
-    const title = document.createElement("h1");
-    title.classList.add(...posttitleStyle.split(" "));
-    // console.log(title_info)
-    title.textContent = title_info.title;
-    title_section.appendChild(title);
+  const title = document.createElement("h1");
+  title.classList.add(...posttitleStyle.split(" "));
+  title.textContent = titleInfo.title;
+  titleSection.appendChild(title);
 
-    // author와 date를 담는 div
-    const author_date = document.createElement("div");
-    author_date.classList.add(...postauthordateDivStyle.split(" "));
-    title_section.appendChild(author_date);
+  const summary = document.createElement("p");
+  summary.className = "post-summary";
+  summary.textContent =
+    titleInfo.description ||
+    "데이터 분석과 머신러닝 학습 내용을 정리한 글입니다.";
+  titleSection.appendChild(summary);
 
-    // author
-    const authorDiv = document.createElement("div");
-    authorDiv.classList.add(...postauthorDivStyle.split(" "));
-    author_date.appendChild(authorDiv);
+  const authorDate = document.createElement("div");
+  authorDate.classList.add(...postauthordateDivStyle.split(" "));
+  titleSection.appendChild(authorDate);
 
-    const authorImg = document.createElement("img");
-    authorImg.src = users[title_info.author]["img"];
-    authorImg.alt = users[title_info.author]["username"];
-    authorImg.classList.add(...postauthorImgStyle.split(" "));
-    authorDiv.appendChild(authorImg);
+  const authorDiv = document.createElement("div");
+  authorDiv.classList.add(...postauthorDivStyle.split(" "));
+  authorDate.appendChild(authorDiv);
 
-    const author = document.createElement("div");
-    author.classList.add(...postauthorStyle.split(" "));
-    author.textContent = users[title_info.author]["username"];
-    authorDiv.appendChild(author);
+  const authorImg = document.createElement("img");
+  authorImg.src = users[titleInfo.author]["img"];
+  authorImg.alt = users[titleInfo.author]["username"];
+  authorImg.classList.add(...postauthorImgStyle.split(" "));
+  authorDiv.appendChild(authorImg);
 
-    // date
-    const date = document.createElement("div");
-    date.classList.add(...postdateStyle.split(" "));
-    date.textContent = formatDate(title_info.date);
-    author_date.appendChild(date);
+  const author = document.createElement("span");
+  author.classList.add(...postauthorStyle.split(" "));
+  author.textContent = users[titleInfo.author]["username"];
+  authorDiv.appendChild(author);
 
-    // image
-    const image = document.createElement("img");
-    image.src = title_info.thumbnail;
-    image.alt = title_info.title;
-    image.classList.add(...postimgtitleStyle.split(" "));
-    title_section.appendChild(image);
+  const date = document.createElement("span");
+  date.classList.add(...postdateStyle.split(" "));
+  date.textContent = formatDate(titleInfo.date);
+  authorDate.appendChild(date);
 
-    // section styling
-    title_section.classList.add(...postsectionStyle.split(" "));
-    title_section.setAttribute("id", "title_section");
-
-    tempDiv.insertBefore(title_section, tempDiv.firstChild);
-  } else if (kinds === "menu") {
+  if (typeof estimateReadTime === "function") {
+    const readTime = document.createElement("span");
+    readTime.className = "post-meta-text";
+    readTime.textContent = estimateReadTime(rawText);
+    authorDate.appendChild(readTime);
   }
 
-  // innerHTML을 사용하면 click이벤트가 사라지므로, appendChild를 사용하여 렌더링
+  const infoRow = document.createElement("div");
+  infoRow.className = "post-info-row";
+
+  const categoryChip = document.createElement("span");
+  categoryChip.className = "post-info-chip";
+  categoryChip.textContent = `${titleInfo.category} 카테고리`;
+  infoRow.appendChild(categoryChip);
+
+  if (typeof countCategoryPosts === "function") {
+    const countChip = document.createElement("span");
+    countChip.className = "post-info-chip";
+    countChip.textContent = `같은 카테고리 글 ${countCategoryPosts(titleInfo.category)}개`;
+    infoRow.appendChild(countChip);
+  }
+
+  const kindChip = document.createElement("span");
+  kindChip.className = "post-info-chip";
+  kindChip.textContent = titleInfo.fileType === "ipynb" ? "Notebook Post" : "Article";
+  infoRow.appendChild(kindChip);
+
+  titleSection.appendChild(infoRow);
+
+  const image = document.createElement("img");
+  image.src = titleInfo.thumbnail;
+  image.alt = titleInfo.title;
+  image.classList.add(...postimgtitleStyle.split(" "));
+  titleSection.appendChild(image);
+
+  return titleSection;
+}
+
+function renderIntoContents(root, nativeBlocks) {
   const contentsDiv = document.getElementById("contents");
-  restoreNativeMarkdownBlocks(nativeMarkdownBlocks);
+
+  restoreNativeMarkdownBlocks(nativeBlocks);
   if (typeof cleanupCustomPageBehaviors === "function") {
     cleanupCustomPageBehaviors();
   }
+
   while (contentsDiv.firstChild) {
     contentsDiv.removeChild(contentsDiv.firstChild);
   }
-  contentsDiv.appendChild(tempDiv);
+
+  contentsDiv.appendChild(root);
+
   if (typeof initializeCustomPageBehaviors === "function") {
     initializeCustomPageBehaviors(contentsDiv);
   }
 
-  // Call typesetMath to render math expressions after content is rendered
-  if (typeof typesetMath !== 'undefined') {
-      typesetMath();
+  if (typeof typesetMath !== "undefined") {
+    typesetMath();
   }
 
   hljs.highlightAll();
+  return contentsDiv;
 }
 
-function styleJupyter(kinds, text, title_info = null) {
-  /* 
-    주피터 노트북 파일 내용을 globalStyle.js에 정의된 tailwind css로 스타일링 합니다. 
-    */
+function styleMarkdown(kinds, text, titleInfo = null) {
+  const processedText =
+    typeof preprocessMathDelimiters !== "undefined"
+      ? preprocessMathDelimiters(text)
+      : text;
+
   const tempDiv = document.createElement("div");
-  const html = convertIpynvToHtml(text);
-  // const html = marked.parse(text);
-  tempDiv.innerHTML = html;
+  tempDiv.className = "post-prose";
+  tempDiv.innerHTML = marked.parse(processedText);
 
-  tempDiv.querySelectorAll(".markdown-cell").forEach((markdownCell) => {
-    markdownCell
-      .querySelectorAll("h1")
-      .forEach((h1) => h1.classList.add(...posth1Style.split(" ")));
-    markdownCell
-      .querySelectorAll("h2")
-      .forEach((h2) => h2.classList.add(...posth2Style.split(" ")));
-    markdownCell
-      .querySelectorAll("h3")
-      .forEach((h3) => h3.classList.add(...posth3Style.split(" ")));
-    markdownCell
-      .querySelectorAll("h4")
-      .forEach((h4) => h4.classList.add(...posth4Style.split(" ")));
-    markdownCell
-      .querySelectorAll("h5")
-      .forEach((h5) => h5.classList.add(...posth5Style.split(" ")));
-    markdownCell
-      .querySelectorAll("h6")
-      .forEach((h6) => h6.classList.add(...posth6Style.split(" ")));
+  const nativeMarkdownBlocks = detachNativeMarkdownBlocks(tempDiv);
+  applyCommonPostStyles(tempDiv);
 
-    markdownCell
-      .querySelectorAll("p")
-      .forEach((p) => p.classList.add(...postpStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("img")
-      .forEach((img) => img.classList.add(...postimgStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("a")
-      .forEach((a) => a.classList.add(...postaStyle.split(" ")));
+  if (kinds === "post") {
+    const titleSection = buildPostHeader(titleInfo, text);
+    tempDiv.insertBefore(titleSection, tempDiv.firstChild);
+  }
 
-    markdownCell
-      .querySelectorAll("ul")
-      .forEach((ul) => ul.classList.add(...postulStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("ol")
-      .forEach((ol) => ol.classList.add(...postolStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("li")
-      .forEach((li) => li.classList.add(...postliStyle.split(" ")));
+  const contentsDiv = renderIntoContents(tempDiv, nativeMarkdownBlocks);
 
-    markdownCell
-      .querySelectorAll("blockquote")
-      .forEach((blockquote) =>
-        blockquote.classList.add(...postblockquoteStyle.split(" "))
-      );
-    markdownCell
-      .querySelectorAll("pre")
-      .forEach((pre) => pre.classList.add(...postpreStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("code")
-      .forEach((code) => code.classList.add(...postcodeStyle.split(" ")));
+  if (kinds === "post" && typeof appendPostDetailModules === "function") {
+    appendPostDetailModules(contentsDiv, titleInfo, text);
+  }
+}
 
-    markdownCell
-      .querySelectorAll("table")
-      .forEach((table) => table.classList.add(...posttableStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("thead")
-      .forEach((thead) => thead.classList.add(...posttheadStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("th")
-      .forEach((th) => th.classList.add(...postthStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("tbody")
-      .forEach((tbody) => tbody.classList.add(...posttbodyStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("td")
-      .forEach((td) => td.classList.add(...posttdStyle.split(" ")));
+function styleJupyter(kinds, text, titleInfo = null) {
+  const tempDiv = document.createElement("div");
+  tempDiv.className = "post-prose notebook-prose";
+  tempDiv.innerHTML = convertIpynvToHtml(text);
 
-    markdownCell
-      .querySelectorAll("hr")
-      .forEach((hr) => hr.classList.add(...posthrStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("em")
-      .forEach((em) => em.classList.add(...postemStyle.split(" ")));
-    markdownCell
-      .querySelectorAll("strong")
-      .forEach((strong) => strong.classList.add(...poststrongStyle.split(" ")));
+  tempDiv.querySelectorAll(".markdown-cell").forEach((cell) => {
+    applyCommonPostStyles(cell);
   });
 
-  tempDiv.querySelectorAll("code").forEach((code) => {
-    code.classList.add(...notebookcodeStyle.split(" "));
+  tempDiv.querySelectorAll("code").forEach((node) => {
+    node.classList.add(...notebookcodeStyle.split(" "));
   });
-  tempDiv.querySelectorAll("pre").forEach((pre) => {
-    pre.classList.add(...notebookpreStyle.split(" "));
-    const code = pre.textContent;
-
-    // 복사 버튼 생성
-    const copyButton = document.createElement("button");
-    copyButton.innerHTML = '<span class="sr-only">코드 복사하기</span>';
-    copyButton.classList.add(...notebookcopyButtonStyle.split(" "));
-    copyButton.setAttribute("id", "copy-button");
-
-    // 복사 버튼 클릭 이벤트, pre에 텍스트가 있는 경우에만 활성화
-    copyButton.addEventListener("click", async function (event) {
-      event.stopPropagation(); // 이벤트 버블링을 막습니다.
-      try {
-        await navigator.clipboard.writeText(code);
-        alert("복사되었습니다");
-      } catch (err) {
-        console.error("Failed to copy text: ", err);
-        alert("복사에 실패했습니다.");
-      }
-    });
-
-    // pre 요소 안에 버튼 삽입
-    pre.appendChild(copyButton);
+  tempDiv.querySelectorAll("pre").forEach((node) => {
+    node.classList.add(...notebookpreStyle.split(" "));
   });
 
+  const nativeMarkdownBlocks = [];
   const contentsDiv = document.getElementById("contents");
+
   if (typeof cleanupCustomPageBehaviors === "function") {
     cleanupCustomPageBehaviors();
   }
+
   while (contentsDiv.firstChild) {
     contentsDiv.removeChild(contentsDiv.firstChild);
   }
 
   if (kinds === "post") {
-    // 일반 마크다운 블로그 포스트
-    const title_section = document.createElement("div");
-
-    // category
-    // category는 클릭하면 해당 카테고리의 블로그 리스트를 렌더링
-    const category = document.createElement("a");
-    category.classList.add(...postcategoryStyle.split(" "));
-    category.textContent = title_info.category;
-
-    category.onclick = (event) => {
-      event.preventDefault();
-      // console.log('click')
-      search(title_info.category);
-      const url = new URL(origin);
-      url.searchParams.set("search", title_info.category);
-      window.history.pushState({}, "", url);
-    };
-    title_section.appendChild(category);
-
-    // title
-    const title = document.createElement("h1");
-    title.classList.add(...posttitleStyle.split(" "));
-    // console.log(title_info)
-    title.textContent = title_info.title;
-    title_section.appendChild(title);
-
-    // author와 date를 담는 div
-    const author_date = document.createElement("div");
-    author_date.classList.add(...postauthordateDivStyle.split(" "));
-    title_section.appendChild(author_date);
-
-    // author
-    const authorDiv = document.createElement("div");
-    authorDiv.classList.add(...postauthorDivStyle.split(" "));
-    author_date.appendChild(authorDiv);
-
-    const authorImg = document.createElement("img");
-    authorImg.src = users[title_info.author]["img"];
-    authorImg.alt = users[title_info.author]["username"];
-    authorImg.classList.add(...postauthorImgStyle.split(" "));
-    authorDiv.appendChild(authorImg);
-
-    const author = document.createElement("div");
-    author.classList.add(...postauthorStyle.split(" "));
-    author.textContent = users[title_info.author]["username"];
-    authorDiv.appendChild(author);
-
-    // date
-    const date = document.createElement("div");
-    date.classList.add(...postdateStyle.split(" "));
-    date.textContent = formatDate(title_info.date);
-    author_date.appendChild(date);
-
-    // image
-    const image = document.createElement("img");
-    image.src = title_info.thumbnail;
-    image.alt = title_info.title;
-    image.classList.add(...postimgtitleStyle.split(" "));
-    title_section.appendChild(image);
-
-    // section styling
-    title_section.classList.add(...postsectionStyle.split(" "));
-    title_section.setAttribute("id", "title_section");
-
-    contentsDiv.insertBefore(title_section, contentsDiv.firstChild);
+    const titleSection = buildPostHeader(titleInfo, text);
+    contentsDiv.appendChild(titleSection);
   }
 
-  // 노트북 다운로드 버튼 추가
   const downloadButton = document.createElement("button");
+  downloadButton.type = "button";
   downloadButton.textContent = "Notebook Download";
   downloadButton.classList.add(...notebookdownloadButtonStyle.split(" "));
-  downloadButton.addEventListener("click", function (event) {
-    event.stopPropagation(); // 이벤트 버블링을 막습니다.
+  downloadButton.addEventListener("click", (event) => {
+    event.stopPropagation();
     const blob = new Blob([text], { type: "text/plain" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = title_info.title + ".ipynb";
-    a.click();
-    window.URL.revokeObjectURL(url);
+    const nextUrl = window.URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = nextUrl;
+    anchor.download = `${titleInfo.title}.ipynb`;
+    anchor.click();
+    window.URL.revokeObjectURL(nextUrl);
   });
+
   contentsDiv.appendChild(downloadButton);
   contentsDiv.appendChild(tempDiv);
+
   if (typeof initializeCustomPageBehaviors === "function") {
     initializeCustomPageBehaviors(contentsDiv);
   }
+
+  if (typeof appendPostDetailModules === "function" && kinds === "post") {
+    appendPostDetailModules(contentsDiv, titleInfo, text);
+  }
+
+  if (typeof typesetMath !== "undefined") {
+    typesetMath();
+  }
+
   hljs.highlightAll();
 }

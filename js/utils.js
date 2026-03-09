@@ -51,16 +51,19 @@ function extractFileInfo(filename) {
   // console.log(`extractFileInfo: ${matches}`);
 
   if (matches) {
+    const thumbnailName = matches[4] && matches[4] !== ".jpg" ? matches[4] : "";
+    const authorId = matches[6] !== "" ? parseInt(matches[6], 10) : 0;
+
     return {
       date: matches[1],
       title: matches[2],
       category: matches[3],
-      thumbnail: matches[4]
-        ? "img/" + matches[4]
+      thumbnail: thumbnailName
+        ? "img/" + thumbnailName
         : `img/thumb${Math.floor(Math.random() * 10) + 1}.webp`,
       // description: matches[5].length > 25 ? matches[5].substring(0, 25) + '...' : matches[5],
       description: matches[5],
-      author: matches[6] ? parseInt(matches[6]) : 0,
+      author: Number.isNaN(authorId) ? 0 : authorId,
       fileType: matches[7],
     };
   }
