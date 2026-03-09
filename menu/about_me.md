@@ -5,9 +5,9 @@
 <p class="am-kicker">About Me</p>
 <h1 class="am-title">Changyu Park</h1>
 <p class="am-summary">
-Undergraduate researcher in sociology, media, and data-driven inquiry,
-building toward graduate study with projects spanning AI media coding,
-data journalism, and policy analysis.
+I am interested in data science at the intersection of sociological insight and computer science.  
+Through engineering skills, Artificial Intelligence, and big data analysis, I seek to understand complex real-world problems from a critical perspective grounded in the social sciences.  
+Ultimately, my goal is to become a researcher who can critically interpret complex data and contribute to creative, data-driven solutions for society.
 </p>
 <div class="am-actions">
 <a class="am-button am-button-primary" href="#about-research">View Research</a>
@@ -23,16 +23,17 @@ Download CV PDF
 </div>
 <div class="am-hero-panel">
 <div class="am-panel-card">
-<strong>Current focus</strong>
-<p>AI media coding, social research, and data journalism projects.</p>
+<strong>Research Interests</strong>
+<p>Computational Social Science, DL, ML.</p>
 </div>
 <div class="am-panel-card">
-<strong>Academic direction</strong>
-<p>Graduate study in media, sociology, and computational social inquiry.</p>
+<strong>Major</strong>
+<p> Sociology and Media,
+Kyung Hee University, Seoul</p>
 </div>
 <div class="am-panel-card">
 <strong>Last updated</strong>
-<p>March 9, 2026</p>
+<p>March 1, 2026</p>
 </div>
 </div>
 </section>
