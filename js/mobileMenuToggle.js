@@ -7,7 +7,7 @@ const menu = document.getElementById("menu");
 const mobileMenu = document.getElementById("mobileMenu");
 
 window.addEventListener("click", (event) => {
-    if (event.target === menuButton) {
+    if (event.target === menuButton || menuButton.contains(event.target)) {
         if (mobileMenu.innerHTML === "") {
             mobileMenu.innerHTML = menu.innerHTML;
             const menuItems = mobileMenu.querySelectorAll("a");
@@ -21,10 +21,22 @@ window.addEventListener("click", (event) => {
         } else {
             mobileMenu.innerHTML = "";
         }
-    } else if (event.target.parentNode === mobileMenu) {
-        event.preventDefault();
+    } else {
+        const menuItem = event.target.closest("a");
+        if (!menuItem || !mobileMenu.contains(menuItem)) {
+            mobileMenu.innerHTML = "";
+            return;
+        }
 
-        if (event.target.innerText + ".md" === "blog.md") {
+        event.preventDefault();
+        const menuName = menuItem.dataset.menuName;
+        const menuDownloadUrl = menuItem.dataset.menuDownloadUrl;
+        if (!menuName) {
+            mobileMenu.innerHTML = "";
+            return;
+        }
+
+        if (menuName === "blog.md") {
             if (blogList.length === 0) {
                 // 블로그 리스트 로딩
                 initDataBlogList().then(() => {
@@ -35,14 +47,15 @@ window.addEventListener("click", (event) => {
             }
             // console.log(origin)
             const url = new URL(origin);
-            url.searchParams.set("menu", event.target.innerText + ".md");
+            url.searchParams.set("menu", menuName);
             window.history.pushState({}, "", url);
             mobileMenu.innerHTML = "";
         } else {
-            renderOtherContents(event.target.innerText + ".md");
+            renderOtherContents({
+                name: menuName,
+                download_url: menuDownloadUrl || origin + "menu/" + menuName,
+            });
             mobileMenu.innerHTML = "";
         }
-    } else {
-        mobileMenu.innerHTML = "";
     }
 });
