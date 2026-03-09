@@ -5,8 +5,7 @@
 <p class="am-kicker">About Me</p>
 <h1 class="am-title">Changyu Park</h1>
 <p class="am-summary">
-I am interested in data science at the intersection of sociological insight and computer science.<br>  
-Through engineering skills, Artificial Intelligence, and big data analysis, I seek to understand complex real-world problems from a critical perspective grounded in the social sciences.<br>
+I seek to understand complex real-world problems through engineering skills, Artificial Intelligence, and big data analysis, while maintaining a critical perspective grounded in the social sciences. <br> 
 Ultimately, my goal is to become a researcher who can critically interpret complex data and contribute to creative, data-driven solutions for society.
 </p>
 <div class="am-actions">
