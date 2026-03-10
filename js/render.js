@@ -229,6 +229,20 @@ function createSidebarPostLink(entry) {
   return button;
 }
 
+function setBlogLayoutMode(mode = "detail") {
+  const shell = document.querySelector(".blog-shell");
+  const sidebar = document.getElementById("sidebar-column");
+  const contents = document.getElementById("contents");
+  if (!shell || !sidebar) {
+    return;
+  }
+
+  const isWideMode = mode === "list" || mode === "about-me";
+  shell.classList.toggle("is-wide-view", isWideMode);
+  contents?.classList.toggle("is-about-me-view", mode === "about-me");
+  sidebar.hidden = isWideMode;
+}
+
 function renderHomeHero(source = blogList) {
   const hero = document.getElementById("home-hero");
   hero.innerHTML = "";
@@ -649,6 +663,7 @@ function createEmptyState(message) {
 }
 
 function openPost(post, postInfo = extractFileInfo(post.name), shouldPushState = true) {
+  setBlogLayoutMode("detail");
   document.getElementById("contents").style.display = "block";
   document.getElementById("blog-posts").style.display = "none";
   document.getElementById("pagination").style.display = "none";
@@ -688,6 +703,7 @@ function renderPostByName(postName, shouldPushState = false) {
     return;
   }
 
+  setBlogLayoutMode("detail");
   document.getElementById("contents").style.display = "block";
   document.getElementById("blog-posts").style.display = "none";
   document.getElementById("pagination").style.display = "none";
@@ -720,6 +736,7 @@ function renderBlogList(source = null, currentPage = 1) {
   const categoryNames = [...new Set(entries.map(({ info }) => info.category))];
   const activeCategory = categoryNames.length === 1 ? categoryNames[0] : null;
 
+  setBlogLayoutMode("list");
   document.getElementById("contents").style.display = "none";
   document.getElementById("blog-posts").style.display = "grid";
   document.getElementById("pagination").style.display = "flex";
@@ -759,13 +776,6 @@ function renderBlogList(source = null, currentPage = 1) {
 }
 
 function renderOtherContents(menu) {
-  document.getElementById("blog-posts").style.display = "none";
-  document.getElementById("contents").style.display = "block";
-  document.getElementById("pagination").style.display = "none";
-  document.getElementById("home-hero").classList.add("is-hidden");
-  renderBlogCategory();
-  renderSidebarExtras();
-
   const menuItem =
     typeof menu === "string"
       ? {
@@ -773,6 +783,22 @@ function renderOtherContents(menu) {
           name: menu.split("/")[menu.split("/").length - 1],
         }
       : menu;
+
+  const isAboutMePage = menuItem.name === "about_me.md";
+
+  setBlogLayoutMode(isAboutMePage ? "about-me" : "detail");
+  document.getElementById("blog-posts").style.display = "none";
+  document.getElementById("contents").style.display = "block";
+  document.getElementById("pagination").style.display = "none";
+  document.getElementById("home-hero").classList.add("is-hidden");
+
+  if (isAboutMePage) {
+    document.getElementById("category-list").innerHTML = "";
+    document.getElementById("sidebar-extras").innerHTML = "";
+  } else {
+    renderBlogCategory();
+    renderSidebarExtras();
+  }
 
   fetch(resolveMenuDownloadUrl(menuItem))
     .then((response) => response.text())

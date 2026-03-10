@@ -54,6 +54,10 @@
   padding: 0 0 3rem;
 }
 
+#contents.is-about-me-view [data-about-me-page] .am-page {
+  max-width: 1160px;
+}
+
 #contents [data-about-me-page] .am-hero {
   position: relative;
   overflow: hidden;

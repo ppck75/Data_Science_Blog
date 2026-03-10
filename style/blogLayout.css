@@ -88,6 +88,14 @@ body.blog-page {
   gap: 1.25rem;
 }
 
+.blog-shell.is-wide-view {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.blog-shell.is-wide-view .blog-sidebar {
+  display: none;
+}
+
 .sidebar-stack {
   display: flex;
   flex-direction: column;
