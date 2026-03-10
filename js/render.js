@@ -809,8 +809,7 @@ function renderBlogList(source = null, currentPage = 1) {
       return;
     }
 
-    const visualIndex = startIndex + index;
-    const cardElement = createCardElement(postInfo, visualIndex);
+    const cardElement = createCardElement(postInfo, index);
     cardElement.onclick = () => openPost(post, postInfo);
     document.getElementById("blog-posts").appendChild(cardElement);
   });
