@@ -155,6 +155,7 @@ body.blog-page {
   border-radius: 16px;
   background: rgba(241, 245, 252, 0.72);
   color: var(--text-main);
+  text-align: left;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -172,9 +173,11 @@ body.blog-page {
 
 .sidebar-category-name,
 .sidebar-post-title {
+  flex: 1;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+  text-align: left;
 }
 
 .sidebar-category-count,
@@ -963,12 +966,6 @@ body.blog-page {
   font-size: 1.42rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
-}
-
-.post-module-arrow {
-  color: var(--text-soft);
-  font-size: 1.3rem;
-  font-weight: 700;
 }
 
 .category-stream {

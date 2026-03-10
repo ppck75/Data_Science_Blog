@@ -1012,6 +1012,7 @@ function appendPostDetailModules(contentsDiv, currentPost) {
     const head = document.createElement("div");
     head.className = "post-module-header";
     head.innerHTML = `<div><p class="post-module-kicker">Category</p><h3 class="post-module-title">이 블로그 ${currentPost.category} 카테고리 글</h3></div><span class="post-module-arrow">→</span>`;
+    head.replaceChildren(head.firstElementChild || head.firstChild);
     categoryModule.appendChild(head);
 
     const list = document.createElement("div");
