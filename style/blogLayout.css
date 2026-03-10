@@ -505,6 +505,37 @@ body.blog-page {
   border-radius: 22px;
 }
 
+.media-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1rem;
+  border: 1px dashed var(--border-strong);
+  background: linear-gradient(180deg, #f5f8fd, #edf2fa);
+  color: var(--text-soft);
+}
+
+.media-placeholder-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--text-subtle);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.media-placeholder-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-main);
+  word-break: break-all;
+}
+
 .blog-card-body,
 .blog-card-featured-body {
   display: flex;

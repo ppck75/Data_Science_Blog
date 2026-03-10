@@ -144,8 +144,47 @@ function resolveMenuDownloadUrl(menu) {
   return menu.download_url;
 }
 
-function getFallbackThumbnail() {
-  return `img/thumb${Math.floor(Math.random() * 10) + 1}.webp`;
+const missingThumbnailText = "\uC774\uBBF8\uC9C0 \uC5C6\uC74C";
+
+function createThumbnailPlaceholder(className, label = "") {
+  const placeholder = document.createElement("div");
+  placeholder.className = `${className} media-placeholder`;
+  placeholder.setAttribute("role", "img");
+  placeholder.setAttribute("aria-label", label || missingThumbnailText);
+
+  const badge = document.createElement("span");
+  badge.className = "media-placeholder-badge";
+  badge.textContent = missingThumbnailText;
+  placeholder.appendChild(badge);
+
+  if (label) {
+    const name = document.createElement("span");
+    name.className = "media-placeholder-name";
+    name.textContent = label;
+    placeholder.appendChild(name);
+  }
+
+  return placeholder;
+}
+
+function createThumbnailNode({ src = "", label = "", alt = "", className = "" }) {
+  if (!src) {
+    return createThumbnailPlaceholder(className, label);
+  }
+
+  const image = document.createElement("img");
+  image.className = className;
+  image.src = src;
+  image.alt = alt || label || "thumbnail";
+  image.addEventListener(
+    "error",
+    () => {
+      image.replaceWith(createThumbnailPlaceholder(className, label));
+    },
+    { once: true }
+  );
+
+  return image;
 }
 
 function getHomeIntro() {
@@ -326,10 +365,12 @@ function renderHomeHero(source = blogList) {
   feature.className = "hero-feature";
   feature.addEventListener("click", () => openPost(latestEntry.post, latestEntry.info));
 
-  const featureThumb = document.createElement("img");
-  featureThumb.className = "hero-feature-thumb";
-  featureThumb.src = latestEntry.info.thumbnail || getFallbackThumbnail();
-  featureThumb.alt = latestEntry.info.title;
+  const featureThumb = createThumbnailNode({
+    src: latestEntry.info.thumbnail,
+    label: latestEntry.info.thumbnailName,
+    alt: latestEntry.info.thumbnailName || latestEntry.info.title,
+    className: "hero-feature-thumb",
+  });
   feature.appendChild(featureThumb);
 
   const featureCategory = document.createElement("span");
@@ -570,12 +611,12 @@ function createCardElement(fileInfo, index) {
     ...(isFeatured ? bloglistFirstCardStyle : bloglistCardStyle).split(" ")
   );
 
-  const img = document.createElement("img");
-  img.src = fileInfo.thumbnail || getFallbackThumbnail();
-  img.alt = fileInfo.title;
-  img.classList.add(
-    ...(isFeatured ? bloglistFirstCardImgStyle : bloglistCardImgStyle).split(" ")
-  );
+  const img = createThumbnailNode({
+    src: fileInfo.thumbnail,
+    label: fileInfo.thumbnailName,
+    alt: fileInfo.thumbnailName || fileInfo.title,
+    className: isFeatured ? bloglistFirstCardImgStyle : bloglistCardImgStyle,
+  });
   card.appendChild(img);
 
   const cardBody = document.createElement("div");
@@ -886,10 +927,12 @@ function createRelatedCard(entry) {
   card.className = "related-card";
   card.addEventListener("click", () => openPost(entry.post, entry.info));
 
-  const thumb = document.createElement("img");
-  thumb.className = "related-card-thumb";
-  thumb.src = entry.info.thumbnail || getFallbackThumbnail();
-  thumb.alt = entry.info.title;
+  const thumb = createThumbnailNode({
+    src: entry.info.thumbnail,
+    label: entry.info.thumbnailName,
+    alt: entry.info.thumbnailName || entry.info.title,
+    className: "related-card-thumb",
+  });
   card.appendChild(thumb);
 
   const title = document.createElement("h4");
