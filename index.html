@@ -120,6 +120,10 @@
             </button>
           </div>
         </div>
+        <button id="category-toggle-button" class="category-toggle-button hidden md:inline-flex" type="button" aria-label="Open category overview">
+          <span class="category-toggle-icon" aria-hidden="true"></span>
+          <span class="category-toggle-label">Category</span>
+        </button>
       </nav>
 
       <div
@@ -127,6 +131,16 @@
         class="absolute bg-background w-full max-w-[1240px] border-b border-graylv2 z-10 md:hidden"
       ></div>
     </header>
+
+    <div id="category-overview-overlay" class="category-overview-overlay" hidden>
+      <aside class="category-overview-panel" aria-label="Category overview">
+        <header class="category-overview-head">
+          <h2 class="category-overview-title">All Categories (<span id="category-overview-total">0</span>)</h2>
+          <button id="category-overview-close" type="button" class="category-overview-close" aria-label="Close"></button>
+        </header>
+        <div id="category-overview-list" class="category-overview-list"></div>
+      </aside>
+    </div>
 
     <main class="site-main container px-4 pb-10 w-full mx-auto max-w-[1240px] md:px-8 md:pt-10">
       <section id="home-hero" class="home-hero mb-8"></section>
