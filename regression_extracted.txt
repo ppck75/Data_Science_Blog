@@ -1,0 +1,13 @@
+2 Linear Regr ession 3 Regr ession with Neural Netw ork 1 What is Regression?
+1 What is Regressi on?
+Part 1 Regres sion Task Re gre ssio n ? (Re min d) - Inp ut (x ) ou tpu t (y , la be l, ) -
+Part 1 Regres sion Task Da tase t : , Da ta Size = 50 6 (50 6, 14 ) [0 1] CR I M (t own) 1 [02] ZN 25 ,00 0 [0 3] I ND U S [0 4] CHAS ( 1, 0) [05] NOX 10 pp m [0 6] RM 1 [0 7] AGE 1940 [08] DI S 5 [0 9] R AD [1 0] TAX 10 ,0 00 [11] PTR ATIO (town) / [1 2] B 10 00 (Bk - 0 .6 3 )^2, Bk . [1 3] LS TAT (%) [1 4] MEDV ( ) ( : $ 1, 00 0)
+Part 1 Regres sion Task - 13 inpu t ME D V( ) - in pu t , ou tpu t - (50 6 ) 7:3 , 8:2 train set, testset ( ) - T rai nse t test set in pu t X , te st set ou tpu t (RMSE ) T rai n set ( ) T est set ( )
+2 Line ar Regress ion
+Part 2 - Y = + in pu t x y . - X (= ) x ? Linear Regres sion
+Part 2 - Re gre ssio n li ne - , . (= ) : Linear Regres sion
+Part 2 Linear Regres sion ( ) Outpu t / L ab el Inp ut / Fea ture
+Part 2 Linear Regres sion Du mmy [0 4] CHAS ( 1, 0) - Input (x ) - O ne - ho t En cod in g (Du mmy )
+3 Regress ion with FC Lay ers
+Part 3 Regres sion with Neura l Net work 2 - De pth FC lay ers L in e a r Re g re ssi o n FC Lay er (13, 6) FC Lay er (6, 1) ReLU o u tpu t Inp u t L i n ear R eg r ession 2 L ay er s N eu r al N etw o r k Par am eter 14 ( + ) 91 (13 * 6+ 6)+ ( 6+ 1 ) Lea s t Squ are Est im ation Gra dien t D esc ent O X ( R eLU )
+Part 3 Regres sion with Neura l Net work - T orch.utils.data.datasets - - Optimize r (Ad a m) - T rai nset (da ta samp le 1 vs Ba tch )
