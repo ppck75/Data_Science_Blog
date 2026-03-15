@@ -411,11 +411,11 @@ function setBlogLayoutMode(mode = "detail") {
   syncCategoryToggleVisibility(mode);
 }
 
-function renderHomeHero(source = blogList) {
+function renderHomeHero() {
   const hero = document.getElementById("home-hero");
   hero.innerHTML = "";
 
-  const entries = getPostEntries(source);
+  const entries = getPostEntries(blogList);
   if (entries.length === 0) {
     hero.classList.add("is-hidden");
     return;
@@ -424,7 +424,7 @@ function renderHomeHero(source = blogList) {
   hero.classList.remove("is-hidden");
 
   const latestEntry = entries[0];
-  const counts = getCategoryCounts();
+  const counts = getCategoryCounts(blogList);
   const allCategories = sortCategoriesByCount(counts);
 
   const heroShell = document.createElement("div");
