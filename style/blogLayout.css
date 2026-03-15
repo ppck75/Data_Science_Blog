@@ -1165,6 +1165,17 @@ body.blog-page {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .blog-card-featured-image {
+    display: block;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .blog-card-featured-body {
+    grid-column: 1 / -1;
+  }
+
   .blog-sidebar {
     position: static;
   }

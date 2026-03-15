@@ -249,20 +249,21 @@
   align-items: center;
   width: 4rem;
   height: 4rem;
+  padding: 0;
   margin-left: 0.8rem;
-  border: 1px solid #d9dbe0;
+  border: 0;
   border-radius: 0;
   color: #47494d;
-  background: #ffffff;
-  box-shadow: 0 2px 12px rgba(23, 32, 51, 0.08);
+  background: transparent;
+  box-shadow: none;
+  appearance: none;
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 .category-toggle-button:hover,
 .category-toggle-button.is-active {
   color: #121314;
-  background: #f8faff;
-  border-color: #cfd8e6;
+  background: transparent;
   filter: none;
   transform: translateY(-1px);
 }
