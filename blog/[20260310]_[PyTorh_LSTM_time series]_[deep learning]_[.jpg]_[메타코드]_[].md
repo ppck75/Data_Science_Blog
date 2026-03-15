@@ -25,7 +25,7 @@ LSTM은 `hidden state(h_t)`와 별도로 `cell state(c_t)`를 둔다.
 - Input Gate: 새로 저장할 정보 선택
 - Output Gate: 현재 출력으로 보낼 정보 선택
 
-\[
+$$
 \begin{aligned}
 f_t &= \sigma(W_f[h_{t-1},x_t] + b_f) \\
 i_t &= \sigma(W_i[h_{t-1},x_t] + b_i) \\
@@ -34,7 +34,7 @@ c_t &= f_t \odot c_{t-1} + i_t \odot \tilde{c}_t \\
 o_t &= \sigma(W_o[h_{t-1},x_t] + b_o) \\
 h_t &= o_t \odot \tanh(c_t)
 \end{aligned}
-\]
+$$
 
 이 구조 덕분에 장기 패턴을 RNN보다 안정적으로 학습한다.
 
@@ -52,9 +52,9 @@ PDF의 구현 파트에서 반복적으로 강조되는 흐름:
 
 ### 3.1. 입력/출력 텐서 형태
 
-\[
+$$
 input:\ (batch,\ seq\_len,\ input\_size) \quad \text{(batch\_first=True)}
-\]
+$$
 
 `nn.LSTM`은 출력으로
 - 시퀀스 출력 `output`
