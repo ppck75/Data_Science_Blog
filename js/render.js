@@ -227,9 +227,9 @@ function syncCategoryToggleVisibility(mode = "detail") {
     return;
   }
 
-  const showOnDesktop = mode === "list";
-  toggleButton.classList.toggle("is-hidden", !showOnDesktop);
-  if (!showOnDesktop) {
+  const shouldShow = mode !== "about-me";
+  toggleButton.classList.toggle("is-hidden", !shouldShow);
+  if (!shouldShow) {
     closeCategoryOverview();
   }
 }
@@ -425,7 +425,7 @@ function renderHomeHero(source = blogList) {
 
   const latestEntry = entries[0];
   const counts = getCategoryCounts();
-  const topCategories = getTopCategories(5);
+  const allCategories = sortCategoriesByCount(counts);
 
   const heroShell = document.createElement("div");
   heroShell.className = "home-hero-shell";
@@ -472,7 +472,7 @@ function renderHomeHero(source = blogList) {
 
   const categoryList = document.createElement("div");
   categoryList.className = "hero-category-list";
-  topCategories.forEach(([category]) => {
+  allCategories.forEach((category) => {
     const pill = document.createElement("button");
     pill.type = "button";
     pill.className = "hero-category-pill";
@@ -1272,6 +1272,7 @@ function renderPagination(totalPage, currentPage, targetList = null) {
 }
 
 async function initialize() {
+  initializeCategoryOverviewToggle();
   await initDataBlogMenu();
   renderMenu();
 
