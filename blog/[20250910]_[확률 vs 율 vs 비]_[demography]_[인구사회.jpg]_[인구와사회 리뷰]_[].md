@@ -70,7 +70,7 @@ tags: [demography, population, statistics]
 
 ## 1. 인구 변화의 기본 식
 
-시점 $t$에서 $t+n$까지의 인구 변화는  
+시점 t에서 t+n까지의 인구 변화는  
 출생, 사망, 이동의 결과로 표현할 수 있다.
 
 $$P_{t+n} = P_t + {}_nB_t - {}_nD_t + {}_nI_t - {}_nO_t$$
@@ -97,12 +97,12 @@ $$P_{t+n} - P_t = {}_nB_t - {}_nD_t + {}_nNM_t$$
 
 ## 3. 기호 정의
 
-- $P_t$, $P_{t+n}$: 각각 시점 $t$와 $t+n$의 인구 규모  
-- $B$: 출생자 수 (Births)  
-- $D$: 사망자 수 (Deaths)  
-- $I$: 이입자 수 (In-migration)  
-- $O$: 이출자 수 (Out-migration)  
-- $NM$: 순이동자 수 (Net Migration)
+- Pt, Pt+n: 각각 시점 t와 t+n의 인구 규모  
+- B: 출생자 수 (Births)  
+- D: 사망자 수 (Deaths)  
+- I: 이입자 수 (In-migration)  
+- O: 이출자 수 (Out-migration)  
+- NM: 순이동자 수 (Net Migration)
 
 <br>
 
