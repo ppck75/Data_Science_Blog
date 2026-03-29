@@ -1,4 +1,4 @@
-# 인구 성장률 정리  
+﻿# 인구 성장률 정리  
 _조성장률(CGR)과 순간성장률(Instantaneous Growth Rate)의 이해_
 
 ---

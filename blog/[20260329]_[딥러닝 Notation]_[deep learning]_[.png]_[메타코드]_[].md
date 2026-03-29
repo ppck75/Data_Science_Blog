@@ -4,6 +4,7 @@
 선형 회귀는 종속 변수 $y$와 독립 변수 $x$ 사이의 관계를 선형 결합으로 표현하는 모델입니다.
 
 ### 모델 수식
+**핵심 식**
 $$y = w_0 + w_1x_1 + w_2x_2 + \dots + w_nx_n + \epsilon$$
 
 * **Linear Model의 정의**: $y$가 가중치($w$)와 특성($x$)의 **선형 결합**으로 표현됨을 의미합니다.
@@ -28,11 +29,14 @@ $$y = w_0 + w_1x_1 + w_2x_2 + \dots + w_nx_n + \epsilon$$
 모델의 예측값과 실제값의 차이를 측정하기 위해 **평균 제곱 오차(MSE)**를 사용합니다.
 
 ### Mean Squared Error (MSE)
+**핵심 식**
 $$J(w) = \frac{1}{m} \sum_{j=1}^{m} (\hat{y}^{(j)} - y^{(j)})^2 = \frac{1}{m} \sum_{j=1}^{m} (h(x^{(j)}) - y^{(j)})^2$$
 
+**보조 식(인라인)**
 * **행렬 표현**: $J(w) = \frac{1}{m} \sum_{j=1}^{m} (x^{(j)} \cdot w^T - y^{(j)})^2$
 * **목표**: 비용 함수 $J(w)$를 최소화하는 최적의 가중치 $w^*$를 찾는 것
-    $$w^* = \arg\min_{w} J(w)$$
+**핵심 식**
+$$w^* = \arg\min_{w} J(w)$$
 
 ---
 
@@ -58,3 +62,5 @@ $$J(w) = \frac{1}{m} \sum_{j=1}^{m} (\hat{y}^{(j)} - y^{(j)})^2 = \frac{1}{m} \s
 사회과학 데이터 분석(가령 '집값 예측'이나 '팬덤 활동량 분석')을 할 때 어떤 변수를 로그 변환($\log(x)$)해서 넣을지 결정하는 과정이 바로 이미지에 나온 **Feature Engineering**의 사례입니다. 
 
 더 궁금한 수식이나 개념이 있으신가요? Would you like me to explain why the Normal distribution leads specifically to Linear Regression?
+
+

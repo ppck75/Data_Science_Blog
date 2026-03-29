@@ -1,4 +1,4 @@
-# 딥러닝의 이해: PyTorch 신경망 기초 분석
+﻿# 딥러닝의 이해: PyTorch 신경망 기초 분석
 
 PyTorch를 활용한 딥러닝의 핵심 구성 요소인 신경망(Neural Network)의 기초 개념을 정리한다. 선형 계층(Linear Layer)의 원리, 활성화 함수(Activation Function) 및 소프트맥스(Softmax) 함수에 이르기까지 딥러닝 모델 이해를 위한 필수 요소를 분석한다.
 
