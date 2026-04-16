@@ -493,8 +493,12 @@ body.blog-page {
 .blog-card-image,
 .blog-card-featured-image {
   width: 100%;
-  object-fit: cover;
-  background: #edf2fa;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .blog-card-featured-image {
@@ -1045,8 +1049,12 @@ body.blog-page {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 18px;
-  object-fit: cover;
-  background: #edf2fa;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .related-card-title {
