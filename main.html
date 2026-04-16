@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/icon/favicon.svg" type="image/x-icon" />
+    <title>Data Science Blog | Changyu</title>
+
+    <meta property="og:title" content="Data Science blog | Changyu" />
+    <meta property="og:description" content="통계 · 머신러닝 · 딥러닝 · 데이터 분석 기록" />
+    <meta property="og:type" content="website" />
+
+    <script src="./library/marked.min.js"></script>
+
+    <link rel="stylesheet" href="./library/highlight_default.min.css" />
+    <script src="./library/highlight_highlight.min.js"></script>
+    <link rel="stylesheet" href="./library/highlight_ally-light.min.css" />
+
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/aboutMePage.css" />
+    <link rel="stylesheet" href="style/blogLayout.css" />
+
+    <script src="./library/tailwind-3.4.1.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2e6ff2",
+              background: "#fff",
+              surface: "#121314",
+              graylv1: "#f3f5fa",
+              graylv2: "#d9dbe0",
+              graylv3: "#8d9299",
+              graylv4: "#47494d",
+              error: "#ff3440",
+              lowError: "#ffc533",
+              activation: "#dee8ff",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes slideDown {
+        from {
+          transition: all 1s;
+          height: 0;
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+          height: 60px;
+        }
+      }
+
+      .markdown-cell > ul > li > p {
+        display: inline-block;
+      }
+    </style>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+      defer
+    ></script>
+  </head>
+  <body class="blog-page font-sans w-full text-surface">
+    <header class="site-header relative mx-auto">
+      <nav
+        class="site-nav container max-w-[1240px] mx-auto md:px-8 md:py-5 px-4 py-4 flex items-center relative"
+      >
+        <h1
+          id="blog-title"
+          class="site-brand md:text-2xl text-lg leading-6 mr-auto font-semibold cursor-pointer"
+        >
+          WENIVLOG
+        </h1>
+
+        <div class="md:hidden w-6 h-6">
+          <button id="menu-button">
+            <span class="sr-only">메뉴 열기</span>
+          </button>
+        </div>
+
+        <div id="menu" class="hidden md:flex items-center"></div>
+
+        <button id="search-button" class="ml-10 md:hidden flex">
+          <span class="sr-only">검색창 열기</span>
+        </button>
+
+        <div
+          class="search-cont w-80 hidden md:block md:relative absolute z-10 rounded-2xl p-4 border border-graylv2 bottom-[-12px] right-2 xl:right-0 translate-y-full bg-background w-96 max-w-full box-border md:p-0 md:top-0 md:right-0 md:border-0 md:translate-y-0 md:w-80 md:ml-10"
+        >
+          <label for="search-input">
+            <input
+              type="text"
+              id="search-input"
+              class="search-input bg-graylv1 rounded-[10px] px-5 py-2.5 placeholder:font-normal placehoder:text-graylv3 focus:outline-0 shadow-sm w-full"
+              placeholder="Keyword"
+            />
+          </label>
+          <div
+            class="btn-cont flex gap-2 justify-cetner items-center absolute top-1/2 md:right-4 right-8 -translate-y-1/2"
+          >
+            <button class="reset-inp-btn hidden">
+              <span class="sr-only">검색어 초기화</span>
+            </button>
+            <button class="search-inp-btn">
+              <span class="sr-only">검색하기</span>
+            </button>
+          </div>
+        </div>
+        <button id="category-toggle-button" class="category-toggle-button" type="button" aria-label="Open category overview">
+          <span class="category-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </nav>
+
+      <div
+        id="mobileMenu"
+        class="absolute bg-background w-full max-w-[1240px] border-b border-graylv2 z-10 md:hidden"
+      ></div>
+    </header>
+
+    <div id="category-overview-overlay" class="category-overview-overlay" hidden>
+      <aside class="category-overview-panel" aria-label="Category overview">
+        <header class="category-overview-head">
+          <h2 class="category-overview-title">All Categories (<span id="category-overview-total">0</span>)</h2>
+          <button id="category-overview-close" type="button" class="category-overview-close" aria-label="Close"></button>
+        </header>
+        <div id="category-overview-list" class="category-overview-list"></div>
+      </aside>
+    </div>
+
+    <main class="site-main container px-4 pb-10 w-full mx-auto max-w-[1240px] md:px-8 md:pt-10">
+      <section id="home-hero" class="home-hero mb-8"></section>
+
+      <div class="blog-shell">
+        <section class="blog-main">
+          <div id="blog-posts" class="blog-post-grid"></div>
+          <div id="contents" class="content-view"></div>
+          <div id="pagination"></div>
+        </section>
+
+        <aside id="sidebar-column" class="blog-sidebar">
+          <section class="category-aside sidebar-card">
+            <header class="sidebar-card-head">
+              <div>
+                <p class="sidebar-card-kicker">Browse</p>
+                <h2 class="sidebar-card-title">Categories</h2>
+              </div>
+            </header>
+            <aside id="category-list"></aside>
+          </section>
+
+          <section id="sidebar-extras" class="sidebar-stack"></section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer-credit" aria-label="Site credit">
+      <p class="site-footer-credit-main">2026 Changyu Park | Research Notes Archive</p>
+      <p class="site-footer-credit-sub">Forked from weniv/weniv_blog and redesigned by Changyu Park</p>
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="style/convertIpynbToHtml.js"></script>
+
+    <script src="style/globalStyle.js"></script>
+    <script src="style/blogContentsStyle.js"></script>
+    <script src="js/aboutMePage.js"></script>
+
+    <script src="js/mobileMenuToggle.js"></script>
+
+    <script src="config.js"></script>
+    <script src="js/URLparsing.js"></script>
+    <script src="js/initData.js"></script>
+    <script src="js/render.js"></script>
+
+    <script src="js/registry.js"></script>
+  </body>
+</html>

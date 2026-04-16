@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Science Changyu | Splash</title>
+    <meta
+      name="description"
+      content="Data Science Changyu 블로그용 애니메이션 스플래시 화면"
+    />
+    <style>
+      :root {
+        --bg-base: #ffffff;
+        --line: rgba(97, 174, 230, 0.12);
+        --glow-main: rgba(75, 170, 255, 0.22);
+        --glow-soft: rgba(134, 206, 255, 0.18);
+        --card: rgba(255, 255, 255, 0.58);
+        --shadow: rgba(42, 86, 132, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        font-family: "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic",
+          sans-serif;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(115, 200, 255, 0.18), transparent 26%),
+          radial-gradient(circle at 82% 24%, rgba(137, 214, 255, 0.16), transparent 24%),
+          radial-gradient(circle at 50% 82%, rgba(118, 184, 235, 0.12), transparent 28%),
+          linear-gradient(180deg, #ffffff 0%, #f8fbff 55%, #f3f8fc 100%);
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: radial-gradient(circle at center, black 35%, transparent 88%);
+        opacity: 0.55;
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at center, rgba(105, 194, 255, 0.08), transparent 44%),
+          radial-gradient(circle at center, rgba(77, 155, 255, 0.05), transparent 62%);
+        animation: backgroundPulse 5s ease-in-out infinite;
+      }
+
+      .ambient {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .ambient span {
+        position: absolute;
+        display: block;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(140, 216, 255, 0.6), rgba(28, 105, 187, 0.04) 72%, transparent 74%);
+        filter: blur(2px);
+        animation: drift var(--duration) ease-in-out infinite;
+        animation-delay: var(--delay);
+        opacity: 0.4;
+      }
+
+      .ambient span:nth-child(1) {
+        top: 14%;
+        left: 12%;
+        width: 12px;
+        height: 12px;
+        --duration: 7s;
+        --delay: -2s;
+      }
+
+      .ambient span:nth-child(2) {
+        top: 26%;
+        right: 16%;
+        width: 10px;
+        height: 10px;
+        --duration: 8.5s;
+        --delay: -1s;
+      }
+
+      .ambient span:nth-child(3) {
+        bottom: 18%;
+        left: 20%;
+        width: 8px;
+        height: 8px;
+        --duration: 6.8s;
+        --delay: -3.2s;
+      }
+
+      .ambient span:nth-child(4) {
+        bottom: 22%;
+        right: 22%;
+        width: 14px;
+        height: 14px;
+        --duration: 9s;
+        --delay: -2.4s;
+      }
+
+      .ambient span:nth-child(5) {
+        top: 50%;
+        left: 8%;
+        width: 7px;
+        height: 7px;
+        --duration: 7.4s;
+        --delay: -1.7s;
+      }
+
+      .ambient span:nth-child(6) {
+        top: 58%;
+        right: 8%;
+        width: 9px;
+        height: 9px;
+        --duration: 8.8s;
+        --delay: -4s;
+      }
+
+      .splash-shell {
+        position: relative;
+        width: min(92vw, 960px);
+        min-height: min(84vh, 720px);
+        display: grid;
+        place-items: center;
+        padding: clamp(28px, 5vw, 48px);
+      }
+
+      .splash-shell::before {
+        content: "";
+        position: absolute;
+        width: min(74vw, 680px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(77, 173, 255, 0.12), rgba(77, 173, 255, 0.05) 38%, transparent 65%);
+        filter: blur(12px);
+        animation: backgroundPulse 4.8s ease-in-out infinite;
+      }
+
+      .panel {
+        position: relative;
+        width: min(100%, 720px);
+        padding: clamp(20px, 3vw, 28px);
+        border: 1px solid rgba(147, 212, 255, 0.22);
+        border-radius: 32px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), var(--card));
+        backdrop-filter: blur(18px);
+        box-shadow:
+          0 30px 60px var(--shadow),
+          inset 0 1px 0 rgba(255, 255, 255, 0.78);
+      }
+
+      .logo-stage {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: min(70vh, 620px);
+        isolation: isolate;
+      }
+
+      .logo-stage .orbit {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(126, 188, 235, 0.2);
+        pointer-events: none;
+        animation: orbitTurn var(--duration) linear infinite;
+        animation-delay: 2.1s;
+      }
+
+      .logo-stage .orbit.one {
+        width: min(76vw, 590px);
+        aspect-ratio: 1;
+        opacity: 0.55;
+        --duration: 28s;
+      }
+
+      .logo-stage .orbit.two {
+        width: min(67vw, 520px);
+        aspect-ratio: 1;
+        opacity: 0.45;
+        transform: rotate(12deg);
+        --duration: 34s;
+      }
+
+      .logo-stage .orbit.three {
+        width: min(58vw, 450px);
+        aspect-ratio: 1;
+        opacity: 0.36;
+        transform: rotate(-10deg);
+        --duration: 24s;
+      }
+
+      .logo-stage .node {
+        position: absolute;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #88d8ff 0%, #2f84d7 62%, #1a4c88 100%);
+        box-shadow: 0 0 18px rgba(78, 166, 237, 0.18);
+        animation:
+          nodeFloat var(--float-duration) ease-in-out infinite,
+          nodeFade 1s ease forwards;
+        animation-delay: calc(2s + var(--delay));
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .logo-stage .node.n1 {
+        top: 19%;
+        left: 17%;
+        --size: 11px;
+        --float-duration: 7s;
+        --delay: 0.1s;
+      }
+
+      .logo-stage .node.n2 {
+        top: 16%;
+        right: 20%;
+        --size: 14px;
+        --float-duration: 8.2s;
+        --delay: 0.25s;
+      }
+
+      .logo-stage .node.n3 {
+        right: 13%;
+        bottom: 24%;
+        --size: 10px;
+        --float-duration: 7.6s;
+        --delay: 0.4s;
+      }
+
+      .logo-stage .node.n4 {
+        bottom: 19%;
+        left: 21%;
+        --size: 13px;
+        --float-duration: 8.4s;
+        --delay: 0.55s;
+      }
+
+      .logo-stage .node.n5 {
+        top: 48%;
+        left: 10%;
+        --size: 9px;
+        --float-duration: 7.3s;
+        --delay: 0.7s;
+      }
+
+      .logo-stage .node.n6 {
+        top: 42%;
+        right: 10%;
+        --size: 12px;
+        --float-duration: 7.9s;
+        --delay: 0.85s;
+      }
+
+      .logo-stage::before,
+      .logo-stage::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .logo-stage::before {
+        width: min(68vw, 540px);
+        aspect-ratio: 1;
+        background: radial-gradient(circle, var(--glow-main), rgba(34, 117, 208, 0.05) 52%, transparent 70%);
+        filter: blur(14px);
+        animation: haloBeat 3.8s ease-in-out infinite;
+      }
+
+      .logo-stage::after {
+        width: min(76vw, 620px);
+        aspect-ratio: 1;
+        border: 1px solid rgba(146, 213, 255, 0.2);
+        box-shadow:
+          0 0 28px rgba(67, 162, 255, 0.1),
+          inset 0 0 28px rgba(120, 205, 255, 0.06);
+        animation: ringPulse 4.6s ease-in-out infinite;
+      }
+
+      .logo-wrap {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: min(72vw, 560px);
+        aspect-ratio: 1;
+        opacity: 0;
+        animation:
+          revealFromLeft 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+          floatLogo 5.2s ease-in-out 1.25s infinite;
+        z-index: 2;
+      }
+
+      .logo-wrap::before,
+      .logo-wrap::after {
+        content: "";
+        position: absolute;
+        inset: 12%;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .logo-wrap::before {
+        background: radial-gradient(circle, rgba(127, 207, 255, 0.22), transparent 62%);
+        filter: blur(18px);
+        animation: logoGlow 3.2s ease-in-out 1.25s infinite;
+      }
+
+      .logo-wrap::after {
+        inset: 9%;
+        border: 1px solid rgba(151, 218, 255, 0.18);
+        box-shadow:
+          0 0 32px rgba(84, 180, 255, 0.22),
+          0 0 72px rgba(45, 132, 214, 0.14);
+        animation: ringPulse 5s ease-in-out 1.25s infinite;
+      }
+
+      .logo {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        object-fit: contain;
+        filter:
+          drop-shadow(0 14px 28px rgba(8, 18, 35, 0.14))
+          drop-shadow(0 0 36px rgba(92, 184, 255, 0.12));
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .progress {
+        position: absolute;
+        left: 50%;
+        bottom: clamp(24px, 4vw, 32px);
+        transform: translateX(-50%);
+        width: min(78%, 280px);
+        height: 3px;
+        border-radius: 999px;
+        background: rgba(172, 223, 255, 0.22);
+        overflow: hidden;
+        z-index: 3;
+      }
+
+      .progress::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(114, 216, 255, 0.2), rgba(79, 168, 255, 0.95), rgba(143, 227, 255, 0.4));
+        transform-origin: left center;
+        animation: loadBar 3s linear forwards;
+      }
+
+      @keyframes revealFromLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-42px) scale(0.98);
+          clip-path: inset(0 100% 0 0 round 50%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+          clip-path: inset(0 0 0 0 round 50%);
+        }
+      }
+
+      @keyframes floatLogo {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      @keyframes logoGlow {
+        0%,
+        100% {
+          opacity: 0.58;
+          transform: scale(0.96);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.04);
+        }
+      }
+
+      @keyframes haloBeat {
+        0%,
+        100% {
+          transform: scale(0.96);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.04);
+          opacity: 1;
+        }
+      }
+
+      @keyframes ringPulse {
+        0%,
+        100% {
+          transform: scale(0.98);
+          opacity: 0.38;
+        }
+        50% {
+          transform: scale(1.02);
+          opacity: 0.9;
+        }
+      }
+
+      @keyframes backgroundPulse {
+        0%,
+        100% {
+          opacity: 0.58;
+          transform: scale(0.98);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.03);
+        }
+      }
+
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(0.95);
+        }
+        50% {
+          transform: translate3d(0, -18px, 0) scale(1.08);
+        }
+      }
+
+      @keyframes loadBar {
+        from {
+          transform: scaleX(0);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes orbitTurn {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      @keyframes nodeFloat {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(0, -6px, 0) scale(1.06);
+        }
+      }
+
+      @keyframes nodeFade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 0.82;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .panel {
+          border-radius: 24px;
+        }
+
+        .logo-wrap {
+          width: min(82vw, 430px);
+        }
+
+        .logo-stage::before {
+          width: min(88vw, 440px);
+        }
+
+        .logo-stage::after {
+          width: min(92vw, 500px);
+        }
+
+        .logo {
+          max-width: 400px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .splash-shell {
+          width: 100%;
+          min-height: 100vh;
+          padding: 18px;
+        }
+
+        .panel {
+          width: 100%;
+          padding: 18px;
+        }
+
+        .logo-stage {
+          min-height: 68vh;
+        }
+
+        .logo-wrap {
+          width: min(84vw, 340px);
+        }
+
+        .logo {
+          max-width: 320px;
+        }
+
+        .progress {
+          bottom: 18px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+
+        .logo-wrap {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <main class="splash-shell">
+      <section class="panel" aria-label="블로그 스플래시 화면">
+        <div class="logo-stage">
+          <span class="orbit one" aria-hidden="true"></span>
+          <span class="orbit two" aria-hidden="true"></span>
+          <span class="orbit three" aria-hidden="true"></span>
+          <span class="node n1" aria-hidden="true"></span>
+          <span class="node n2" aria-hidden="true"></span>
+          <span class="node n3" aria-hidden="true"></span>
+          <span class="node n4" aria-hidden="true"></span>
+          <span class="node n5" aria-hidden="true"></span>
+          <span class="node n6" aria-hidden="true"></span>
+          <div class="logo-wrap">
+            <img
+              class="logo"
+              src="./img/블로그 로고.png"
+              alt="Data Science Changyu 블로그 로고"
+            />
+          </div>
+
+          <div class="progress" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <noscript>
+      <meta http-equiv="refresh" content="3;url=main.html" />
+    </noscript>
+
+    <script>
+      window.setTimeout(function () {
+        window.location.href = "main.html";
+      }, 3000);
+    </script>
+  </body>
+</html>

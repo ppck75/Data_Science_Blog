@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="3;url=main.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Logo Preview</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --blue-1: #89d5ff;
+        --blue-2: #60a9e7;
+        --blue-3: #2d7fc8;
+        --blue-4: #0f518f;
+        --blue-5: #092a61;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(124, 201, 255, 0.14), transparent 22%),
+          radial-gradient(circle at 82% 18%, rgba(117, 185, 240, 0.12), transparent 18%),
+          linear-gradient(180deg, #ffffff 0%, #f8fbfe 100%);
+        font-family: "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic",
+          sans-serif;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .stage {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: clamp(24px, 5vw, 56px);
+      }
+
+      svg {
+        width: min(92vw, 760px);
+        height: auto;
+        overflow: visible;
+      }
+
+      .splash-field {
+        position: relative;
+        width: min(100%, 900px);
+        min-height: min(86vh, 860px);
+        display: grid;
+        place-items: center;
+      }
+
+      .splash-field::before,
+      .splash-field::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .splash-field::before {
+        background:
+          radial-gradient(circle at center, rgba(87, 179, 248, 0.16), rgba(87, 179, 248, 0.07) 34%, transparent 58%);
+        filter: blur(20px);
+        animation: haloPulse 4.6s ease-in-out infinite;
+      }
+
+      .splash-field::after {
+        inset: 10%;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(81, 173, 255, 0.16), rgba(81, 173, 255, 0.06) 42%, transparent 64%);
+        filter: blur(26px);
+        animation: logoAura 3.8s ease-in-out infinite;
+      }
+
+      .logo-root {
+        filter: drop-shadow(0 18px 26px rgba(28, 72, 114, 0.12));
+      }
+
+      .network-shell {
+        opacity: 0;
+        animation:
+          revealLogo 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+          floatLogo 5.4s ease-in-out 1.15s infinite;
+        transform-origin: 400px 400px;
+      }
+
+      .network-back {
+        transform-origin: 400px 400px;
+        animation: spinSlow 36s linear 1.2s infinite;
+      }
+
+      .network-mid {
+        transform-origin: 400px 400px;
+        animation: spinReverse 42s linear 1.2s infinite;
+      }
+
+      .network-front {
+        transform-origin: 400px 400px;
+        animation: spinSlowWide 54s linear 1.2s infinite;
+      }
+
+      .orbit {
+        fill: none;
+        stroke: rgba(90, 166, 226, 0.84);
+        stroke-width: 5;
+      }
+
+      .line-light {
+        stroke: var(--blue-2);
+        stroke-width: 4;
+        stroke-linecap: round;
+        opacity: 0.82;
+      }
+
+      .line-mid {
+        stroke: var(--blue-3);
+        stroke-width: 5;
+        stroke-linecap: round;
+        opacity: 0.92;
+      }
+
+      .line-dark {
+        stroke: var(--blue-4);
+        stroke-width: 4;
+        stroke-linecap: round;
+        opacity: 0.9;
+      }
+
+      .node-light {
+        fill: var(--blue-1);
+      }
+
+      .node-mid {
+        fill: var(--blue-3);
+      }
+
+      .node-dark {
+        fill: var(--blue-5);
+      }
+
+      .node-large {
+        animation: pulseNode 4.4s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .node-small {
+        animation: pulseNode 5.6s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .label-group {
+        opacity: 0;
+        transform: translateX(-24px);
+        animation: revealLabel 1s cubic-bezier(0.22, 1, 0.36, 1) 0.38s forwards;
+      }
+
+      .label-image {
+        filter: url(#imageShadow);
+      }
+
+      .badge-glow {
+        opacity: 0.78;
+        animation: haloPulse 4s ease-in-out infinite;
+      }
+
+      .progress {
+        position: fixed;
+        left: 50%;
+        bottom: clamp(26px, 5vh, 42px);
+        transform: translateX(-50%);
+        width: min(72vw, 300px);
+        height: 3px;
+        border-radius: 999px;
+        background: rgba(172, 223, 255, 0.24);
+        overflow: hidden;
+        z-index: 5;
+      }
+
+      .progress::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(114, 216, 255, 0.2), rgba(79, 168, 255, 0.95), rgba(143, 227, 255, 0.42));
+        transform-origin: left center;
+        animation: loadBar 3s linear forwards;
+      }
+
+      @keyframes revealLogo {
+        from {
+          opacity: 0;
+          transform: translateX(-38px) scale(0.985);
+          clip-path: inset(0 100% 0 0 round 50%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+          clip-path: inset(0 0 0 0 round 50%);
+        }
+      }
+
+      @keyframes revealLabel {
+        from {
+          opacity: 0;
+          transform: translateX(-26px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes floatLogo {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      @keyframes spinSlow {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      @keyframes spinReverse {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: -360deg;
+        }
+      }
+
+      @keyframes spinSlowWide {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      @keyframes pulseNode {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes haloPulse {
+        0%,
+        100% {
+          opacity: 0.56;
+          transform: scale(0.985);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.015);
+        }
+      }
+
+      @keyframes logoAura {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: scale(0.97);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.03);
+        }
+      }
+
+      @keyframes loadBar {
+        from {
+          transform: scaleX(0);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      @media (max-width: 720px) {
+        svg {
+          width: min(96vw, 640px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section class="splash-field" aria-label="Animated logo preview">
+        <svg viewBox="0 0 800 800" role="img" aria-label="Animated Data Science Changyu logo">
+          <defs>
+            <filter id="imageShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="rgba(18, 60, 102, 0.16)" />
+            </filter>
+            <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(104, 194, 255, 0.26)" />
+              <stop offset="55%" stop-color="rgba(104, 194, 255, 0.08)" />
+              <stop offset="100%" stop-color="rgba(104, 194, 255, 0)" />
+            </radialGradient>
+          </defs>
+
+          <g class="logo-root">
+            <circle class="badge-glow" cx="400" cy="400" r="296" fill="url(#outerGlow)" />
+
+            <g class="network-shell">
+              <g class="network-back">
+                <circle class="orbit" cx="400" cy="400" r="293" />
+                <line class="line-mid" x1="180" y1="188" x2="300" y2="344" />
+                <line class="line-light" x1="180" y1="188" x2="406" y2="128" />
+                <line class="line-dark" x1="300" y1="344" x2="484" y2="196" />
+                <line class="line-mid" x1="484" y1="196" x2="640" y2="214" />
+                <line class="line-light" x1="406" y1="128" x2="640" y2="214" />
+                <line class="line-dark" x1="180" y1="188" x2="186" y2="584" />
+                <line class="line-mid" x1="186" y1="584" x2="420" y2="640" />
+                <line class="line-light" x1="420" y1="640" x2="640" y2="214" />
+                <line class="line-mid" x1="300" y1="344" x2="420" y2="640" />
+                <line class="line-dark" x1="406" y1="128" x2="420" y2="640" />
+                <line class="line-light" x1="484" y1="196" x2="186" y2="584" />
+
+                <circle class="node-large node-dark" cx="180" cy="188" r="34" />
+                <circle class="node-large node-dark" cx="300" cy="344" r="28" />
+                <circle class="node-large node-mid" cx="484" cy="196" r="26" />
+                <circle class="node-large node-mid" cx="640" cy="214" r="31" />
+                <circle class="node-large node-mid" cx="186" cy="584" r="27" />
+                <circle class="node-large node-dark" cx="420" cy="640" r="29" />
+                <circle class="node-large node-dark" cx="406" cy="128" r="24" />
+                <circle class="node-small node-mid" cx="250" cy="120" r="13" />
+                <circle class="node-small node-light" cx="684" cy="362" r="12" />
+                <circle class="node-small node-mid" cx="110" cy="394" r="16" />
+              </g>
+
+              <g class="network-mid">
+                <line class="line-dark" x1="128" y1="282" x2="220" y2="484" />
+                <line class="line-light" x1="220" y1="484" x2="344" y2="256" />
+                <line class="line-mid" x1="344" y1="256" x2="510" y2="286" />
+                <line class="line-dark" x1="510" y1="286" x2="590" y2="516" />
+                <line class="line-light" x1="590" y1="516" x2="344" y2="560" />
+                <line class="line-mid" x1="344" y1="560" x2="220" y2="484" />
+                <line class="line-dark" x1="344" y1="256" x2="344" y2="560" />
+                <line class="line-light" x1="128" y1="282" x2="344" y2="560" />
+                <line class="line-mid" x1="220" y1="484" x2="590" y2="516" />
+                <line class="line-dark" x1="510" y1="286" x2="128" y2="282" />
+                <line class="line-light" x1="590" y1="516" x2="660" y2="416" />
+                <line class="line-dark" x1="660" y1="416" x2="510" y2="286" />
+                <line class="line-mid" x1="660" y1="416" x2="344" y2="256" />
+                <line class="line-light" x1="128" y1="282" x2="660" y2="416" />
+
+                <circle class="node-large node-mid" cx="128" cy="282" r="18" />
+                <circle class="node-large node-dark" cx="220" cy="484" r="20" />
+                <circle class="node-large node-mid" cx="344" cy="256" r="23" />
+                <circle class="node-large node-dark" cx="510" cy="286" r="22" />
+                <circle class="node-large node-mid" cx="590" cy="516" r="21" />
+                <circle class="node-large node-light" cx="344" cy="560" r="17" />
+                <circle class="node-large node-dark" cx="660" cy="416" r="18" />
+                <circle class="node-small node-dark" cx="278" cy="246" r="10" />
+                <circle class="node-small node-mid" cx="248" cy="612" r="14" />
+                <circle class="node-small node-light" cx="534" cy="170" r="15" />
+                <circle class="node-small node-dark" cx="584" cy="622" r="13" />
+              </g>
+
+              <g class="network-front">
+                <line class="line-light" x1="94" y1="542" x2="236" y2="650" />
+                <line class="line-dark" x1="236" y1="650" x2="520" y2="674" />
+                <line class="line-mid" x1="520" y1="674" x2="706" y2="544" />
+                <line class="line-light" x1="706" y1="544" x2="694" y2="324" />
+                <line class="line-dark" x1="694" y1="324" x2="520" y2="128" />
+                <line class="line-mid" x1="520" y1="128" x2="268" y2="96" />
+                <line class="line-light" x1="268" y1="96" x2="94" y2="542" />
+                <line class="line-dark" x1="236" y1="650" x2="694" y2="324" />
+                <line class="line-mid" x1="94" y1="542" x2="520" y2="128" />
+                <line class="line-light" x1="520" y1="674" x2="268" y2="96" />
+
+                <circle class="node-large node-mid" cx="94" cy="542" r="24" />
+                <circle class="node-large node-mid" cx="236" cy="650" r="22" />
+                <circle class="node-large node-dark" cx="520" cy="674" r="25" />
+                <circle class="node-large node-dark" cx="706" cy="544" r="18" />
+                <circle class="node-large node-dark" cx="694" cy="324" r="20" />
+                <circle class="node-large node-mid" cx="520" cy="128" r="17" />
+                <circle class="node-large node-dark" cx="268" cy="96" r="16" />
+                <circle class="node-small node-light" cx="770" cy="412" r="15" />
+                <circle class="node-small node-dark" cx="56" cy="404" r="14" />
+                <circle class="node-small node-mid" cx="742" cy="246" r="10" />
+                <circle class="node-small node-dark" cx="162" cy="126" r="12" />
+              </g>
+
+              <g class="label-group">
+                <image
+                  class="label-image"
+                  href="./img/ChatGPT Image 2026년 4월 17일 오전 02_42_36.png"
+                  x="92"
+                  y="118"
+                  width="616"
+                  height="616"
+                  preserveAspectRatio="xMidYMid meet"
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
+        <div class="progress" aria-hidden="true"></div>
+      </section>
+    </main>
+    <script>
+      window.setTimeout(function () {
+        window.location.href = "main.html";
+      }, 3000);
+    </script>
+  </body>
+</html>
