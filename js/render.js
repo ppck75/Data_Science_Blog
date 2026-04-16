@@ -272,6 +272,12 @@ function resolveMenuDownloadUrl(menu) {
   return menu.download_url;
 }
 
+const hiddenMenuItems = ["about_me.md"];
+
+function isHiddenMenuItem(menuName = "") {
+  return hiddenMenuItems.includes(menuName);
+}
+
 const missingThumbnailText = "\uC774\uBBF8\uC9C0 \uC5C6\uC74C";
 
 function createThumbnailPlaceholder(className, label = "") {
@@ -647,7 +653,7 @@ async function renderMenu() {
   document.getElementById("menu").innerHTML = "";
   initializeCategoryOverviewToggle();
 
-  blogMenu.forEach((menu) => {
+  blogMenu.filter((menu) => !isHiddenMenuItem(menu.name)).forEach((menu) => {
     const link = document.createElement("a");
     link.classList.add(...menuListStyle.split(" "));
     link.classList.add(`${menu.name}`);
@@ -954,6 +960,11 @@ function renderOtherContents(menu) {
           name: menu.split("/")[menu.split("/").length - 1],
         }
       : menu;
+
+  if (isHiddenMenuItem(menuItem.name)) {
+    renderBlogList();
+    return;
+  }
 
   const isAboutMePage = menuItem.name === "about_me.md";
 

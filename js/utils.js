@@ -1,15 +1,15 @@
 function extractFromUrl() {
-  // URLparsing.jsì—ì„œ ì‚¬ìš©
-  // URLì—ì„œ usernameê³¼ repositoryName ì¶”ì¶œ
+  // URLparsing.js??¼­ ??¿ë
+  // URL??¼­ username??repositoryName ÃßÃâ
   const url = new URL(window.location.href);
 
-  // í˜¸ìŠ¤íŠ¸ ì´ë¦„ì—ì„œ username ì¶”ì¶œ
-  // ì˜ˆ: "weniv.github.io"ì—ì„œ "weniv" ì¶”ì¶œ
+  // ??½º????¸§??¼­ username ÃßÃâ
+  // ?? "weniv.github.io"??¼­ "weniv" ÃßÃâ
   const hostnameParts = url.hostname.split(".");
   const username = hostnameParts.length > 2 ? hostnameParts[0] : "";
 
-  // pathnameì„ ì‚¬ìš©í•˜ì—¬ repositoryName ì¶”ì¶œ
-  // ì˜ˆ: "/reponame"ì—ì„œ "reponame" ì¶”ì¶œ
+  // pathname????¿ë??¿© repositoryName ÃßÃâ
+  // ?? "/reponame"??¼­ "reponame" ÃßÃâ
   const pathParts = url.pathname.split("/").filter((part) => part.length > 0);
   const repositoryName = pathParts.length > 0 ? pathParts[0] : "";
 
@@ -20,18 +20,18 @@ function extractFromUrl() {
 }
 
 function convertSourceToImage(source) {
-  // convertIpynbToHtml.jsì—ì„œ ì‚¬ìš©
-  // Base64 ì´ë¯¸ì§€ ë°ì´í„° ì‹ë³„ì„ ìœ„í•œ ì •ê·œ í‘œí˜„ì‹
+  // convertIpynbToHtml.js??¼­ ??¿ë
+  // Base64 ????Áö ??ÀÌ????º°????ÇÑ ??±Ô ??Çö??
   const base64ImageRegex = /!\[.*?\]\(data:image\/(png|jpeg);base64,(.*?)\)/g;
 
-  // ì´ë¯¸ì§€ ë°ì´í„°ë¥¼ ì°¾ê³ , ê° ë§¤ì¹˜ì— ëŒ€í•´ ì´ë¯¸ì§€ íƒœê·¸ ìƒì„±
+  // ????Áö ??ÀÌ???? Ã£°í, ??¸ÅÄ¡??????????Áö ??±× ??¼º
   return source.replace(base64ImageRegex, (match, fileType, imageData) => {
     return `<img src="data:image/${fileType};base64,${imageData}" alt="Embedded Image" />`;
   });
 }
 
 function escapeHtml(text) {
-  // convertIpynbToHtml.jsì—ì„œ ì‚¬ìš©
+  // convertIpynbToHtml.js??¼­ ??¿ë
   return text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -40,11 +40,21 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-function extractFileInfo(filename) {
-  // render.jsì—ì„œ ì‚¬ìš©
-  // íŒŒì¼ ì´ë¦„ì—ì„œ ì •ë³´ ì¶”ì¶œí•˜ëŠ” í•¨ìˆ˜
+function normalizeCategoryName(category = "") {
+  const normalized = category.trim().toLowerCase();
 
-  // ì •ê·œ í‘œí˜„ì‹ì„ ì‚¬ìš©í•˜ì—¬ ë‚ ì§œ, ì œëª©, ì¹´í…Œê³ ë¦¬, ì¸ë„¤ì¼, ì €ì ì •ë³´ ì¶”ì¶œ
+  if (normalized === "machine learning" || normalized === "meachine learning") {
+    return "meachine learning";
+  }
+
+  return category.trim();
+}
+
+function extractFileInfo(filename) {
+  // render.js??¼­ ??¿ë
+  // ??ÀÏ ??¸§??¼­ ??º¸ ÃßÃâ??´Â ??¼ö
+
+  // ??±Ô ??Çö??À» ??¿ë??¿© ??Â¥, ??¸ñ, Ä«Å×°í¸®, ??³×?? ??????º¸ ÃßÃâ
   const regex =
     /^\[(\d{8})\]_\[(.*?)\]_\[(.*?)\]_\[(.*?)\]_\[(.*?)\]_\[(.*?)\].(md|ipynb)$/;
   const matches = filename.match(regex);
@@ -57,7 +67,7 @@ function extractFileInfo(filename) {
     return {
       date: matches[1],
       title: matches[2],
-      category: matches[3],
+      category: normalizeCategoryName(matches[3]),
       thumbnail: thumbnailName ? "img/" + thumbnailName : "",
       thumbnailName,
       // description: matches[5].length > 25 ? matches[5].substring(0, 25) + '...' : matches[5],
@@ -70,8 +80,8 @@ function extractFileInfo(filename) {
 }
 
 function formatDate(dateString) {
-  // render.jsì—ì„œ ì‚¬ìš©
-  // YYYYMMDD í˜•ì‹ì˜ ë¬¸ìì—´ì„ ë°›ì•„ YYYY/MM/DD í˜•ì‹ìœ¼ë¡œ ë³€í™˜
+  // render.js??¼­ ??¿ë
+  // YYYYMMDD ??½Ä??¹®ÀÚ??À» ¹Ş¾Æ YYYY/MM/DD ??½Ä??·Î º¯??
   const year = dateString.substring(0, 4);
   const month = dateString.substring(4, 6);
   const day = dateString.substring(6, 8);
