@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="3;url=main.html" />
+    <meta http-equiv="refresh" content="3.5;url=main.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animated Logo Preview</title>
     <style>
@@ -196,7 +196,7 @@
         border-radius: inherit;
         background: linear-gradient(90deg, rgba(114, 216, 255, 0.2), rgba(79, 168, 255, 0.95), rgba(143, 227, 255, 0.42));
         transform-origin: left center;
-        animation: loadBar 3s linear forwards;
+        animation: loadBar 3.5s linear forwards;
       }
 
       @keyframes revealLogo {
@@ -437,9 +437,10 @@
       </section>
     </main>
     <script>
+      window.sessionStorage.setItem("blogSplashSeen", "true");
       window.setTimeout(function () {
         window.location.href = "main.html";
-      }, 3000);
+      }, 3500);
     </script>
   </body>
 </html>

@@ -2,11 +2,14 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0;url=animated-logo-preview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Science Blog | Splash Redirect</title>
+    <title>Data Science Blog | Entry Redirect</title>
     <script>
-      window.location.replace("animated-logo-preview.html");
+      (function () {
+        var splashSeen = window.sessionStorage.getItem("blogSplashSeen");
+        var target = splashSeen === "true" ? "main.html" : "animated-logo-preview.html";
+        window.location.replace(target);
+      })();
     </script>
   </head>
   <body></body>
