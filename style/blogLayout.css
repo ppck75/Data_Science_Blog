@@ -283,6 +283,9 @@ body.blog-page {
   position: relative;
   z-index: 1;
   margin: 0;
+  font-family: "Pretendard", "Pretendard Variable", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+  font-weight: 700;
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.05;
   letter-spacing: -0.06em;
