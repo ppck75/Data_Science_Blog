@@ -285,10 +285,11 @@ body.blog-page {
   margin: 0;
   font-family: "Pretendard", "Pretendard Variable", "Apple SD Gothic Neo",
     "Malgun Gothic", sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  font-size: clamp(1.85rem, 3.7vw, 3.05rem);
   line-height: 1.05;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
+  white-space: nowrap;
 }
 
 .hero-summary {

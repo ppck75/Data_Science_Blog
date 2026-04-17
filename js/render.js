@@ -456,7 +456,7 @@ function renderHomeHero() {
 
   const heroMetaRow = document.createElement("div");
   heroMetaRow.className = "hero-meta-row";
-  heroMetaRow.appendChild(createHeroChip(`${users[0].username}의 아카이브`));
+  heroMetaRow.appendChild(createHeroChip("Study Blog"));
   heroMetaRow.appendChild(
     createHeroChip(`최근 업데이트 ${formatDate(latestEntry.info.date)}`)
   );
