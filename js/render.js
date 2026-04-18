@@ -605,7 +605,17 @@ function renderSidebarExtras(context = {}) {
     const tag = document.createElement("button");
     tag.type = "button";
     tag.className = "sidebar-tag";
-    tag.textContent = `${category} (${count})`;
+
+    const tagLabel = document.createElement("span");
+    tagLabel.className = "sidebar-tag-label";
+    tagLabel.textContent = category;
+    tag.appendChild(tagLabel);
+
+    const tagCount = document.createElement("span");
+    tagCount.className = "sidebar-tag-count";
+    tagCount.textContent = `(${count})`;
+    tag.appendChild(tagCount);
+
     tag.addEventListener("click", () => search(category, "category"));
     topicList.appendChild(tag);
   });
