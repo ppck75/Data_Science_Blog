@@ -1247,6 +1247,14 @@ body.blog-page {
     padding: 1.4rem;
   }
 
+  .hero-title {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+    font-size: clamp(1.9rem, 8.4vw, 2.7rem);
+    line-height: 1.08;
+  }
+
   .hero-stat-grid {
     grid-template-columns: 1fr;
   }
