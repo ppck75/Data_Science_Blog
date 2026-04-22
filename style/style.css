@@ -464,46 +464,16 @@
   transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
-.theme-icon-sun::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0.7rem;
-  height: 0.7rem;
+.theme-icon-sun {
   background: currentColor;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 0.12rem color-mix(in srgb, currentColor 18%, transparent);
-}
-
-.theme-icon-sun::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
-  transform: translate(-50%, -50%);
-  background:
-    linear-gradient(currentColor, currentColor) center 0.03rem / 0.1rem 0.28rem no-repeat,
-    linear-gradient(currentColor, currentColor) center calc(100% - 0.03rem) / 0.1rem 0.28rem no-repeat,
-    linear-gradient(currentColor, currentColor) 0.03rem center / 0.28rem 0.1rem no-repeat,
-    linear-gradient(currentColor, currentColor) calc(100% - 0.03rem) center / 0.28rem 0.1rem no-repeat,
-    linear-gradient(45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) 0.18rem 0.18rem / 0.24rem 0.24rem no-repeat,
-    linear-gradient(-45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) calc(100% - 0.18rem) 0.18rem / 0.24rem 0.24rem no-repeat,
-    linear-gradient(-45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) 0.18rem calc(100% - 0.18rem) / 0.24rem 0.24rem no-repeat,
-    linear-gradient(45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) calc(100% - 0.18rem) calc(100% - 0.18rem) / 0.24rem 0.24rem no-repeat;
-  background-position:
-    center 0.03rem,
-    center calc(100% - 0.03rem),
-    0.03rem center,
-    calc(100% - 0.03rem) center,
-    0.18rem 0.18rem,
-    calc(100% - 0.18rem) 0.18rem,
-    0.18rem calc(100% - 0.18rem),
-    calc(100% - 0.18rem) calc(100% - 0.18rem);
-  border-radius: 50%;
+  -webkit-mask-image: url("../img/icon/icon-theme-sun.svg");
+  -webkit-mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("../img/icon/icon-theme-sun.svg");
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .theme-icon-moon::before,
