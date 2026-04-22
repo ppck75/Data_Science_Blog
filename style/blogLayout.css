@@ -254,6 +254,7 @@ body.blog-page {
   gap: 0.75rem;
   width: 100%;
   padding: 0.45rem 0.75rem;
+  border: 1px solid transparent;
   border-radius: 999px;
   background: #f0f4fb;
   color: var(--text-subtle);
@@ -261,6 +262,18 @@ body.blog-page {
   font-weight: 600;
   text-align: left;
   white-space: normal;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-tag:hover,
+.sidebar-tag:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+
+.sidebar-tag:focus-visible {
+  outline: 0;
 }
 
 .sidebar-tag-label {
@@ -1201,9 +1214,35 @@ body.blog-page {
   padding: 0.8rem 1rem;
   border-radius: 14px;
   border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface-strong) 92%, white 8%);
   color: var(--text-main);
   font-size: 0.9rem;
   font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.author-card-action:hover,
+.author-card-action:focus-visible {
+  background: var(--text-main);
+  border-color: var(--text-main);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.author-card-action:focus-visible {
+  outline: 0;
+}
+
+.author-card-action:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .pagination-shell {
@@ -1428,6 +1467,7 @@ body.blog-page {
 :root[data-theme="dark"] .hero-feature,
 :root[data-theme="dark"] .blog-card,
 :root[data-theme="dark"] .blog-card-featured,
+:root[data-theme="dark"] .post-module,
 :root[data-theme="dark"] .post-prose,
 :root[data-theme="dark"] .notebook-prose,
 :root[data-theme="dark"] .related-card,
@@ -1449,7 +1489,8 @@ body.blog-page {
 :root[data-theme="dark"] .sidebar-intro,
 :root[data-theme="dark"] .content-empty,
 :root[data-theme="dark"] .media-placeholder,
-:root[data-theme="dark"] .post-download-button {
+:root[data-theme="dark"] .post-download-button,
+:root[data-theme="dark"] .post-info-chip {
   background:
     linear-gradient(145deg, rgba(122, 166, 255, 0.14), rgba(24, 33, 48, 0.94)),
     var(--surface);
@@ -1491,9 +1532,19 @@ body.blog-page {
   border-color: var(--border-strong);
 }
 
+:root[data-theme="dark"] .author-card-action:hover,
+:root[data-theme="dark"] .author-card-action:focus-visible {
+  background: rgba(24, 33, 48, 0.96);
+  border-color: rgba(122, 166, 255, 0.34);
+  color: #f4f7ff;
+  box-shadow: var(--shadow-md);
+}
+
 :root[data-theme="dark"] .post-link:hover,
 :root[data-theme="dark"] .sidebar-post-link:hover,
-:root[data-theme="dark"] .sidebar-category-item:hover {
+:root[data-theme="dark"] .sidebar-category-item:hover,
+:root[data-theme="dark"] .sidebar-tag:hover,
+:root[data-theme="dark"] .sidebar-tag:focus-visible {
   border-color: var(--border-strong);
   background: var(--surface-strong);
 }

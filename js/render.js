@@ -544,19 +544,21 @@ function renderSidebarExtras(context = {}) {
   const sidebarExtras = document.getElementById("sidebar-extras");
   sidebarExtras.innerHTML = "";
 
-  const introCard = document.createElement("section");
-  introCard.className = "sidebar-card sidebar-intro";
+  if (!context.currentPost) {
+    const introCard = document.createElement("section");
+    introCard.className = "sidebar-card sidebar-intro";
 
-  const introTitle = document.createElement("h3");
-  introTitle.className = "sidebar-intro-title";
-  introTitle.textContent = siteConfig.blogTitle || "Data Science Blog";
-  introCard.appendChild(introTitle);
+    const introTitle = document.createElement("h3");
+    introTitle.className = "sidebar-intro-title";
+    introTitle.textContent = siteConfig.blogTitle || "Data Science Blog";
+    introCard.appendChild(introTitle);
 
-  const introText = document.createElement("p");
-  introText.className = "sidebar-intro-text";
-  introText.textContent = getHomeIntro();
-  introCard.appendChild(introText);
-  sidebarExtras.appendChild(introCard);
+    const introText = document.createElement("p");
+    introText.className = "sidebar-intro-text";
+    introText.textContent = getHomeIntro();
+    introCard.appendChild(introText);
+    sidebarExtras.appendChild(introCard);
+  }
 
   if (context.currentPost) {
     const contextCard = document.createElement("section");
