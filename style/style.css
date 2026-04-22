@@ -468,11 +468,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
-  border: 2px solid currentColor;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: currentColor;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0.12rem color-mix(in srgb, currentColor 18%, transparent);
 }
 
 .theme-icon-sun::after {
@@ -480,20 +481,20 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.16rem;
-  height: 0.16rem;
+  width: 0.1rem;
+  height: 0.1rem;
   border-radius: 999px;
   background: currentColor;
   transform: translate(-50%, -50%);
   box-shadow:
-    0 -0.68rem 0 currentColor,
-    0 0.68rem 0 currentColor,
-    0.68rem 0 0 currentColor,
-    -0.68rem 0 0 currentColor,
-    0.48rem 0.48rem 0 currentColor,
-    -0.48rem 0.48rem 0 currentColor,
-    0.48rem -0.48rem 0 currentColor,
-    -0.48rem -0.48rem 0 currentColor;
+    0 -0.78rem 0 0.03rem currentColor,
+    0 0.78rem 0 0.03rem currentColor,
+    0.78rem 0 0 0.03rem currentColor,
+    -0.78rem 0 0 0.03rem currentColor,
+    0.55rem 0.55rem 0 0.03rem currentColor,
+    -0.55rem 0.55rem 0 0.03rem currentColor,
+    0.55rem -0.55rem 0 0.03rem currentColor,
+    -0.55rem -0.55rem 0 0.03rem currentColor;
 }
 
 .theme-icon-moon::before,
@@ -516,24 +517,24 @@
   background: var(--control-bg);
 }
 
-:root[data-theme="light"] .theme-icon-sun,
-:root:not([data-theme="dark"]) .theme-icon-sun {
+:root[data-theme="light"] .theme-icon-moon,
+:root:not([data-theme="dark"]) .theme-icon-moon {
   opacity: 1;
   transform: scale(1);
 }
 
-:root[data-theme="light"] .theme-icon-moon,
-:root:not([data-theme="dark"]) .theme-icon-moon {
-  opacity: 0;
-  transform: scale(0.7);
-}
-
-:root[data-theme="dark"] .theme-icon-sun {
+:root[data-theme="light"] .theme-icon-sun,
+:root:not([data-theme="dark"]) .theme-icon-sun {
   opacity: 0;
   transform: scale(0.7);
 }
 
 :root[data-theme="dark"] .theme-icon-moon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+:root[data-theme="dark"] .theme-icon-sun {
   opacity: 1;
   transform: scale(1);
 }

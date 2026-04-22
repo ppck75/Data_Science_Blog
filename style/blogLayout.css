@@ -1354,19 +1354,25 @@ body.blog-page {
 }
 
 :root[data-theme="dark"] .sidebar-tag,
-:root[data-theme="dark"] .hero-stat-card,
+:root[data-theme="dark"] .hero-chip,
+:root[data-theme="dark"] .hero-stat,
 :root[data-theme="dark"] .blog-card-category,
 :root[data-theme="dark"] .blog-card-category-large,
+:root[data-theme="dark"] .hero-feature-category,
+:root[data-theme="dark"] .hero-category-pill,
 :root[data-theme="dark"] .post-pill,
 :root[data-theme="dark"] .pagination-shell,
 :root[data-theme="dark"] .page-number-button,
+:root[data-theme="dark"] .media-placeholder-badge,
 :root[data-theme="dark"] .search-input-shell {
   background: rgba(24, 33, 48, 0.88);
   color: var(--text-subtle);
+  border-color: var(--border);
 }
 
 :root[data-theme="dark"] .hero-card,
 :root[data-theme="dark"] .hero-panel,
+:root[data-theme="dark"] .hero-feature,
 :root[data-theme="dark"] .blog-card,
 :root[data-theme="dark"] .blog-card-featured,
 :root[data-theme="dark"] .post-prose,
@@ -1389,6 +1395,7 @@ body.blog-page {
 
 :root[data-theme="dark"] .sidebar-intro,
 :root[data-theme="dark"] .content-empty,
+:root[data-theme="dark"] .media-placeholder,
 :root[data-theme="dark"] .post-download-button {
   background:
     linear-gradient(145deg, rgba(122, 166, 255, 0.14), rgba(24, 33, 48, 0.94)),
@@ -1398,9 +1405,24 @@ body.blog-page {
 :root[data-theme="dark"] .post-link,
 :root[data-theme="dark"] .blog-card-title,
 :root[data-theme="dark"] .post-title,
+:root[data-theme="dark"] .hero-feature-title,
+:root[data-theme="dark"] .media-placeholder-name,
 :root[data-theme="dark"] .related-title,
 :root[data-theme="dark"] .site-footer-credit-main,
 :root[data-theme="dark"] .site-footer-credit-sub {
+  color: var(--text-main);
+}
+
+:root[data-theme="dark"] .hero-summary,
+:root[data-theme="dark"] .hero-feature-summary,
+:root[data-theme="dark"] .hero-feature-meta,
+:root[data-theme="dark"] .hero-stat span,
+:root[data-theme="dark"] .media-placeholder {
+  color: var(--text-subtle);
+}
+
+:root[data-theme="dark"] .hero-stat strong,
+:root[data-theme="dark"] .hero-chip {
   color: var(--text-main);
 }
 
@@ -1409,6 +1431,12 @@ body.blog-page {
 :root[data-theme="dark"] .sidebar-category-item:hover {
   border-color: var(--border-strong);
   background: var(--surface-strong);
+}
+
+:root[data-theme="dark"] .hero-feature-thumb,
+:root[data-theme="dark"] .blog-card-image,
+:root[data-theme="dark"] .blog-card-featured-image {
+  background: #101722;
 }
 
 :root[data-theme="dark"] .post-blockquote {
