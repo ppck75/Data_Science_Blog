@@ -1584,6 +1584,12 @@ body.blog-page {
   color: #bfd5ff;
 }
 
+:root[data-theme="dark"] .category-stream-badge {
+  background: rgba(24, 33, 48, 0.92);
+  border: 1px solid rgba(122, 166, 255, 0.18);
+  color: #c9d7ee;
+}
+
 :root[data-theme="dark"] .post-pre,
 :root[data-theme="dark"] .post-code,
 :root[data-theme="dark"] .notebook-prose pre,
