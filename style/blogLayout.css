@@ -1426,6 +1426,18 @@ body.blog-page {
   color: var(--text-main);
 }
 
+:root[data-theme="dark"] .hero-action {
+  background: rgba(24, 33, 48, 0.96);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  box-shadow: var(--shadow-md);
+}
+
+:root[data-theme="dark"] .hero-action:hover {
+  background: var(--surface-strong);
+  border-color: var(--border-strong);
+}
+
 :root[data-theme="dark"] .post-link:hover,
 :root[data-theme="dark"] .sidebar-post-link:hover,
 :root[data-theme="dark"] .sidebar-category-item:hover {

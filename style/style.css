@@ -424,6 +424,8 @@
   background: var(--control-bg);
   color: var(--control-icon);
   box-shadow: var(--control-shadow);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -439,7 +441,6 @@
 .category-toggle-button:focus-visible {
   background: var(--control-bg-hover);
   border-color: var(--border-strong);
-  color: var(--control-icon-strong);
   transform: translateY(-1px);
 }
 
@@ -481,20 +482,28 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.1rem;
-  height: 0.1rem;
-  border-radius: 999px;
-  background: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
   transform: translate(-50%, -50%);
-  box-shadow:
-    0 -0.78rem 0 0.03rem currentColor,
-    0 0.78rem 0 0.03rem currentColor,
-    0.78rem 0 0 0.03rem currentColor,
-    -0.78rem 0 0 0.03rem currentColor,
-    0.55rem 0.55rem 0 0.03rem currentColor,
-    -0.55rem 0.55rem 0 0.03rem currentColor,
-    0.55rem -0.55rem 0 0.03rem currentColor,
-    -0.55rem -0.55rem 0 0.03rem currentColor;
+  background:
+    linear-gradient(currentColor, currentColor) center 0.03rem / 0.1rem 0.28rem no-repeat,
+    linear-gradient(currentColor, currentColor) center calc(100% - 0.03rem) / 0.1rem 0.28rem no-repeat,
+    linear-gradient(currentColor, currentColor) 0.03rem center / 0.28rem 0.1rem no-repeat,
+    linear-gradient(currentColor, currentColor) calc(100% - 0.03rem) center / 0.28rem 0.1rem no-repeat,
+    linear-gradient(45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) 0.18rem 0.18rem / 0.24rem 0.24rem no-repeat,
+    linear-gradient(-45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) calc(100% - 0.18rem) 0.18rem / 0.24rem 0.24rem no-repeat,
+    linear-gradient(-45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) 0.18rem calc(100% - 0.18rem) / 0.24rem 0.24rem no-repeat,
+    linear-gradient(45deg, transparent 47%, currentColor 47%, currentColor 53%, transparent 53%) calc(100% - 0.18rem) calc(100% - 0.18rem) / 0.24rem 0.24rem no-repeat;
+  background-position:
+    center 0.03rem,
+    center calc(100% - 0.03rem),
+    0.03rem center,
+    calc(100% - 0.03rem) center,
+    0.18rem 0.18rem,
+    calc(100% - 0.18rem) 0.18rem,
+    0.18rem calc(100% - 0.18rem),
+    calc(100% - 0.18rem) calc(100% - 0.18rem);
+  border-radius: 50%;
 }
 
 .theme-icon-moon::before,
@@ -507,14 +516,10 @@
 .theme-icon-moon::before {
   inset: 0.12rem 0.16rem 0.16rem 0.16rem;
   background: currentColor;
-}
-
-.theme-icon-moon::after {
-  width: 0.98rem;
-  height: 0.98rem;
-  top: 0.08rem;
-  right: 0.02rem;
-  background: var(--control-bg);
+  -webkit-mask:
+    radial-gradient(circle at 78% 34%, transparent 0 0.46rem, #000 0.48rem);
+  mask:
+    radial-gradient(circle at 78% 34%, transparent 0 0.46rem, #000 0.48rem);
 }
 
 :root[data-theme="light"] .theme-icon-moon,
@@ -544,6 +549,7 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-main);
+  white-space: nowrap;
 }
 
 .category-toggle-button {
@@ -573,7 +579,27 @@
   border-color: var(--border) !important;
 }
 
+@media screen and (max-width: 980px) {
+  .site-nav-actions {
+    gap: 0.45rem;
+  }
+
+  .theme-toggle-button {
+    width: 2.85rem;
+    padding: 0;
+    gap: 0;
+  }
+
+  .theme-toggle-text {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .legacy-mobile-menu-trigger {
+    display: none;
+  }
+
   .site-nav-actions {
     gap: 0.45rem;
     margin-left: 0.55rem;
