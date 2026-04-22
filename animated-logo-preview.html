@@ -164,10 +164,17 @@
         opacity: 0;
         transform: translateX(-24px);
         animation: revealLabel 1s cubic-bezier(0.22, 1, 0.36, 1) 0.38s forwards;
+        isolation: isolate;
       }
 
       .label-image {
         filter: url(#imageShadow);
+      }
+
+      .label-aura {
+        opacity: 0.98;
+        animation: logoAura 4.2s ease-in-out infinite;
+        transform-origin: 400px 430px;
       }
 
       .badge-glow {
@@ -326,12 +333,19 @@
         <svg viewBox="0 0 800 800" role="img" aria-label="Animated Data Science Changyu logo">
           <defs>
             <filter id="imageShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="rgba(18, 60, 102, 0.16)" />
+              <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="rgba(18, 60, 102, 0.1)" />
+              <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="rgba(96, 188, 255, 0.24)" />
+              <feDropShadow dx="0" dy="0" stdDeviation="24" flood-color="rgba(124, 210, 255, 0.12)" />
             </filter>
             <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="rgba(104, 194, 255, 0.26)" />
               <stop offset="55%" stop-color="rgba(104, 194, 255, 0.08)" />
               <stop offset="100%" stop-color="rgba(104, 194, 255, 0)" />
+            </radialGradient>
+            <radialGradient id="labelGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(121, 201, 255, 0.28)" />
+              <stop offset="48%" stop-color="rgba(121, 201, 255, 0.12)" />
+              <stop offset="100%" stop-color="rgba(121, 201, 255, 0)" />
             </radialGradient>
           </defs>
 
@@ -420,13 +434,21 @@
               </g>
 
               <g class="label-group">
+                <ellipse
+                  class="label-aura"
+                  cx="400"
+                  cy="426"
+                  rx="232"
+                  ry="176"
+                  fill="url(#labelGlow)"
+                />
                 <image
                   class="label-image"
-                  href="./img/ChatGPT Image 2026년 4월 18일 오전 01_38_58.png"
-                  x="92"
-                  y="118"
-                  width="616"
-                  height="616"
+                  href="./img/flash.png"
+                  x="84"
+                  y="124"
+                  width="632"
+                  height="632"
                   preserveAspectRatio="xMidYMid meet"
                 />
               </g>
