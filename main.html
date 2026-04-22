@@ -69,6 +69,28 @@
         svg: { fontCache: "global" },
       };
     </script>
+    <script>
+      (function () {
+        var storageKey = "blogTheme";
+        var root = document.documentElement;
+        var theme = "light";
+
+        try {
+          var storedTheme = window.localStorage.getItem(storageKey);
+          if (storedTheme === "light" || storedTheme === "dark") {
+            theme = storedTheme;
+          } else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          ) {
+            theme = "dark";
+          }
+        } catch (error) {}
+
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      })();
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
       defer
@@ -94,12 +116,14 @@
 
         <div id="menu" class="hidden md:flex items-center"></div>
 
-        <button id="search-button" class="ml-10 md:hidden flex">
+        <div class="site-nav-actions">
+          <div class="site-search-shell">
+        <button id="search-button" class="md:hidden flex">
           <span class="sr-only">검색창 열기</span>
         </button>
 
         <div
-          class="search-cont w-80 hidden md:block md:relative absolute z-10 rounded-2xl p-4 border border-graylv2 bottom-[-12px] right-2 xl:right-0 translate-y-full bg-background w-96 max-w-full box-border md:p-0 md:top-0 md:right-0 md:border-0 md:translate-y-0 md:w-80 md:ml-10"
+          class="search-cont w-80 hidden md:block md:relative absolute z-10 rounded-2xl p-4 border border-graylv2 bottom-[-12px] right-0 translate-y-full bg-background w-96 max-w-full box-border md:p-0 md:top-0 md:right-0 md:border-0 md:translate-y-0 md:w-80"
         >
           <label for="search-input">
             <input
@@ -120,9 +144,23 @@
             </button>
           </div>
         </div>
+          </div>
+          <button
+            id="theme-toggle-button"
+            class="theme-toggle-button"
+            type="button"
+            aria-label="&#xB2E4;&#xD06C;&#xBAA8;&#xB4DC;&#xB85C; &#xC804;&#xD658;"
+          >
+            <span class="theme-toggle-glyph" aria-hidden="true">
+              <span class="theme-icon theme-icon-sun"></span>
+              <span class="theme-icon theme-icon-moon"></span>
+            </span>
+            <span id="theme-toggle-text" class="theme-toggle-text">&#xB2E4;&#xD06C;&#xBAA8;&#xB4DC;</span>
+          </button>
         <button id="category-toggle-button" class="category-toggle-button" type="button" aria-label="Open category overview">
           <span class="category-toggle-icon" aria-hidden="true"></span>
         </button>
+        </div>
       </nav>
 
       <div
@@ -187,5 +225,6 @@
     <script src="js/render.js"></script>
 
     <script src="js/registry.js"></script>
+    <script src="js/themeToggle.js"></script>
   </body>
 </html>

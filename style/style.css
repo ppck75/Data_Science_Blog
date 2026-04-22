@@ -371,6 +371,225 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.site-nav-actions {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  position: relative;
+}
+
+.site-search-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#menu-button,
+#search-button {
+  background-color: var(--control-icon);
+  transition: background-color 0.2s ease;
+}
+
+#menu-button:hover,
+#menu-button.active,
+#search-button:hover,
+#search-button.active {
+  background-color: var(--control-icon-strong);
+}
+
+.search-cont {
+  margin-left: 0;
+}
+
+.search-input {
+  color: var(--text-main);
+  background: color-mix(in srgb, var(--page-bg-strong) 92%, white 8%) !important;
+}
+
+.search-input::placeholder {
+  color: var(--text-soft);
+}
+
+.theme-toggle-button,
+.category-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  height: 2.85rem;
+  padding: 0 0.95rem;
+  border: 1px solid var(--control-border);
+  border-radius: 999px;
+  background: var(--control-bg);
+  color: var(--control-icon);
+  box-shadow: var(--control-shadow);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.theme-toggle-button:hover,
+.theme-toggle-button:focus-visible,
+.category-toggle-button:hover,
+.category-toggle-button.is-active,
+.category-toggle-button:focus-visible {
+  background: var(--control-bg-hover);
+  border-color: var(--border-strong);
+  color: var(--control-icon-strong);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-button:focus-visible,
+.category-toggle-button:focus-visible {
+  outline: 0;
+}
+
+.theme-toggle-glyph {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 1.5rem;
+}
+
+.theme-icon {
+  position: absolute;
+  inset: 0;
+  color: currentColor;
+  transform-origin: center;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.theme-icon-sun::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.theme-icon-sun::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 -0.68rem 0 currentColor,
+    0 0.68rem 0 currentColor,
+    0.68rem 0 0 currentColor,
+    -0.68rem 0 0 currentColor,
+    0.48rem 0.48rem 0 currentColor,
+    -0.48rem 0.48rem 0 currentColor,
+    0.48rem -0.48rem 0 currentColor,
+    -0.48rem -0.48rem 0 currentColor;
+}
+
+.theme-icon-moon::before,
+.theme-icon-moon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.theme-icon-moon::before {
+  inset: 0.12rem 0.16rem 0.16rem 0.16rem;
+  background: currentColor;
+}
+
+.theme-icon-moon::after {
+  width: 0.98rem;
+  height: 0.98rem;
+  top: 0.08rem;
+  right: 0.02rem;
+  background: var(--control-bg);
+}
+
+:root[data-theme="light"] .theme-icon-sun,
+:root:not([data-theme="dark"]) .theme-icon-sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+:root[data-theme="light"] .theme-icon-moon,
+:root:not([data-theme="dark"]) .theme-icon-moon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+:root[data-theme="dark"] .theme-icon-sun {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+:root[data-theme="dark"] .theme-icon-moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.theme-toggle-text {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.category-toggle-button {
+  width: 2.85rem;
+  padding: 0;
+  margin-left: 0;
+}
+
+.category-toggle-icon,
+.category-toggle-icon::before,
+.category-toggle-icon::after {
+  width: 18px;
+  height: 2px;
+}
+
+.category-toggle-icon::before {
+  top: -6px;
+}
+
+.category-toggle-icon::after {
+  top: 6px;
+}
+
+:root[data-theme="dark"] #mobileMenu,
+:root[data-theme="dark"] .search-cont {
+  background: var(--surface-strong) !important;
+  border-color: var(--border) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .site-nav-actions {
+    gap: 0.45rem;
+    margin-left: 0.55rem;
+  }
+
+  .theme-toggle-button,
+  .category-toggle-button {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+  }
+
+  .theme-toggle-text {
+    display: none;
+  }
+}
+
 .category-overview-list {
   display: flex;
   flex-direction: column;

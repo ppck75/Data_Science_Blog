@@ -18,6 +18,34 @@
   --radius-lg: 24px;
   --radius-md: 18px;
   --max-copy: 760px;
+  --control-bg: rgba(255, 255, 255, 0.82);
+  --control-bg-hover: #ffffff;
+  --control-border: rgba(207, 216, 230, 0.9);
+  --control-icon: #6b778c;
+  --control-icon-strong: #172033;
+  --control-shadow: 0 8px 22px rgba(23, 32, 51, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --page-bg: #0f141c;
+  --page-bg-strong: #121925;
+  --surface: rgba(20, 27, 38, 0.88);
+  --surface-strong: #182130;
+  --border: #293448;
+  --border-strong: #33425a;
+  --text-main: #edf2fb;
+  --text-subtle: #a9b5c9;
+  --text-soft: #7d8aa1;
+  --accent: #7aa6ff;
+  --accent-soft: rgba(122, 166, 255, 0.16);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 14px 32px rgba(0, 0, 0, 0.22);
+  --control-bg: rgba(24, 33, 48, 0.9);
+  --control-bg-hover: rgba(30, 42, 61, 0.98);
+  --control-border: rgba(63, 78, 101, 0.95);
+  --control-icon: #d2d9e6;
+  --control-icon-strong: #ffffff;
+  --control-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
 }
 
 body.blog-page {
@@ -27,8 +55,8 @@ body.blog-page {
 }
 
 .site-header {
-  background: rgba(255, 255, 255, 0.84);
-  border-bottom: 1px solid rgba(207, 216, 230, 0.8);
+  background: color-mix(in srgb, var(--page-bg-strong) 82%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
   backdrop-filter: blur(18px);
 }
 
@@ -1323,4 +1351,85 @@ body.blog-page {
   .site-footer-credit-sub {
     font-size: 0.86rem;
   }
+}
+
+:root[data-theme="dark"] .sidebar-tag,
+:root[data-theme="dark"] .hero-stat-card,
+:root[data-theme="dark"] .blog-card-category,
+:root[data-theme="dark"] .blog-card-category-large,
+:root[data-theme="dark"] .post-pill,
+:root[data-theme="dark"] .pagination-shell,
+:root[data-theme="dark"] .page-number-button,
+:root[data-theme="dark"] .search-input-shell {
+  background: rgba(24, 33, 48, 0.88);
+  color: var(--text-subtle);
+}
+
+:root[data-theme="dark"] .hero-card,
+:root[data-theme="dark"] .hero-panel,
+:root[data-theme="dark"] .blog-card,
+:root[data-theme="dark"] .blog-card-featured,
+:root[data-theme="dark"] .post-prose,
+:root[data-theme="dark"] .notebook-prose,
+:root[data-theme="dark"] .related-card,
+:root[data-theme="dark"] .sidebar-card,
+:root[data-theme="dark"] .toc-panel,
+:root[data-theme="dark"] .content-empty,
+:root[data-theme="dark"] .site-footer-credit {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+:root[data-theme="dark"] .hero-card {
+  background:
+    radial-gradient(circle at top right, rgba(122, 166, 255, 0.18), transparent 46%),
+    linear-gradient(180deg, rgba(24, 33, 48, 0.98), rgba(18, 25, 37, 0.96));
+}
+
+:root[data-theme="dark"] .sidebar-intro,
+:root[data-theme="dark"] .content-empty,
+:root[data-theme="dark"] .post-download-button {
+  background:
+    linear-gradient(145deg, rgba(122, 166, 255, 0.14), rgba(24, 33, 48, 0.94)),
+    var(--surface);
+}
+
+:root[data-theme="dark"] .post-link,
+:root[data-theme="dark"] .blog-card-title,
+:root[data-theme="dark"] .post-title,
+:root[data-theme="dark"] .related-title,
+:root[data-theme="dark"] .site-footer-credit-main,
+:root[data-theme="dark"] .site-footer-credit-sub {
+  color: var(--text-main);
+}
+
+:root[data-theme="dark"] .post-link:hover,
+:root[data-theme="dark"] .sidebar-post-link:hover,
+:root[data-theme="dark"] .sidebar-category-item:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+
+:root[data-theme="dark"] .post-blockquote {
+  background: linear-gradient(90deg, rgba(122, 166, 255, 0.12), rgba(122, 166, 255, 0.03));
+  color: var(--text-subtle);
+}
+
+:root[data-theme="dark"] .post-pre,
+:root[data-theme="dark"] .post-code,
+:root[data-theme="dark"] .notebook-prose pre,
+:root[data-theme="dark"] .notebook-prose code {
+  background: #111823;
+  border-color: var(--border);
+  color: #edf2fb;
+}
+
+:root[data-theme="dark"] .post-table th,
+:root[data-theme="dark"] .post-table td {
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .post-table thead th {
+  background: rgba(24, 33, 48, 0.94);
 }

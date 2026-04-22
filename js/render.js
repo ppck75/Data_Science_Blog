@@ -697,7 +697,7 @@ async function renderMenu() {
       return;
     }
 
-    if (event.target === searchButton) {
+    if (event.target === searchButton || searchButton.contains(event.target)) {
       searchInputShow = !searchInputShow;
       searchButton.classList.toggle("active", searchInputShow);
       searchCont.classList.toggle("hidden", !searchInputShow);
