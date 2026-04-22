@@ -1490,7 +1490,8 @@ body.blog-page {
 :root[data-theme="dark"] .content-empty,
 :root[data-theme="dark"] .media-placeholder,
 :root[data-theme="dark"] .post-download-button,
-:root[data-theme="dark"] .post-info-chip {
+:root[data-theme="dark"] .post-info-chip,
+:root[data-theme="dark"] .sidebar-stat-item {
   background:
     linear-gradient(145deg, rgba(122, 166, 255, 0.14), rgba(24, 33, 48, 0.94)),
     var(--surface);
@@ -1558,6 +1559,29 @@ body.blog-page {
 :root[data-theme="dark"] .post-blockquote {
   background: linear-gradient(90deg, rgba(122, 166, 255, 0.12), rgba(122, 166, 255, 0.03));
   color: var(--text-subtle);
+}
+
+:root[data-theme="dark"] .post-paragraph,
+:root[data-theme="dark"] .post-list,
+:root[data-theme="dark"] .post-list-item,
+:root[data-theme="dark"] .notebook-prose p,
+:root[data-theme="dark"] .notebook-prose li,
+:root[data-theme="dark"] .notebook-prose td,
+:root[data-theme="dark"] .notebook-prose th {
+  color: #d7e0f0;
+}
+
+:root[data-theme="dark"] .notebook-prose strong,
+:root[data-theme="dark"] .post-strong {
+  color: #f4f7ff;
+}
+
+:root[data-theme="dark"] .post-link {
+  color: #8fb5ff;
+}
+
+:root[data-theme="dark"] .post-link:hover {
+  color: #bfd5ff;
 }
 
 :root[data-theme="dark"] .post-pre,
