@@ -596,12 +596,13 @@
     </main>
 
     <noscript>
-      <meta http-equiv="refresh" content="3;url=main.html" />
+      <meta http-equiv="refresh" content="3;url=./" />
     </noscript>
 
     <script>
+      window.sessionStorage.setItem("blogSplashSeen", "true");
       window.setTimeout(function () {
-        window.location.href = "main.html";
+        window.location.href = "./";
       }, 3000);
     </script>
   </body>
