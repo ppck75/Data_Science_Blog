@@ -1145,18 +1145,27 @@ body.blog-page {
 .post-pager-item {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  justify-content: space-between;
+  gap: 1rem;
   min-width: 0;
-  padding: 0.35rem 0;
-  border: none;
-  background: transparent;
+  min-height: 108px;
+  width: 100%;
+  padding: 1.05rem 1.15rem;
+  border: 1px solid rgba(221, 228, 239, 0.95);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 247, 253, 0.96));
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
   color: var(--text-main);
   text-align: left;
   cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .post-pager-item.is-next {
-  justify-content: flex-end;
   text-align: right;
 }
 
@@ -1167,25 +1176,26 @@ body.blog-page {
 
 .post-pager-arrow {
   flex: 0 0 auto;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1;
-  color: var(--text-main);
+  color: var(--text-soft);
 }
 
 .post-pager-body {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  justify-content: center;
+  gap: 0.35rem;
   min-width: 0;
+  flex: 1 1 auto;
   max-width: 100%;
 }
 
 .post-pager-label {
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--text-soft);
-  padding: 0 0.15rem;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
 }
 
 .post-pager-title {
@@ -1195,25 +1205,14 @@ body.blog-page {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 1.02rem;
-  font-weight: 700;
-  line-height: 1.4;
-  padding: 0.95rem 1.1rem;
-  border: 1px solid rgba(221, 228, 239, 0.95);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 247, 253, 0.96));
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease,
-    color 0.2s ease;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text-soft);
 }
 
-.post-pager-item:hover .post-pager-title,
-.post-pager-item:focus-visible .post-pager-title {
-  color: var(--accent);
+.post-pager-item:hover,
+.post-pager-item:focus-visible {
   border-color: rgba(46, 111, 242, 0.22);
   box-shadow: 0 14px 28px rgba(46, 111, 242, 0.12);
   transform: translateY(-1px);
@@ -1507,7 +1506,7 @@ body.blog-page {
   }
 
   .post-pager-title {
-    max-width: calc(100vw - 7rem);
+    max-width: calc(100vw - 8.5rem);
   }
 
   .related-grid {
