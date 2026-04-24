@@ -1125,6 +1125,96 @@ function createAuthorCard(currentPost) {
   return card;
 }
 
+function getPostIdentity(info = {}) {
+  return [
+    info.date,
+    info.title,
+    info.category,
+    info.fileType,
+    info.thumbnailName,
+  ].join("::");
+}
+
+function getAdjacentPostEntries(currentPost) {
+  const entries = getPostEntries();
+  const currentIdentity = getPostIdentity(currentPost);
+  const currentIndex = entries.findIndex(
+    ({ info }) => getPostIdentity(info) === currentIdentity
+  );
+
+  if (currentIndex === -1) {
+    return { previous: null, next: null };
+  }
+
+  return {
+    previous: entries[currentIndex + 1] || null,
+    next: entries[currentIndex - 1] || null,
+  };
+}
+
+function createPostPagerItem(direction, entry) {
+  const item = document.createElement("button");
+  item.type = "button";
+  item.className = "post-pager-item";
+
+  if (!entry) {
+    item.classList.add("is-disabled");
+    item.disabled = true;
+    item.setAttribute("aria-hidden", "true");
+    return item;
+  }
+
+  const isPrevious = direction === "previous";
+  item.classList.add(isPrevious ? "is-previous" : "is-next");
+  item.setAttribute(
+    "aria-label",
+    `${isPrevious ? "\uC774\uC804 \uAE00" : "\uB2E4\uC74C \uAE00"}: ${entry.info.title}`
+  );
+  item.addEventListener("click", () => openPost(entry.post, entry.info));
+
+  const arrow = document.createElement("span");
+  arrow.className = "post-pager-arrow";
+  arrow.textContent = isPrevious ? "<" : ">";
+
+  const body = document.createElement("span");
+  body.className = "post-pager-body";
+
+  const label = document.createElement("span");
+  label.className = "post-pager-label";
+  label.textContent = isPrevious ? "\uC774\uC804 \uAE00" : "\uB2E4\uC74C \uAE00";
+
+  const title = document.createElement("span");
+  title.className = "post-pager-title";
+  title.textContent = entry.info.title;
+
+  body.append(label, title);
+
+  if (isPrevious) {
+    item.append(arrow, body);
+  } else {
+    item.append(body, arrow);
+  }
+
+  return item;
+}
+
+function createPostPager(currentPost) {
+  const { previous, next } = getAdjacentPostEntries(currentPost);
+
+  if (!previous && !next) {
+    return null;
+  }
+
+  const pager = document.createElement("section");
+  pager.className = "post-pager";
+  pager.append(
+    createPostPagerItem("previous", previous),
+    createPostPagerItem("next", next)
+  );
+
+  return pager;
+}
+
 function getRelatedEntries(currentPost, limit = 4) {
   const entries = getPostEntries().filter(
     ({ info }) => info.title !== currentPost.title
@@ -1147,30 +1237,9 @@ function appendPostDetailModules(contentsDiv, currentPost) {
   const footer = document.createElement("section");
   footer.className = "post-footer-stack";
 
-  const sameCategoryPosts = getPostEntries()
-    .filter(
-      ({ info }) =>
-        info.category === currentPost.category && info.title !== currentPost.title
-    )
-    .slice(0, 5);
-
-  if (sameCategoryPosts.length > 0) {
-    const categoryModule = document.createElement("section");
-    categoryModule.className = "post-module";
-
-    const head = document.createElement("div");
-    head.className = "post-module-header";
-    head.innerHTML = `<div><p class="post-module-kicker">Category</p><h3 class="post-module-title">이 블로그 ${currentPost.category} 카테고리 글</h3></div><span class="post-module-arrow">→</span>`;
-    head.replaceChildren(head.firstElementChild || head.firstChild);
-    categoryModule.appendChild(head);
-
-    const list = document.createElement("div");
-    list.className = "category-stream";
-    sameCategoryPosts.forEach((entry) => {
-      list.appendChild(createCategoryStreamItem(entry));
-    });
-    categoryModule.appendChild(list);
-    footer.appendChild(categoryModule);
+  const pager = createPostPager(currentPost);
+  if (pager) {
+    footer.appendChild(pager);
   }
 
   const relatedPosts = getRelatedEntries(currentPost, 4);
