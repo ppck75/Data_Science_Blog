@@ -7,13 +7,21 @@
     <title>Data Science Blog | Changyu</title>
 
     <meta property="og:title" content="Data Science blog | Changyu" />
-    <meta property="og:description" content="?店硠 路 毹胳嫚?嫕 路 ?ル煬??路 ?办澊??攵勳劃 旮半" />
+    <meta
+      property="og:description"
+      content="데이터 분석과 코딩, 연구 노트를 정리하는 개인 블로그입니다."
+    />
     <meta property="og:type" content="website" />
 
     <script>
+      const ENABLE_ANIMATED_LOGO_PREVIEW = false; // 나중에 다시 쓰려면 true로 바꾸세요.
+
       (function () {
         try {
-          if (window.sessionStorage.getItem("blogSplashSeen") !== "true") {
+          if (
+            ENABLE_ANIMATED_LOGO_PREVIEW &&
+            window.sessionStorage.getItem("blogSplashSeen") !== "true"
+          ) {
             window.location.replace("animated-logo-preview.html");
           }
         } catch (error) {}
@@ -120,7 +128,7 @@
 
         <div class="legacy-mobile-menu-trigger md:hidden w-6 h-6">
           <button id="menu-button">
-            <span class="sr-only">氅旊壌 ?搓赴</span>
+            <span class="sr-only">메뉴 열기</span>
           </button>
         </div>
 
@@ -129,7 +137,7 @@
         <div class="site-nav-actions">
           <div class="site-search-shell">
             <button id="search-button" class="md:hidden flex">
-              <span class="sr-only">瓴€?夓敖 ?搓赴</span>
+              <span class="sr-only">검색창 열기</span>
             </button>
 
             <div
@@ -147,10 +155,10 @@
                 class="btn-cont flex gap-2 justify-cetner items-center absolute top-1/2 md:right-4 right-8 -translate-y-1/2"
               >
                 <button class="reset-inp-btn hidden">
-                  <span class="sr-only">瓴€?夓柎 齑堦赴??/span>
+                  <span class="sr-only">검색어 지우기</span>
                 </button>
                 <button class="search-inp-btn">
-                  <span class="sr-only">瓴€?夗晿旮?/span>
+                  <span class="sr-only">검색</span>
                 </button>
               </div>
             </div>
@@ -165,9 +173,16 @@
               <span class="theme-icon theme-icon-sun"></span>
               <span class="theme-icon theme-icon-moon"></span>
             </span>
-            <span id="theme-toggle-text" class="theme-toggle-text">&#xB2E4;&#xD06C;&#xBAA8;&#xB4DC;</span>
+            <span id="theme-toggle-text" class="theme-toggle-text"
+              >&#xB2E4;&#xD06C;&#xBAA8;&#xB4DC;</span
+            >
           </button>
-          <button id="category-toggle-button" class="category-toggle-button" type="button" aria-label="Open category overview">
+          <button
+            id="category-toggle-button"
+            class="category-toggle-button"
+            type="button"
+            aria-label="Open category overview"
+          >
             <span class="category-toggle-icon" aria-hidden="true"></span>
           </button>
         </div>
@@ -179,17 +194,30 @@
       ></div>
     </header>
 
-    <div id="category-overview-overlay" class="category-overview-overlay" hidden>
+    <div
+      id="category-overview-overlay"
+      class="category-overview-overlay"
+      hidden
+    >
       <aside class="category-overview-panel" aria-label="Category overview">
         <header class="category-overview-head">
-          <h2 class="category-overview-title">All Categories (<span id="category-overview-total">0</span>)</h2>
-          <button id="category-overview-close" type="button" class="category-overview-close" aria-label="Close"></button>
+          <h2 class="category-overview-title">
+            All Categories (<span id="category-overview-total">0</span>)
+          </h2>
+          <button
+            id="category-overview-close"
+            type="button"
+            class="category-overview-close"
+            aria-label="Close"
+          ></button>
         </header>
         <div id="category-overview-list" class="category-overview-list"></div>
       </aside>
     </div>
 
-    <main class="site-main container px-4 pb-10 w-full mx-auto max-w-[1240px] md:px-8 md:pt-10">
+    <main
+      class="site-main container px-4 pb-10 w-full mx-auto max-w-[1240px] md:px-8 md:pt-10"
+    >
       <section id="home-hero" class="home-hero mb-8"></section>
 
       <div class="blog-shell">
@@ -216,8 +244,12 @@
     </main>
 
     <footer class="site-footer-credit" aria-label="Site credit">
-      <p class="site-footer-credit-main">2026 Changyu Park | Research Notes Archive</p>
-      <p class="site-footer-credit-sub">Forked from weniv/weniv_blog and redesigned by Changyu Park</p>
+      <p class="site-footer-credit-main">
+        2026 Changyu Park | Research Notes Archive
+      </p>
+      <p class="site-footer-credit-sub">
+        Forked from weniv/weniv_blog and redesigned by Changyu Park
+      </p>
     </footer>
 
     <script src="js/utils.js"></script>
