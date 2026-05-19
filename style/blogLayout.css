@@ -18,6 +18,9 @@
   --radius-lg: 24px;
   --radius-md: 18px;
   --max-copy: 760px;
+  --font-blog-sans: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+  --font-blog-mono: "D2Coding", "JetBrains Mono", Menlo, Consolas, monospace;
   --control-bg: rgba(255, 255, 255, 0.82);
   --control-bg-hover: #ffffff;
   --control-border: rgba(207, 216, 230, 0.9);
@@ -50,6 +53,7 @@
 
 body.blog-page {
   min-height: 100vh;
+  font-family: var(--font-blog-sans);
   background: var(--page-bg);
   color: var(--text-main);
 }
@@ -227,8 +231,7 @@ body.blog-page {
 .sidebar-intro-title {
   margin: 0 0 0.6rem;
   font-size: 1.35rem;
-  font-family: "Pretendard", "Pretendard Variable", "Apple SD Gothic Neo",
-    "Malgun Gothic", sans-serif;
+  font-family: var(--font-blog-sans);
   font-weight: 700;
   letter-spacing: -0.04em;
 }
@@ -342,8 +345,7 @@ body.blog-page {
   position: relative;
   z-index: 1;
   margin: 0;
-  font-family: "Pretendard", "Pretendard Variable", "Apple SD Gothic Neo",
-    "Malgun Gothic", sans-serif;
+  font-family: var(--font-blog-sans);
   font-weight: 600;
   font-size: clamp(1.85rem, 3.7vw, 3.05rem);
   line-height: 1.05;
@@ -989,6 +991,13 @@ body.blog-page {
 .post-code {
   background: transparent;
   font-size: 0.95rem;
+}
+
+.post-pre,
+.post-code,
+.notebook-prose pre,
+.notebook-prose code {
+  font-family: var(--font-blog-mono);
 }
 
 .post-table-wrap {
