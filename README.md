@@ -20,5 +20,5 @@
 
 ## 출처
 - 원본 테마: WENIVLOG
-- 링크: https://github.com/weniv/github_blog
+- 링크: https://github.com/weniv/github_blog  
 *이 블로그는 주식회사 위니브(Weniv)의 weniv/weniv_blog 템플릿을 활용하였습니다*
