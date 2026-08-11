@@ -8,39 +8,6 @@ The blog's content is written in Korean.
 
 More than simply a place to publish posts, this blog is a portfolio project built by customizing a static website hosted on GitHub Pages. Based on the original WENIVLOG theme, it extends key aspects of the frontend experience—including the overall layout, content rendering, category navigation, search, dark mode, and post detail pages—to suit the blog's purpose.
 
-## Implementation
-
-This blog is deployed as static files on **GitHub Pages** without a separate backend server. The HTML, CSS, and JavaScript files run in the browser, which reads files from the GitHub repository and renders the post list and menu information.
-
-In the production environment, JavaScript calls the GitHub API to retrieve the lists of posts and menus from the repository. The browser parses the retrieved file list using regular expressions, and the date, title, category, thumbnail, description, and author encoded in each filename are used as post metadata. The local development environment can use local JSON data instead of the GitHub API, accommodating API rate limits and local testing scenarios.
-
-Post content can be written in either Markdown or Jupyter Notebook format. Markdown posts are converted to HTML with `marked.js`, and code blocks receive syntax highlighting through `highlight.js`. For Jupyter Notebook posts, the blog reads the cell structure of each `.ipynb` file and converts Markdown and Code cells to HTML. It also displays code execution results, tables, and image outputs. MathJax is used for mathematical notation, making posts that require equations—such as notes on linear algebra, machine learning, and deep learning—readable directly within the blog.
-
-The displayed view is determined by the URL query string. The default view shows the complete list of posts, URLs in the form `?post=...` render a specific post's detail page, and URLs in the form `?menu=...` display the introduction page or another standalone menu page. When users select a post or navigate between menus, the History API updates the URL, allowing the same content to remain accessible after a refresh or through a directly shared link.
-
-The post list view provides a home section and a card-based post list featuring the latest posts, total number of posts, main categories, and number of posts in each category. The search field supports keyword searches based on filenames and metadata, while category buttons filter the list to posts on the selected topic. Pagination is also implemented to accommodate a growing number of posts.
-
-## Writing and Publishing Posts
-
-Posts follow a predefined filename convention. The blog currently uses the following formats:
-
-```text
-[YYYYMMDD]_[title]_[category]_[thumbnail]_[description]_[author].md
-[YYYYMMDD]_[title]_[category]_[thumbnail]_[description]_[author].ipynb
-```
-
-Each field is used as metadata for the post view. `YYYYMMDD` is the publication date, `title` is the post title, `category` is the category, `thumbnail` is the featured image, `description` is the summary displayed on the post card and detail page, and `author` is linked to the author information. If the author field is left empty, the default author is used.
-
-Posts are published through the following process:
-
-1. Write the learning content in Markdown or Jupyter Notebook format.
-2. Name the file according to the blog's filename convention.
-3. When using a thumbnail, include the image filename in the metadata and manage the image file alongside the post.
-4. Add the completed post to the repository and push it to GitHub.
-5. After GitHub Pages deploys the static files, the blog's JavaScript adds the new post to the list.
-
-In other words, posts can be published by adding files to the repository without using a separate admin interface or database. Post ordering, category classification, card information, and the title area of the detail page are all generated dynamically in the browser based on the filename and body content.
-
 ## Main Topics
 
 The blog covers a range of topics centered on the data science learning journey.
