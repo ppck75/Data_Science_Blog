@@ -4,6 +4,8 @@
 
 **Data Science Blog | Changyu** is a personal technical blog that documents my learning journey in data science, artificial intelligence, and data analysis. It serves as a learning archive where I organize and build upon knowledge gained from university courses, online courses, books, research papers, projects, and hands-on exercises.
 
+The blog's content is written in Korean.
+
 More than simply a place to publish posts, this blog is a portfolio project built by customizing a static website hosted on GitHub Pages. Based on the original WENIVLOG theme, it extends key aspects of the frontend experience—including the overall layout, content rendering, category navigation, search, dark mode, and post detail pages—to suit the blog's purpose.
 
 ## Implementation
