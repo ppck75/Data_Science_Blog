@@ -1,89 +1,91 @@
 # Data Science Blog | Changyu
 
-## 블로그 소개
+## About the Blog
 
-**Data Science Blog | Changyu**는 데이터 사이언스, 인공지능, 데이터 분석 학습 과정을 기록하기 위해 운영하는 개인 기술 블로그입니다. 학교 수업, 온라인 강의, 서적, 논문, 프로젝트, 실습 과정에서 배운 내용을 다시 정리하고 축적하는 학습 아카이브로 사용하고 있습니다.
+**Data Science Blog | Changyu** is a personal technical blog that documents my learning journey in data science, artificial intelligence, and data analysis. It serves as a learning archive where I organize and build upon knowledge gained from university courses, online courses, books, research papers, projects, and hands-on exercises.
 
-이 블로그는 단순히 글을 게시하는 공간이 아니라, GitHub Pages 기반의 정적 웹 블로그를 직접 커스터마이징하여 구현한 포트폴리오 프로젝트입니다. 원본 WENIVLOG 테마를 기반으로 하되, 블로그의 전체 화면 구성, 콘텐츠 렌더링 방식, 카테고리 탐색, 검색, 다크모드, 게시글 상세 화면 등 주요 프론트엔드 경험을 현재 블로그의 목적에 맞게 확장했습니다.
+The blog's content is written in Korean.
 
-## 구현 방식
+More than simply a place to publish posts, this blog is a portfolio project built by customizing a static website hosted on GitHub Pages. Based on the original WENIVLOG theme, it extends key aspects of the frontend experience—including the overall layout, content rendering, category navigation, search, dark mode, and post detail pages—to suit the blog's purpose.
 
-이 블로그는 별도의 백엔드 서버 없이 **GitHub Pages**에서 정적 파일로 배포됩니다. HTML, CSS, JavaScript 파일이 브라우저에서 실행되며, 게시글 목록과 메뉴 정보는 GitHub 저장소의 파일을 읽어와 화면에 렌더링하는 방식으로 동작합니다.
+## Implementation
 
-배포 환경에서는 JavaScript가 GitHub API를 호출해 저장소 안의 게시글 목록과 메뉴 목록을 가져옵니다. 가져온 파일 목록은 브라우저에서 정규표현식으로 파싱되고, 파일명에 포함된 날짜, 제목, 카테고리, 썸네일, 설명, 작성자 정보가 각각 게시글 메타데이터로 사용됩니다. 로컬 개발 환경에서는 GitHub API 대신 로컬 JSON 데이터를 사용할 수 있도록 분기되어 있어, API 호출 제한이나 로컬 테스트 상황에도 대응할 수 있습니다.
+This blog is deployed as static files on **GitHub Pages** without a separate backend server. The HTML, CSS, and JavaScript files run in the browser, which reads files from the GitHub repository and renders the post list and menu information.
 
-게시글 본문은 Markdown 또는 Jupyter Notebook 형식으로 작성할 수 있습니다. Markdown 게시글은 `marked.js`로 HTML로 변환되고, 코드 블록은 `highlight.js`로 문법 강조가 적용됩니다. Jupyter Notebook 게시글은 `.ipynb`의 셀 구조를 읽어 Markdown 셀과 Code 셀을 각각 HTML로 변환하며, 코드 실행 결과, 표, 이미지 출력도 함께 표시할 수 있도록 처리했습니다. 수식 표현을 위해 MathJax도 적용되어 있어 선형대수학, 머신러닝, 딥러닝 개념 정리처럼 수식이 필요한 글도 블로그 안에서 읽을 수 있습니다.
+In the production environment, JavaScript calls the GitHub API to retrieve the lists of posts and menus from the repository. The browser parses the retrieved file list using regular expressions, and the date, title, category, thumbnail, description, and author encoded in each filename are used as post metadata. The local development environment can use local JSON data instead of the GitHub API, accommodating API rate limits and local testing scenarios.
 
-화면은 URL의 쿼리스트링을 기준으로 상태가 바뀌는 구조입니다. 기본 화면에서는 전체 게시글 목록을 보여주고, `?post=...` 형태의 URL에서는 특정 게시글 상세 화면을 렌더링하며, `?menu=...` 형태의 URL에서는 소개 페이지나 별도 메뉴 페이지를 표시합니다. 사용자가 게시글을 클릭하거나 메뉴를 이동할 때는 History API를 사용해 URL을 갱신하므로, 새로고침하거나 링크를 직접 공유해도 해당 콘텐츠로 접근할 수 있습니다.
+Post content can be written in either Markdown or Jupyter Notebook format. Markdown posts are converted to HTML with `marked.js`, and code blocks receive syntax highlighting through `highlight.js`. For Jupyter Notebook posts, the blog reads the cell structure of each `.ipynb` file and converts Markdown and Code cells to HTML. It also displays code execution results, tables, and image outputs. MathJax is used for mathematical notation, making posts that require equations—such as notes on linear algebra, machine learning, and deep learning—readable directly within the blog.
 
-게시글 목록 화면에는 최신 글, 전체 글 수, 주요 카테고리, 카테고리별 글 수를 바탕으로 구성된 홈 영역과 카드형 글 목록이 제공됩니다. 검색창에서는 파일명과 메타데이터를 기반으로 키워드 검색이 가능하고, 카테고리 버튼을 누르면 해당 주제의 글만 필터링됩니다. 글이 많아지는 상황을 고려해 페이지네이션도 적용했습니다.
+The displayed view is determined by the URL query string. The default view shows the complete list of posts, URLs in the form `?post=...` render a specific post's detail page, and URLs in the form `?menu=...` display the introduction page or another standalone menu page. When users select a post or navigate between menus, the History API updates the URL, allowing the same content to remain accessible after a refresh or through a directly shared link.
 
-## 게시글 작성과 업로드 방식
+The post list view provides a home section and a card-based post list featuring the latest posts, total number of posts, main categories, and number of posts in each category. The search field supports keyword searches based on filenames and metadata, while category buttons filter the list to posts on the selected topic. Pagination is also implemented to accommodate a growing number of posts.
 
-게시글은 정해진 파일명 규칙에 맞춰 작성합니다. 현재 블로그에서 사용하는 기본 형식은 다음과 같습니다.
+## Writing and Publishing Posts
+
+Posts follow a predefined filename convention. The blog currently uses the following formats:
 
 ```text
 [YYYYMMDD]_[title]_[category]_[thumbnail]_[description]_[author].md
 [YYYYMMDD]_[title]_[category]_[thumbnail]_[description]_[author].ipynb
 ```
 
-각 항목은 게시글 화면을 구성하는 메타데이터로 사용됩니다. `YYYYMMDD`는 작성일, `title`은 게시글 제목, `category`는 카테고리, `thumbnail`은 대표 이미지, `description`은 카드와 상세 화면에 표시되는 요약문, `author`는 작성자 정보와 연결됩니다. 작성자를 비워두면 기본 작성자로 처리됩니다.
+Each field is used as metadata for the post view. `YYYYMMDD` is the publication date, `title` is the post title, `category` is the category, `thumbnail` is the featured image, `description` is the summary displayed on the post card and detail page, and `author` is linked to the author information. If the author field is left empty, the default author is used.
 
-글을 업로드하는 과정은 다음 흐름으로 이루어집니다.
+Posts are published through the following process:
 
-1. Markdown 또는 Jupyter Notebook으로 학습 내용을 작성합니다.
-2. 파일명을 블로그 규칙에 맞게 지정합니다.
-3. 썸네일을 사용할 경우 이미지 파일명을 메타데이터에 넣고, 이미지 파일을 함께 관리합니다.
-4. 작성한 게시글을 저장소에 추가하고 GitHub에 push합니다.
-5. GitHub Pages가 정적 파일을 배포하면, 블로그의 JavaScript가 새 게시글을 목록에 반영합니다.
+1. Write the learning content in Markdown or Jupyter Notebook format.
+2. Name the file according to the blog's filename convention.
+3. When using a thumbnail, include the image filename in the metadata and manage the image file alongside the post.
+4. Add the completed post to the repository and push it to GitHub.
+5. After GitHub Pages deploys the static files, the blog's JavaScript adds the new post to the list.
 
-즉, 별도의 관리자 페이지나 데이터베이스를 사용하지 않고도 저장소에 파일을 추가하는 방식으로 글을 발행할 수 있습니다. 게시글의 정렬, 카테고리 분류, 카드 정보, 상세 페이지 제목 영역은 모두 파일명과 본문 내용을 기반으로 브라우저에서 동적으로 생성됩니다.
+In other words, posts can be published by adding files to the repository without using a separate admin interface or database. Post ordering, category classification, card information, and the title area of the detail page are all generated dynamically in the browser based on the filename and body content.
 
-## 주요 포스팅 주제
+## Main Topics
 
-현재 블로그는 데이터 사이언스 학습 흐름을 중심으로 여러 주제를 축적하고 있습니다.
+The blog covers a range of topics centered on the data science learning journey.
 
-- **Python 및 데이터 분석**: Python 기초 문법, 자료형, 제어문, NumPy, pandas, matplotlib, 데이터 전처리, 통계 분석 실습을 정리합니다.
-- **Machine Learning**: 지도학습과 비지도학습, 회귀, 분류, KNN, SVM, Decision Tree, Ensemble, 하이퍼파라미터 튜닝, 모델 평가 지표를 다룹니다.
-- **Deep Learning**: PyTorch 기초, 선형 계층, 활성화 함수, CNN, RNN, LSTM, Attention, Transformer, BERT 등 딥러닝 모델의 구조와 작동 원리를 정리합니다.
-- **NLP와 RAG**: 토큰화, 임베딩, Word2Vec, Transformer 기반 언어모델, LangChain 기반 RAG, VectorDB, Loader, Splitter, Agentic RAG, Tool Calling Agent, Corrective RAG 등을 학습 기록으로 남깁니다.
-- **Web Crawling과 데이터 수집**: BeautifulSoup, requests를 활용한 웹 데이터 수집, 크롤링 결과 저장, 수집 데이터 분석과 시각화 과정을 기록합니다.
-- **수학과 통계 기초**: 선형대수학, 확률, 통계, 가설검정, 분산분석, 상관분석 등 인공지능과 데이터 분석에 필요한 기초 개념을 정리합니다.
-- **Demography**: 인구 성장률, 출산력, 사망력, 생명표 등 인구학 수업과 관련된 개념을 데이터 분석 관점에서 정리합니다.
-- **논문 리뷰와 스터디 기록**: Computational Grounded Theory, Computational Case Method, Corpus Modeling, 미디어 커뮤니케이션 및 데이터 사이언스 방법론 관련 논문을 읽고 요약합니다.
-- **프로젝트 기록**: 데이터 분석 프로젝트, 정책 커뮤니케이션 프로젝트, 웹 크롤링 기반 분석, Kaggle 실습, HTML 문서 제작 등 실제 작업 결과를 정리합니다.
+- **Python and Data Analysis**: Notes on Python fundamentals, data types, control flow, NumPy, pandas, matplotlib, data preprocessing, and statistical analysis exercises.
+- **Machine Learning**: Supervised and unsupervised learning, regression, classification, KNN, SVM, Decision Tree, Ensemble, hyperparameter tuning, and model evaluation metrics.
+- **Deep Learning**: The architecture and operating principles of deep learning models, including PyTorch fundamentals, linear layers, activation functions, CNN, RNN, LSTM, Attention, Transformer, and BERT.
+- **NLP and RAG**: Learning notes on tokenization, embeddings, Word2Vec, Transformer-based language models, LangChain-based RAG, VectorDB, Loader, Splitter, Agentic RAG, Tool Calling Agent, and Corrective RAG.
+- **Web Crawling and Data Collection**: Web data collection using BeautifulSoup and requests, storing crawl results, and analyzing and visualizing collected data.
+- **Mathematics and Statistics Fundamentals**: Foundational concepts for artificial intelligence and data analysis, including linear algebra, probability, statistics, hypothesis testing, analysis of variance, and correlation analysis.
+- **Demography**: Concepts from demography courses—including population growth rates, fertility, mortality, and life tables—examined from a data analysis perspective.
+- **Research Paper Reviews and Study Notes**: Reviews and summaries of research papers on Computational Grounded Theory, Computational Case Method, Corpus Modeling, media communication, and data science methodologies.
+- **Project Notes**: Results from practical work, including data analysis projects, policy communication projects, web crawling-based analyses, Kaggle exercises, and HTML document creation.
 
-## 원본 테마와 커스터마이징
+## Original Theme and Customization
 
-이 블로그는 주식회사 위니브(Weniv)의 **WENIVLOG** 테마를 기반으로 제작되었습니다. 원본 테마는 GitHub Pages에서 손쉽게 블로그를 운영할 수 있도록 설계된 정적 블로그 템플릿이며, fork 후 GitHub Pages를 활성화하고 설정 파일을 수정하면 기본 블로그를 만들 수 있는 구조를 제공합니다.
+This blog is based on the **WENIVLOG** theme by Weniv. The original theme is a static blog template designed to simplify running a blog on GitHub Pages. Its structure allows users to create a basic blog by forking the repository, enabling GitHub Pages, and editing the configuration file.
 
-원본 테마에서 가져온 핵심 구조는 다음과 같습니다.
+The core structure inherited from the original theme includes:
 
-- GitHub Pages 기반 정적 블로그 배포 방식
-- 저장소의 게시글 파일을 기반으로 블로그 글을 관리하는 방식
-- `config.js`를 통한 블로그 제목, GitHub 계정, 저장소, 작성자 정보 설정 방식
-- Markdown 게시글 작성 규칙과 썸네일 메타데이터 사용 방식
-- 메뉴 파일을 추가해 상단 메뉴를 구성하는 방식
-- `marked.js`, `highlight.js`, Tailwind CSS를 활용한 기본 렌더링 방식
+- Static blog deployment through GitHub Pages
+- Blog post management based on post files in the repository
+- Configuration of the blog title, GitHub account, repository, and author information through `config.js`
+- Markdown post filename conventions and thumbnail metadata
+- Top-level menu configuration by adding menu files
+- Basic rendering with `marked.js`, `highlight.js`, and Tailwind CSS
 
-현재 블로그에서는 이 기반 위에 프론트엔드 기능과 디자인을 크게 확장했습니다.
+Building on this foundation, the current blog significantly extends the frontend features and design.
 
-- **홈 화면 재구성**: 단순 글 목록 중심의 화면에서 벗어나, 최신 글, 전체 게시글 수, 주요 카테고리, 카테고리 필터를 한눈에 볼 수 있는 블로그 홈 영역을 추가했습니다.
-- **카드형 게시글 목록 개선**: 게시글 제목, 요약, 작성일, 작성자, 썸네일, 카테고리를 카드 단위로 보여주도록 구성해 포트폴리오형 블로그에 맞게 시각적 밀도를 높였습니다.
-- **카테고리 탐색 강화**: 카테고리별 글 수를 계산하고, 사이드바와 오버레이 패널에서 주제별 글을 빠르게 탐색할 수 있도록 개선했습니다.
-- **검색 기능 개선**: 키워드 검색과 카테고리 필터링이 게시글 목록 렌더링과 연결되도록 구성했습니다.
-- **상세 페이지 개선**: 게시글 상단에 제목, 요약, 작성자, 날짜, 예상 읽기 시간, 카테고리 정보를 보여주는 헤더를 추가했습니다.
-- **관련글과 이전/다음 글 이동**: 글을 읽은 뒤 같은 카테고리 또는 인접한 글로 이동할 수 있는 후속 탐색 영역을 추가했습니다.
-- **Jupyter Notebook 렌더링 지원 강화**: `.ipynb` 파일을 직접 블로그 게시글처럼 읽을 수 있도록 Markdown 셀, Code 셀, 실행 결과, 이미지, 표 출력을 HTML로 변환하는 기능을 적용했습니다.
-- **수식과 코드 가독성 개선**: MathJax를 추가해 수식을 렌더링하고, 코드 블록에는 문법 강조와 복사 버튼을 적용했습니다.
-- **다크모드 구현**: 사용자의 시스템 설정과 로컬 저장소 값을 반영해 라이트/다크 테마를 전환할 수 있도록 구현했습니다.
-- **반응형 레이아웃 조정**: 데스크톱에서는 본문과 사이드바를 함께 보여주고, 모바일에서는 검색창, 메뉴, 카테고리 탐색이 작은 화면에서도 동작하도록 조정했습니다.
-- **브랜드 요소 변경**: 블로그 제목, favicon, 썸네일, 푸터 문구, 소개 문구를 개인 데이터 사이언스 아카이브에 맞게 수정했습니다.
+- **Redesigned home page**: Added a blog home section that presents the latest posts, total number of posts, main categories, and category filters at a glance, moving beyond a simple post-list layout.
+- **Enhanced card-based post list**: Increased the visual density for a portfolio-style blog by presenting each post's title, summary, publication date, author, thumbnail, and category in a card.
+- **Improved category navigation**: Added post counts for each category and improved the sidebar and overlay panel so users can quickly browse posts by topic.
+- **Improved search**: Integrated keyword search and category filtering with post-list rendering.
+- **Enhanced detail pages**: Added a header that displays the title, summary, author, date, estimated reading time, and category at the top of each post.
+- **Related and previous/next post navigation**: Added a follow-up navigation section that directs readers to posts in the same category or to adjacent posts after they finish reading.
+- **Enhanced Jupyter Notebook rendering**: Added functionality that converts Markdown cells, Code cells, execution results, images, and table outputs to HTML, allowing `.ipynb` files to be read directly as blog posts.
+- **Improved equation and code readability**: Added MathJax to render equations, along with syntax highlighting and a copy button for code blocks.
+- **Dark mode**: Implemented light and dark theme switching based on the user's system settings and locally stored preference.
+- **Responsive layout adjustments**: Configured the content and sidebar to appear together on desktop, while ensuring that search, menus, and category navigation work on smaller mobile screens.
+- **Updated branding**: Adapted the blog title, favicon, thumbnails, footer text, and introductory copy to suit a personal data science archive.
 
-결과적으로 이 프로젝트는 WENIVLOG의 정적 블로그 구조를 활용하되, 데이터 사이언스 학습 기록을 체계적으로 보여주기 위한 개인 포트폴리오형 기술 블로그로 발전시킨 작업입니다.
+The result is a personal, portfolio-style technical blog that builds on WENIVLOG's static blog architecture to present data science learning notes in a structured way.
 
-## 출처
+## Credits
 
-- 원본 테마: WENIVLOG
-- 원본 저장소: https://github.com/weniv/github_blog
-- 이 블로그는 주식회사 위니브(Weniv)의 WENIVLOG 템플릿을 기반으로 제작했으며, 현재 블로그의 웹 디자인과 프론트엔드 구현은 개인 포트폴리오 목적에 맞게 직접 수정 및 확장했습니다.
+- Original theme: WENIVLOG
+- Original repository: https://github.com/weniv/github_blog
+- This blog was built using Weniv's WENIVLOG template. Its web design and frontend implementation have been independently modified and extended to serve as a personal portfolio.
