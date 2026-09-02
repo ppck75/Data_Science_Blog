@@ -68,18 +68,25 @@ function getReadableText(rawText) {
     return "";
   }
 
+  let readableSource = rawText;
+
   try {
     const notebook = JSON.parse(rawText);
     if (Array.isArray(notebook.cells)) {
-      return notebook.cells
-        .map((cell) => (Array.isArray(cell.source) ? cell.source.join(" ") : ""))
+      readableSource = notebook.cells
+        .map((cell) => {
+          if (Array.isArray(cell.source)) {
+            return cell.source.join(" ");
+          }
+          return typeof cell.source === "string" ? cell.source : "";
+        })
         .join(" ");
     }
   } catch (error) {
     // Plain markdown/text path.
   }
 
-  return rawText
+  return readableSource
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/`[^`]*`/g, " ")
     .replace(/!\[.*?\]\(.*?\)/g, " ")
