@@ -370,6 +370,12 @@ body.blog-page {
   z-index: 1;
 }
 
+.hero-stat-grid,
+.hero-category-list {
+  /* Shift the content without changing the outer hero card dimensions. */
+  top: 16px;
+}
+
 .hero-meta-row {
   display: flex;
   flex-wrap: wrap;
