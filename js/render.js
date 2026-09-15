@@ -461,25 +461,14 @@ function renderHomeHero() {
   summary.textContent = getHomeIntro();
   heroCard.appendChild(summary);
 
-  const heroMetaRow = document.createElement("div");
-  heroMetaRow.className = "hero-meta-row";
-  heroMetaRow.appendChild(createHeroChip("Study Blog"));
-  heroMetaRow.appendChild(
-    createHeroChip(`최근 업데이트 ${formatDate(latestEntry.info.date)}`)
-  );
-  heroMetaRow.appendChild(
-    createHeroChip(`카테고리 ${Object.keys(counts).length}개`)
-  );
-  heroCard.appendChild(heroMetaRow);
-
   const statGrid = document.createElement("div");
   statGrid.className = "hero-stat-grid";
-  statGrid.appendChild(createHeroStat(blogList.length, "published posts"));
+  statGrid.appendChild(createHeroStat(blogList.length, "발행된 글"));
   statGrid.appendChild(
-    createHeroStat(Object.keys(counts).length, "tracked categories")
+    createHeroStat(Object.keys(counts).length, "카테고리")
   );
   statGrid.appendChild(
-    createHeroStat(getTopCategories(1)[0]?.[0] || "-", "main topic")
+    createHeroStat(formatDate(latestEntry.info.date), "최근 업데이트")
   );
   heroCard.appendChild(statGrid);
 
