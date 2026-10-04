@@ -1,26 +1,486 @@
 [
-    {
-        "name": "[20240121]_[썸네일이 없는 테스트 파일]_[django]_[]_[이 파일은 테스트 파일입니다.]_[].md",
-        "download_url": "/blog/[20240121]_[썸네일이 없는 테스트 파일]_[django]_[]_[이 파일은 테스트 파일입니다.]_[].md"
-    },
-    {
-        "name": "[20240120]_[썸네일이 없는 테스트 파일]_[django]_[]_[이 파일은 테스트 파일입니다.]_[].md",
-        "download_url": "/blog/[20240120]_[썸네일이 없는 테스트 파일]_[django]_[]_[이 파일은 테스트 파일입니다.]_[].md"
-    },
-    {
-        "name": "[20240119]_[썸네일이 없는 테스트 파일]_[django]_[]_[이 파일은 테스트 파일입니다.]_[].md",
-        "download_url": "/blog/[20240119]_[썸네일이 없는 테스트 파일]_[django]_[]_[이 파일은 테스트 파일입니다.]_[].md"
-    },
-    {
-        "name": "[20240128]_[파이썬_부트캠프]_[python]_[test_2.jpg]_[위니브 파이썬 부트캠프 강의자료입니다. 이 파일은 ipynb 파일입니다.]_[].ipynb",
-        "download_url": "/blog/[20240128]_[파이썬_부트캠프]_[python]_[test_2.jpg]_[위니브 파이썬 부트캠프 강의자료입니다. 이 파일은 ipynb 파일입니다.]_[].ipynb"
-    },
-    {
-        "name": "[20240505]_[블로그 글 양식]_[markdown]_[test_1.jpg]_[마크다운 양식입니다. 참고하여 블로그 글을 작성해주세요. 각 언어별 하이라이팅도 지원합니다.]_[].md",
-        "download_url": "/blog/[20240505]_[블로그 글 양식]_[markdown]_[test_1.jpg]_[마크다운 양식입니다. 참고하여 블로그 글을 작성해주세요. 각 언어별 하이라이팅도 지원합니다.]_[].md"
-    },
-    {
-        "name": "[date]_[title]_[category]_[thumnail]_[description]_[author].md",
-        "download_url": "/blog/[date]_[title]_[category]_[thumnail]_[description]_[author].md"
-    }
+  {
+    "name": "[20261003]_[지표 설계 및 고객분석_4주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md",
+    "download_url": "/blog/[20261003]_[지표 설계 및 고객분석_4주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md"
+  },
+  {
+    "name": "[20260926]_[지표 설계 및 고객분석_3주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md",
+    "download_url": "/blog/[20260926]_[지표 설계 및 고객분석_3주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md"
+  },
+  {
+    "name": "[20260916]_[지표 설계 및 고객분석_2주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md",
+    "download_url": "/blog/[20260916]_[지표 설계 및 고객분석_2주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md"
+  },
+  {
+    "name": "[20260911]_[지표 설계 및 고객분석_1주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md",
+    "download_url": "/blog/[20260911]_[지표 설계 및 고객분석_1주차 독학 노트]_[Product Management]_[GA4.jpg]_[웹앱 지표설계 및 고객분석]_[].md"
+  },
+  {
+    "name": "[20260801]_[인문사회연구자를 위한 XAI_SHAP_종합정리]_[XAI]_[XAI3.png]_[계산사회과학]_[].md",
+    "download_url": "/blog/[20260801]_[인문사회연구자를 위한 XAI_SHAP_종합정리]_[XAI]_[XAI3.png]_[계산사회과학]_[].md"
+  },
+  {
+    "name": "[20260726]_[인문사회연구자를 위한 XAI_SHAP_2]_[XAI]_[XAI3.png]_[계산사회과학]_[].md",
+    "download_url": "/blog/[20260726]_[인문사회연구자를 위한 XAI_SHAP_2]_[XAI]_[XAI3.png]_[계산사회과학]_[].md"
+  },
+  {
+    "name": "[20260725]_[인문사회연구자를 위한 XAI_SHAP]_[XAI]_[XAI3.png]_[계산사회과학]_[].md",
+    "download_url": "/blog/[20260725]_[인문사회연구자를 위한 XAI_SHAP]_[XAI]_[XAI3.png]_[계산사회과학]_[].md"
+  },
+  {
+    "name": "[20260701]_[태블로 복습1]_[Visualization]_[태블로.jpg]_[태블로]_[].md",
+    "download_url": "/blog/[20260701]_[태블로 복습1]_[Visualization]_[태블로.jpg]_[태블로]_[].md"
+  },
+  {
+    "name": "[20260618]_[Gemini API 활용 빅데이터 분석]_[NLP]_[python.jpg]_[데이터저널리즘]_[].ipynb",
+    "download_url": "/blog/[20260618]_[Gemini API 활용 빅데이터 분석]_[NLP]_[python.jpg]_[데이터저널리즘]_[].ipynb"
+  },
+  {
+    "name": "[20260521]_[Agentic RAG6_Corrective RAG_Agentic Workflow structure]_[Agent]_[langgraph.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260521]_[Agentic RAG6_Corrective RAG_Agentic Workflow structure]_[Agent]_[langgraph.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260520]_[Agentic RAG4_Agentic Workflow1]_[Agent]_[langgraph.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260520]_[Agentic RAG4_Agentic Workflow1]_[Agent]_[langgraph.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260520]_[Agentic RAG3_Agentic RAG]_[Agent]_[langgraph.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260520]_[Agentic RAG3_Agentic RAG]_[Agent]_[langgraph.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260516]_[Agentic RAG2_Tool Calling Agent]_[NLP]_[langgraph.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260516]_[Agentic RAG2_Tool Calling Agent]_[NLP]_[langgraph.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260515]_[Langchain기반 RAG_Navie RAG2_News 기반 QA RAG]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260515]_[Langchain기반 RAG_Navie RAG2_News 기반 QA RAG]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260515]_[Langchain기반 RAG_Navie RAG1]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260515]_[Langchain기반 RAG_Navie RAG1]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260514]_[Langchain기반 RAG_Splitter & VectorDB 개념_preprocessing2]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260514]_[Langchain기반 RAG_Splitter & VectorDB 개념_preprocessing2]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260514]_[Langchain기반 RAG_Loader 개념_preprocessing1]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260514]_[Langchain기반 RAG_Loader 개념_preprocessing1]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260514]_[Docker란]_[docker]_[docker.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260514]_[Docker란]_[docker]_[docker.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260512]_[Langchain기반 RAG_Basic Structure3]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260512]_[Langchain기반 RAG_Basic Structure3]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260512]_[Langchain기반 RAG_Basic Structure2]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260512]_[Langchain기반 RAG_Basic Structure2]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260512]_[Langchain기반 RAG_Basic Structure1]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260512]_[Langchain기반 RAG_Basic Structure1]_[Agent]_[langchain.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260426]_[시험대비 정리]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].md",
+    "download_url": "/blog/[20260426]_[시험대비 정리]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].md"
+  },
+  {
+    "name": "[20260423]_[Word2vec과 트랜스포머]_[NLP]_[NLP.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260423]_[Word2vec과 트랜스포머]_[NLP]_[NLP.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260423]_[Numpy_Broadcasting]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260423]_[Numpy_Broadcasting]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260422]_[Transformer 기본개념 보충_add & norm]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260422]_[Transformer 기본개념 보충_add & norm]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260422]_[BERT 기본개념2_Sentence BERT ]_[deep learning]_[BERT.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260422]_[BERT 기본개념2_Sentence BERT ]_[deep learning]_[BERT.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260420]_[BERT 기본개념1]_[deep learning]_[BERT.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260420]_[BERT 기본개념1]_[deep learning]_[BERT.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260418]_[Transformer가 혁신인 이유]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260418]_[Transformer가 혁신인 이유]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260418]_[Transformer 기본개념3_Encoder & Decoder]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260418]_[Transformer 기본개념3_Encoder & Decoder]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260418]_[Transformer 기본개념2_Decoder]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260418]_[Transformer 기본개념2_Decoder]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260418]_[Transformer 기본개념1_Encoder]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260418]_[Transformer 기본개념1_Encoder]_[deep learning]_[트랜스포머.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260417]_[RNN 개념]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260417]_[RNN 개념]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260417]_[CNN 전체 구조]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260417]_[CNN 전체 구조]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260417]_[CNN 개념]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260417]_[CNN 개념]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260417]_[Attention]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260417]_[Attention]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260416]_[pandas 헷갈리는 내용 정리1]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260416]_[pandas 헷갈리는 내용 정리1]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260416]_[pandas 헷갈리는 내용 정리_selection, cleaning, filitering,sorting,group, combining 등]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260416]_[pandas 헷갈리는 내용 정리_selection, cleaning, filitering,sorting,group, combining 등]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260414]_[딥러닝의 개념과 작동원리3_경사하강법과 옵티마이저]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260414]_[딥러닝의 개념과 작동원리3_경사하강법과 옵티마이저]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260414]_[딥러닝의 개념과 작동원리2]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260414]_[딥러닝의 개념과 작동원리2]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260414]_[딥러닝의 개념과 작동원리1]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260414]_[딥러닝의 개념과 작동원리1]_[deep learning]_[DL.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260413]_[토큰, 토크나이저, 토크나이징]_[NLP]_[NLP.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260413]_[토큰, 토크나이저, 토크나이징]_[NLP]_[NLP.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260412]_[임베딩]_[NLP]_[NLP.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260412]_[임베딩]_[NLP]_[NLP.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260411]_[python_문제연습_reshape, merge 등]_[python]_[python.jpg]_[사회조사분석 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260411]_[python_문제연습_reshape, merge 등]_[python]_[python.jpg]_[사회조사분석 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260411]_[python 기초 문법 헷갈리는 부분 정리 ]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260411]_[python 기초 문법 헷갈리는 부분 정리 ]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260411]_[Numpy_rng,결합, 분할, nan처리]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260411]_[Numpy_rng,결합, 분할, nan처리]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260410]_[Numpy_브로드캐스팅,linalg]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260410]_[Numpy_브로드캐스팅,linalg]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260409]_[Numpy_array, 인덱싱과 슬라이싱, ]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20260409]_[Numpy_array, 인덱싱과 슬라이싱, ]_[python]_[python.jpg]_[인공지능미디어코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20260329]_[Linear Regression_MLP]_[deep learning]_[DL.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260329]_[Linear Regression_MLP]_[deep learning]_[DL.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260329]_[hypothesis function]_[python]_[python.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260329]_[hypothesis function]_[python]_[python.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260329]_[Feature Engineering이란]_[machine learning]_[ML.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260329]_[Feature Engineering이란]_[machine learning]_[ML.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260329]_[딥러닝 Notation]_[deep learning]_[DL.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260329]_[딥러닝 Notation]_[deep learning]_[DL.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260325]_[The combined well being effects of social media activities]_[Journal Review]_[스크린샷 2026-03-25 233117.png]_[media communication Article]_[].md",
+    "download_url": "/blog/[20260325]_[The combined well being effects of social media activities]_[Journal Review]_[스크린샷 2026-03-25 233117.png]_[media communication Article]_[].md"
+  },
+  {
+    "name": "[20260322]_[The impact of body positive and fitspirational influencers on body satisfaction]_[Journal Review]_[스크린샷 2026-03-25 233103.png]_[media communication Article]_[].md",
+    "download_url": "/blog/[20260322]_[The impact of body positive and fitspirational influencers on body satisfaction]_[Journal Review]_[스크린샷 2026-03-25 233103.png]_[media communication Article]_[].md"
+  },
+  {
+    "name": "[20260316]_[Complex]_[python]_[python.jpg]_[sda]_[].md",
+    "download_url": "/blog/[20260316]_[Complex]_[python]_[python.jpg]_[sda]_[].md"
+  },
+  {
+    "name": "[20260310]_[PyTorh_Vision Classification]_[deep learning]_[cnn_thum.png]_[메타코드]_[].md",
+    "download_url": "/blog/[20260310]_[PyTorh_Vision Classification]_[deep learning]_[cnn_thum.png]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260310]_[PyTorh_RNN_time series]_[deep learning]_[rnn_thum.png]_[메타코드]_[].md",
+    "download_url": "/blog/[20260310]_[PyTorh_RNN_time series]_[deep learning]_[rnn_thum.png]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260310]_[PyTorh_LSTM_time series]_[deep learning]_[lstm_thum.png]_[메타코드]_[].md",
+    "download_url": "/blog/[20260310]_[PyTorh_LSTM_time series]_[deep learning]_[lstm_thum.png]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260307]_[PyTorh_Regression]_[deep learning]_[딥러닝회귀_thum.png]_[메타코드]_[].md",
+    "download_url": "/blog/[20260307]_[PyTorh_Regression]_[deep learning]_[딥러닝회귀_thum.png]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260307]_[PyTorh_Classification]_[deep learning]_[DL.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260307]_[PyTorh_Classification]_[deep learning]_[DL.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260301]_[PyTorch 신경망 기초 분석_행렬 곱셈]_[deep learning]_[행렬곱셈_thum.png]_[메타코드]_[].md",
+    "download_url": "/blog/[20260301]_[PyTorch 신경망 기초 분석_행렬 곱셈]_[deep learning]_[행렬곱셈_thum.png]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260301]_[PyTorch 신경망 기초 분석_선형계층과 활성화 함수]_[deep learning]_[활성_thum.png]_[메타코드]_[].md",
+    "download_url": "/blog/[20260301]_[PyTorch 신경망 기초 분석_선형계층과 활성화 함수]_[deep learning]_[활성_thum.png]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260226]_[Discussion_michael sauder외 2명_2024_ Multiple Meritocracies_A Text- Based Analysis of Personal Narratives Revealing Distinct Frames of Succes]_[Journal Review]_[능력주의.png]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260226]_[Discussion_michael sauder외 2명_2024_ Multiple Meritocracies_A Text- Based Analysis of Personal Narratives Revealing Distinct Frames of Succes]_[Journal Review]_[능력주의.png]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260224]_[michael sauder외 2명_2024_ Multiple Meritocracies_A Text- Based Analysis of Personal Narratives Revealing Distinct Frames of Succes]_[Journal Review]_[능력주의.png]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260224]_[michael sauder외 2명_2024_ Multiple Meritocracies_A Text- Based Analysis of Personal Narratives Revealing Distinct Frames of Succes]_[Journal Review]_[능력주의.png]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260220]_[Dustin S. Stoltz외 2명_2025_Corpus Modeling and the Geometries of Text Meaning Spaces]_[Journal Review]_[코퍼스.png]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260220]_[Dustin S. Stoltz외 2명_2025_Corpus Modeling and the Geometries of Text Meaning Spaces]_[Journal Review]_[코퍼스.png]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260210]_[scikit-learn과 statsmodel 비교]_[python]_[python.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260210]_[scikit-learn과 statsmodel 비교]_[python]_[python.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260210]_[LDA]_[python]_[python.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260210]_[LDA]_[python]_[python.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260210]_[KNN과 SVM_분류모델]_[machine learning]_[ML.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260210]_[KNN과 SVM_분류모델]_[machine learning]_[ML.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260210]_[머신러닝과 분류모델 평가지표]_[machine learning]_[ML.jpg]_[메타코드]_[].md",
+    "download_url": "/blog/[20260210]_[머신러닝과 분류모델 평가지표]_[machine learning]_[ML.jpg]_[메타코드]_[].md"
+  },
+  {
+    "name": "[20260209]_[앙상블 모형 개념_Bagging_Boosting]_[machine learning]_[머신러닝 썸네일.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260209]_[앙상블 모형 개념_Bagging_Boosting]_[machine learning]_[머신러닝 썸네일.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260208]_[XAI_인공지능의 블랙박스와 불투명성]_[machine learning]_[XAI3.png]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260208]_[XAI_인공지능의 블랙박스와 불투명성]_[machine learning]_[XAI3.png]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260207]_[Parameter란 무엇인가]_[machine learning]_[ML.jpg]_[ 파라미터(Parameter)의 의미와 분야별 사용 방식]_[].md",
+    "download_url": "/blog/[20260207]_[Parameter란 무엇인가]_[machine learning]_[ML.jpg]_[ 파라미터(Parameter)의 의미와 분야별 사용 방식]_[].md"
+  },
+  {
+    "name": "[20260207]_[하이퍼파라미터 튜닝_HPO_girdsearchCV]_[machine learning]_[HPO.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260207]_[하이퍼파라미터 튜닝_HPO_girdsearchCV]_[machine learning]_[HPO.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260204]_[김란우·송수연_2020_한국 학계의 고유성은 존재하는가]_[Journal Review]_[썸1.jpg]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260204]_[김란우·송수연_2020_한국 학계의 고유성은 존재하는가]_[Journal Review]_[썸1.jpg]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260203]_[Decision Tree 개념]_[machine learning]_[분류나무.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260203]_[Decision Tree 개념]_[machine learning]_[분류나무.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260203]_[머신러닝이란 무엇인가]_[machine learning]_[DT_1.jpg]_[메타코드]_[].ipynb",
+    "download_url": "/blog/[20260203]_[머신러닝이란 무엇인가]_[machine learning]_[DT_1.jpg]_[메타코드]_[].ipynb"
+  },
+  {
+    "name": "[20260124]_[Discussion_Pardo_Guerra and Pahwa _2022 _The Extended Computational Case Method A Framework for Research Design]_[Data Science Journal Review Study Group]_[데싸논문리뷰2.jpg]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260124]_[Discussion_Pardo_Guerra and Pahwa _2022 _The Extended Computational Case Method A Framework for Research Design]_[Data Science Journal Review Study Group]_[데싸논문리뷰2.jpg]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260121]_[자전거수요예측_kaggle]_[kaggle]_[캐글8.png]_[캐글 데이터 분석 연습]_[].ipynb",
+    "download_url": "/blog/[20260121]_[자전거수요예측_kaggle]_[kaggle]_[캐글8.png]_[캐글 데이터 분석 연습]_[].ipynb"
+  },
+  {
+    "name": "[20260119]_[Data Analysis_로드맵]_[python]_[파이썬복습.jpg]_[python]_[].ipynb",
+    "download_url": "/blog/[20260119]_[Data Analysis_로드맵]_[python]_[파이썬복습.jpg]_[python]_[].ipynb"
+  },
+  {
+    "name": "[20260112]_[python_basic]_[python]_[파이썬복습.jpg]_[python 복습]_[].ipynb",
+    "download_url": "/blog/[20260112]_[python_basic]_[python]_[파이썬복습.jpg]_[python 복습]_[].ipynb"
+  },
+  {
+    "name": "[20260112]_[이윤호·김병준_2024_한국 학술장 내 웹툰 관련 연구의 확장과 분화_KCI 논문 서지 데이터 기반 구조적 토픽 모델링 분석]_[Journal Review]_[웹툰논문.jpg]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260112]_[이윤호·김병준_2024_한국 학술장 내 웹툰 관련 연구의 확장과 분화_KCI 논문 서지 데이터 기반 구조적 토픽 모델링 분석]_[Journal Review]_[웹툰논문.jpg]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260109]_[Discussion_Nelson_2020_Computational Grounded Theory A Methodological Framework]_[Data Science Journal Review Study Group]_[데싸논문리뷰1.jpg]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260109]_[Discussion_Nelson_2020_Computational Grounded Theory A Methodological Framework]_[Data Science Journal Review Study Group]_[데싸논문리뷰1.jpg]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260108]_[Pardo-Guerra and Pahwa _2022 _The Extended Computational Case Method A Framework for Research Design]_[Journal Review]_[데싸논문리뷰2.jpg]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260108]_[Pardo-Guerra and Pahwa _2022 _The Extended Computational Case Method A Framework for Research Design]_[Journal Review]_[데싸논문리뷰2.jpg]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260107]_[Nelson_2020_Computational Grounded Theory A Methodological Framework]_[Journal Review]_[데싸논문리뷰1.jpg]_[DS 방법론 Article]_[].md",
+    "download_url": "/blog/[20260107]_[Nelson_2020_Computational Grounded Theory A Methodological Framework]_[Journal Review]_[데싸논문리뷰1.jpg]_[DS 방법론 Article]_[].md"
+  },
+  {
+    "name": "[20260106]_[Linear Algebra3]_[Linear Algebra]_[선형대수학2_3.jpg]_[선형대수학 리뷰]_[].md",
+    "download_url": "/blog/[20260106]_[Linear Algebra3]_[Linear Algebra]_[선형대수학2_3.jpg]_[선형대수학 리뷰]_[].md"
+  },
+  {
+    "name": "[20260103]_[Linear Algebra2]_[Linear Algebra]_[선형대수학2_3.jpg]_[선형대수학 리뷰]_[].md",
+    "download_url": "/blog/[20260103]_[Linear Algebra2]_[Linear Algebra]_[선형대수학2_3.jpg]_[선형대수학 리뷰]_[].md"
+  },
+  {
+    "name": "[20260102]_[Linear Algebra1]_[Linear Algebra]_[선형대수학1_필기.jpg]_[선형대수학 리뷰]_[].md",
+    "download_url": "/blog/[20260102]_[Linear Algebra1]_[Linear Algebra]_[선형대수학1_필기.jpg]_[선형대수학 리뷰]_[].md"
+  },
+  {
+    "name": "[20251219]_[yes24 스테디셀러 웹 페이지에서 시작한 웹크롤링, 데이터 분석, 데이터 시각화]_[project]_[실습6.jpg]_[코딩과논리적사고]_[].ipynb",
+    "download_url": "/blog/[20251219]_[yes24 스테디셀러 웹 페이지에서 시작한 웹크롤링, 데이터 분석, 데이터 시각화]_[project]_[실습6.jpg]_[코딩과논리적사고]_[].ipynb"
+  },
+  {
+    "name": "[20251217]_[Public PR Proiect_PCP-Policy Communication Proposal]_[project]_[정책컴1.jpg]_[정책커뮤니케이션]_[].md",
+    "download_url": "/blog/[20251217]_[Public PR Proiect_PCP-Policy Communication Proposal]_[project]_[정책컴1.jpg]_[정책커뮤니케이션]_[].md"
+  },
+  {
+    "name": "[20251130]_[내가 만든 html 문서]_[project]_[내가만든html.jpg]_[코딩과논리적사고]_[].md",
+    "download_url": "/blog/[20251130]_[내가 만든 html 문서]_[project]_[내가만든html.jpg]_[코딩과논리적사고]_[].md"
+  },
+  {
+    "name": "[20251125]_[Web Crawling 실전활용]_[Web Crawling]_[웹크롤썸네일3.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251125]_[Web Crawling 실전활용]_[Web Crawling]_[웹크롤썸네일3.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251125]_[Unsupervised Machine Learning_K-means, elbow, silhouette score, PCA ]_[machine learning]_[머신러닝2_썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251125]_[Unsupervised Machine Learning_K-means, elbow, silhouette score, PCA ]_[machine learning]_[머신러닝2_썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251120]_[Web Crawling + 데이터 분석 + 저장 ]_[Web Crawling]_[웹크롤링2썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251120]_[Web Crawling + 데이터 분석 + 저장 ]_[Web Crawling]_[웹크롤링2썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251118]_[Web Crawling(BeautifulSoup , requests)]_[Web Crawling]_[웹크롤링썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251118]_[Web Crawling(BeautifulSoup , requests)]_[Web Crawling]_[웹크롤링썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251118]_[Supervised Machine Learning_linear regression, ridge, lasso, logistic, knn, svm, decision tree, random forest ]_[machine learning]_[머신러닝1_썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251118]_[Supervised Machine Learning_linear regression, ridge, lasso, logistic, knn, svm, decision tree, random forest ]_[machine learning]_[머신러닝1_썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251116]_[Pandas 활용 실습]_[python]_[실습5.jpg]_[코딩과논리적사고 실습]_[].ipynb",
+    "download_url": "/blog/[20251116]_[Pandas 활용 실습]_[python]_[실습5.jpg]_[코딩과논리적사고 실습]_[].ipynb"
+  },
+  {
+    "name": "[20251113]_[matplotlib 데이터 시각화(DataFrame)]_[python]_[데이터시각화썸네일2.png]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251113]_[matplotlib 데이터 시각화(DataFrame)]_[python]_[데이터시각화썸네일2.png]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251111]_[matplotlib 데이터 시각화]_[python]_[데이터시각화썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251111]_[matplotlib 데이터 시각화]_[python]_[데이터시각화썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251111]_[Classical Statistics & Supervised vs Unsupervised]_[machine learning]_[머신러닝1_1.jpg]_[데이터분석과코딩 리뷰]_[].md",
+    "download_url": "/blog/[20251111]_[Classical Statistics & Supervised vs Unsupervised]_[machine learning]_[머신러닝1_1.jpg]_[데이터분석과코딩 리뷰]_[].md"
+  },
+  {
+    "name": "[20251106]_[pandas 활용]_[python]_[판다스활용썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251106]_[pandas 활용]_[python]_[판다스활용썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251104]_[Regression analysis_긴 글 주의]_[python]_[데분코9 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251104]_[Regression analysis_긴 글 주의]_[python]_[데분코9 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251103]_[pandas 기초]_[python]_[판다스기초썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251103]_[pandas 기초]_[python]_[판다스기초썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251027]_[Python 자료형 + 제어문 + 함수]_[python]_[파이썬썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251027]_[Python 자료형 + 제어문 + 함수]_[python]_[파이썬썸네일.jpg]_[코딩과논리적사고 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251021]_[Correlation Analysis_r, rho, phi]_[python]_[데분코8 썸네일.jpg]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251021]_[Correlation Analysis_r, rho, phi]_[python]_[데분코8 썸네일.jpg]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251014]_[Analysis of Variance]_[python]_[데분코7 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251014]_[Analysis of Variance]_[python]_[데분코7 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251007]_[T chi-square test]_[python]_[데분코6 썸네일 수정.jpg]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20251007]_[T chi-square test]_[python]_[데분코6 썸네일 수정.jpg]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20251006]_[제어문(if, while, for)과 리스트컴프리헨션 실습]_[python]_[실습3.jpg]_[코딩과논리적사고 실습]_[].ipynb",
+    "download_url": "/blog/[20251006]_[제어문(if, while, for)과 리스트컴프리헨션 실습]_[python]_[실습3.jpg]_[코딩과논리적사고 실습]_[].ipynb"
+  },
+  {
+    "name": "[20251006]_[리스트, 튜플, 사전, 집합 자료형 실습]_[python]_[실습2.jpg]_[코딩과논리적사고 실습]_[].ipynb",
+    "download_url": "/blog/[20251006]_[리스트, 튜플, 사전, 집합 자료형 실습]_[python]_[실습2.jpg]_[코딩과논리적사고 실습]_[].ipynb"
+  },
+  {
+    "name": "[20250930]_[T Test]_[python]_[데분코5 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20250930]_[T Test]_[python]_[데분코5 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20250923]_[Sampling Distribution and Hypothesis Testing]_[python]_[데분코4 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20250923]_[Sampling Distribution and Hypothesis Testing]_[python]_[데분코4 썸네일.png]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20250920]_[사망력과 lifetable]_[demography]_[생명표.jpg]_[인구와사회 리뷰]_[].md",
+    "download_url": "/blog/[20250920]_[사망력과 lifetable]_[demography]_[생명표.jpg]_[인구와사회 리뷰]_[].md"
+  },
+  {
+    "name": "[20250919]_[기사 전처리 실습]_[python]_[실습1.jpg]_[코딩과논리적사고 실습]_[].ipynb",
+    "download_url": "/blog/[20250919]_[기사 전처리 실습]_[python]_[실습1.jpg]_[코딩과논리적사고 실습]_[].ipynb"
+  },
+  {
+    "name": "[20250916]_[Basic Statistics]_[python]_[데분코3 썸네일.jpg]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20250916]_[Basic Statistics]_[python]_[데분코3 썸네일.jpg]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20250913]_[출산력 지표]_[demography]_[출산.jpg]_[인구와사회 리뷰]_[].md",
+    "download_url": "/blog/[20250913]_[출산력 지표]_[demography]_[출산.jpg]_[인구와사회 리뷰]_[].md"
+  },
+  {
+    "name": "[20250912]_[인구 성장률, 조성장률, 순간성장률]_[demography]_[인구사회1.jpg]_[인구와사회 리뷰]_[].md",
+    "download_url": "/blog/[20250912]_[인구 성장률, 조성장률, 순간성장률]_[demography]_[인구사회1.jpg]_[인구와사회 리뷰]_[].md"
+  },
+  {
+    "name": "[20250910]_[확률 vs 율 vs 비]_[demography]_[인구사회.jpg]_[인구와사회 리뷰]_[].md",
+    "download_url": "/blog/[20250910]_[확률 vs 율 vs 비]_[demography]_[인구사회.jpg]_[인구와사회 리뷰]_[].md"
+  },
+  {
+    "name": "[20250909]_[Basic python]_[python]_[데분코1.jpg]_[데이터분석과코딩 리뷰]_[].ipynb",
+    "download_url": "/blog/[20250909]_[Basic python]_[python]_[데분코1.jpg]_[데이터분석과코딩 리뷰]_[].ipynb"
+  },
+  {
+    "name": "[20250901]_[깃허브 사용법]_[git]_[.jpg]_[깃메모장]_[author].md",
+    "download_url": "/blog/[20250901]_[깃허브 사용법]_[git]_[.jpg]_[깃메모장]_[author].md"
+  },
+  {
+    "name": "[20250615]_[Q3_Viewer Segmentation]_[project]_[.jpg]_[데이터분석과코딩]_[].md",
+    "download_url": "/blog/[20250615]_[Q3_Viewer Segmentation]_[project]_[.jpg]_[데이터분석과코딩]_[].md"
+  },
+  {
+    "name": "[20250615]_[Q2_Examining Creator-Level and Video-Level]_[project]_[.jpg]_[데이터분석과코딩]_[].md",
+    "download_url": "/blog/[20250615]_[Q2_Examining Creator-Level and Video-Level]_[project]_[.jpg]_[데이터분석과코딩]_[].md"
+  },
+  {
+    "name": "[20250615]_[Q1_News Engagemnet]_[project]_[.jpg]_[데이터분석과코딩]_[].md",
+    "download_url": "/blog/[20250615]_[Q1_News Engagemnet]_[project]_[.jpg]_[데이터분석과코딩]_[].md"
+  },
+  {
+    "name": "[20250615]_[스튜어트 홀의 기호담론으로 읽는 버추얼 아이돌 플레이브_버추얼 아이돌의 담론과 수용과정]_[project]_[플레이브1.jpg]_[영상커뮤니케이션]_[].md",
+    "download_url": "/blog/[20250615]_[스튜어트 홀의 기호담론으로 읽는 버추얼 아이돌 플레이브_버추얼 아이돌의 담론과 수용과정]_[project]_[플레이브1.jpg]_[영상커뮤니케이션]_[].md"
+  }
 ]

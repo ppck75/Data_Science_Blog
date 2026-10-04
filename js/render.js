@@ -156,7 +156,7 @@ function renderCategoryOverviewList(currentCategory = null) {
   allButton.innerHTML = `<span class="sidebar-category-name">All posts</span><span class="${categoryItemCountStyle}">(${blogList.length})</span>`;
   allButton.addEventListener("click", () => {
     closeCategoryOverview();
-    renderBlogList();
+    renderBlogList(blogList);
   });
   list.appendChild(allButton);
 
@@ -424,6 +424,11 @@ function setBlogLayoutMode(mode = "detail") {
   syncCategoryToggleVisibility(mode);
 }
 
+function getFeaturedEntry(entries = getPostEntries(blogList)) {
+  const filename = (siteConfig.featuredPost || "").trim();
+  return entries.find(({ post }) => post.name === filename) || entries[0] || null;
+}
+
 function renderHomeHero() {
   const hero = document.getElementById("home-hero");
   hero.innerHTML = "";
@@ -437,6 +442,7 @@ function renderHomeHero() {
   hero.classList.remove("is-hidden");
 
   const latestEntry = entries[0];
+  const featuredEntry = getFeaturedEntry(entries);
   const counts = getCategoryCounts(blogList);
   const allCategories = sortCategoriesByCount(counts);
 
@@ -482,51 +488,55 @@ function renderHomeHero() {
     pill.addEventListener("click", () => search(category, "category"));
     categoryList.appendChild(pill);
   });
-  heroCard.appendChild(categoryList);
+  const topicSection = document.createElement("section");
+  topicSection.className = "home-topics";
+  const topicTitle = document.createElement("h2");
+  topicTitle.className = "home-section-title";
+  topicTitle.textContent = "주제별로 찾아보기";
+  topicSection.append(topicTitle, categoryList);
 
   const heroPanel = document.createElement("aside");
   heroPanel.className = "hero-panel";
 
-  const panelLabel = document.createElement("p");
+  const panelLabel = document.createElement("h2");
   panelLabel.className = "hero-panel-label";
-  panelLabel.textContent = "Latest article";
+  panelLabel.textContent = "대표 글 · Featured";
   heroPanel.appendChild(panelLabel);
 
-  const feature = document.createElement("article");
-  feature.className = "hero-feature";
-  feature.addEventListener("click", () => openPost(latestEntry.post, latestEntry.info));
+  const feature = createPostLink(featuredEntry.post, featuredEntry.info);
+  feature.classList.add("hero-feature");
 
   const featureThumb = createThumbnailNode({
-    src: latestEntry.info.thumbnail,
-    label: latestEntry.info.thumbnailName,
-    alt: latestEntry.info.thumbnailName || latestEntry.info.title,
+    src: featuredEntry.info.thumbnail,
+    label: featuredEntry.info.thumbnailName,
+    alt: featuredEntry.info.thumbnailName || featuredEntry.info.title,
     className: "hero-feature-thumb",
   });
   feature.appendChild(featureThumb);
 
   const featureCategory = document.createElement("span");
   featureCategory.className = "hero-feature-category";
-  featureCategory.textContent = latestEntry.info.category;
+  featureCategory.textContent = featuredEntry.info.category;
   feature.appendChild(featureCategory);
 
   const featureTitle = document.createElement("h3");
   featureTitle.className = "hero-feature-title";
-  featureTitle.textContent = latestEntry.info.title;
+  featureTitle.textContent = featuredEntry.info.title;
   feature.appendChild(featureTitle);
 
   const featureSummary = document.createElement("p");
   featureSummary.className = "hero-feature-summary";
-  featureSummary.textContent = getPostSummary(latestEntry.info);
+  featureSummary.textContent = getPostSummary(featuredEntry.info);
   feature.appendChild(featureSummary);
 
   const featureMeta = document.createElement("div");
   featureMeta.className = "hero-feature-meta";
-  featureMeta.textContent = `${formatDate(latestEntry.info.date)} · ${latestEntry.info.fileType.toUpperCase()}`;
+  featureMeta.textContent = `${formatDate(featuredEntry.info.date)} · ${featuredEntry.info.fileType.toUpperCase()}`;
   feature.appendChild(featureMeta);
 
   const featureAction = document.createElement("span");
   featureAction.className = "hero-action";
-  featureAction.textContent = "최신 글 읽기";
+  featureAction.textContent = "대표 글 읽기";
   feature.appendChild(featureAction);
 
   heroPanel.appendChild(feature);
@@ -534,6 +544,16 @@ function renderHomeHero() {
   heroShell.appendChild(heroCard);
   heroShell.appendChild(heroPanel);
   hero.appendChild(heroShell);
+  hero.appendChild(topicSection);
+}
+
+// The editorial header belongs only to the unfiltered first home page.
+function renderHomeView(isHome) {
+  if (isHome) {
+    renderHomeHero();
+  } else {
+    document.getElementById("home-hero").classList.add("is-hidden");
+  }
 }
 
 function renderSidebarExtras(context = {}) {
@@ -749,9 +769,27 @@ async function renderMenu() {
   });
 }
 
-function createCardElement(fileInfo, index) {
+function createPostLink(post, postInfo) {
+  const link = document.createElement("a");
+  const postUrl = new URL(origin);
+  postUrl.searchParams.set("post", post.name);
+  link.href = postUrl.href;
+  link.className = "post-preview";
+  link.setAttribute("aria-label", postInfo.title);
+  link.addEventListener("click", (event) => {
+    // Keep native new-tab, copy-link, and keyboard activation behavior.
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    event.preventDefault();
+    openPost(post, postInfo);
+  });
+  return link;
+}
+
+function createCardElement(fileInfo, index, post) {
   const isFeatured = index === 0;
-  const card = document.createElement("article");
+  const card = createPostLink(post, fileInfo);
   card.classList.add(
     ...(isFeatured ? bloglistFirstCardStyle : bloglistCardStyle).split(" ")
   );
@@ -770,17 +808,12 @@ function createCardElement(fileInfo, index) {
     cardBody.classList.add("blog-card-featured-body");
   }
 
-  const category = document.createElement("button");
-  category.type = "button";
+  const category = document.createElement("span");
   category.classList.add(...bloglistCardCategoryStyle.split(" "));
   if (isFeatured) {
     category.classList.add("blog-card-category-large");
   }
   category.textContent = fileInfo.category;
-  category.onclick = (event) => {
-    event.stopPropagation();
-    search(fileInfo.category, "category");
-  };
   cardBody.appendChild(category);
 
   const title = document.createElement("h2");
@@ -921,6 +954,16 @@ function renderBlogList(source = null, currentPage = 1) {
   const entries = getPostEntries(targetList);
   const categoryNames = [...new Set(entries.map(({ info }) => info.category))];
   const activeCategory = categoryNames.length === 1 ? categoryNames[0] : null;
+  const isHome = source === null && currentPage === 1;
+
+  // Preserve the current results/page when returning from a post.
+  const listUrl = new URL(origin);
+  window.history.replaceState({
+    blogListView: {
+      postNames: source === null ? null : targetList.map((post) => post.name),
+      currentPage,
+    },
+  }, "", listUrl);
 
   setBlogLayoutMode("list");
   document.getElementById("contents").style.display = "none";
@@ -928,7 +971,7 @@ function renderBlogList(source = null, currentPage = 1) {
   document.getElementById("pagination").style.display = "flex";
   document.getElementById("blog-posts").innerHTML = "";
 
-  renderHomeHero(targetList);
+  renderHomeView(isHome);
   renderBlogCategory(activeCategory);
   renderSidebarExtras();
 
@@ -943,21 +986,25 @@ function renderBlogList(source = null, currentPage = 1) {
 
   const totalPage = Math.ceil(targetList.length / pageUnit);
   initPagination(totalPage);
-  renderPagination(totalPage, currentPage, targetList);
+  renderPagination(totalPage, currentPage, source);
+  document.getElementById("pagination").style.display = totalPage > 1 ? "flex" : "none";
 
   const startIndex = (currentPage - 1) * pageUnit;
   const endIndex = currentPage * pageUnit;
 
-  targetList.slice(startIndex, endIndex).forEach((post, index) => {
-    const postInfo = extractFileInfo(post.name);
-    if (!postInfo) {
-      return;
-    }
+  // Omit only the pinned entry on the home page; keep date-based page boundaries.
+  const featuredName = isHome ? getFeaturedEntry(entries)?.post.name : null;
+  targetList.slice(startIndex, endIndex)
+    .filter((post) => post.name !== featuredName)
+    .forEach((post, index) => {
+      const postInfo = extractFileInfo(post.name);
+      if (!postInfo) {
+        return;
+      }
 
-    const cardElement = createCardElement(postInfo, index);
-    cardElement.onclick = () => openPost(post, postInfo);
-    document.getElementById("blog-posts").appendChild(cardElement);
-  });
+      const cardElement = createCardElement(postInfo, isHome ? index + 1 : index, post);
+      document.getElementById("blog-posts").appendChild(cardElement);
+    });
 }
 
 function renderOtherContents(menu) {
@@ -1018,7 +1065,7 @@ function renderBlogCategory(currentCategory = null) {
     allButton.classList.add("is-active");
   }
   allButton.innerHTML = `<span class="sidebar-category-name">All posts</span><span class="${categoryItemCountStyle}">(${blogList.length})</span>`;
-  allButton.addEventListener("click", () => renderBlogList());
+  allButton.addEventListener("click", () => renderBlogList(blogList));
   categoryContainer.appendChild(allButton);
 
   categories.forEach((category) => {
@@ -1368,23 +1415,23 @@ async function initialize() {
   renderBlogCategory();
   renderSidebarExtras();
 
-  const searchKey = url.search.split("=")[1];
-  const queryType = url.search.split("=")[0];
+  const postName = url.searchParams.get("post");
+  const menuName = url.searchParams.get("menu");
 
-  if (!searchKey || searchKey === "blog.md") {
-    renderBlogList();
+  if (postName) {
+    renderPostByName(postName, false);
     return;
   }
 
-  if (queryType === "?menu") {
-    renderOtherContents(searchKey);
+  if (menuName && menuName !== "blog.md") {
+    renderOtherContents(menuName);
     return;
   }
 
-  if (queryType === "?post") {
-    const postNameDecode = decodeURI(searchKey).replaceAll("+", " ");
-    renderPostByName(postNameDecode, false);
-  }
+  const view = window.history.state?.blogListView;
+  const names = view?.postNames ? new Set(view.postNames) : null;
+  renderBlogList(names ? blogList.filter((post) => names.has(post.name)) : null,
+    view?.currentPage || 1);
 }
 
 initialize();

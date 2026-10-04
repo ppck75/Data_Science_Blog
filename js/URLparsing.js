@@ -1,6 +1,6 @@
 const defaultTitle = "WENIVLOG";
 const url = new URL(window.location.href);
-const origin = url.origin + url.pathname;
+const origin = url.origin + url.pathname.replace(/index\.html$/, "");
 const pathParts = url.pathname.split("/").filter((part) => part.length > 0);
 const isLocal = url.hostname === "127.0.0.1" || url.hostname === "localhost";
 
@@ -40,23 +40,23 @@ function bindBlogTitleNavigation() {
 
 bindBlogTitleNavigation();
 
-window.addEventListener("popstate", () => {
+window.addEventListener("popstate", (event) => {
   const currentUrl = new URL(window.location.href);
-  const queryType = currentUrl.search.split("=")[0];
-  const queryValue = currentUrl.search.split("=")[1];
+  const postName = currentUrl.searchParams.get("post");
+  const menuName = currentUrl.searchParams.get("menu");
 
-  if (!queryValue || queryValue === "blog.md") {
-    renderBlogList();
-    return;
-  }
-
-  if (queryType === "?menu") {
-    renderOtherContents(decodeURI(queryValue));
-    return;
-  }
-
-  if (queryType === "?post") {
-    const postName = decodeURI(queryValue).replaceAll("+", " ");
+  if (postName) {
     renderPostByName(postName, false);
+    return;
   }
+
+  if (menuName && menuName !== "blog.md") {
+    renderOtherContents(menuName);
+    return;
+  }
+
+  const view = event.state?.blogListView;
+  const names = view?.postNames ? new Set(view.postNames) : null;
+  renderBlogList(names ? blogList.filter((post) => names.has(post.name)) : null,
+    view?.currentPage || 1);
 });

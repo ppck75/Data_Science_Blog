@@ -8,6 +8,16 @@ The blog's content is written in Korean.
 
 More than simply a place to publish posts, this blog is a portfolio project built by customizing a static website hosted on GitHub Pages. Based on the original WENIVLOG theme, it extends key aspects of the frontend experience—including the overall layout, content rendering, category navigation, search, dark mode, and post detail pages—to suit the blog's purpose.
 
+## 홈의 대표 글 설정
+
+`config.js`의 `siteConfig.featuredPost`에 `blog` 폴더에 있는 글의 전체 파일명을 확장자까지 입력합니다. `blog/` 경로는 제외합니다.
+
+```js
+featuredPost: "[20260801]_[인문사회연구자를 위한 XAI_SHAP_종합정리]_[XAI]_[XAI3.png]_[계산사회과학]_[].md",
+```
+
+빈 문자열(`""`)이거나 목록에 없는 파일명이면 최신 글을 표시합니다. 대표 글을 지정해도 최근 업데이트 날짜와 나머지 글의 날짜순 정렬은 유지됩니다. 로컬에서는 `data/local_blogList.json`에 등록된 글 중에서 선택하며, 배포 시에는 기존 GitHub 글 목록을 사용합니다.
+
 ## Main Topics
 
 The blog covers a range of topics centered on the data science learning journey.
