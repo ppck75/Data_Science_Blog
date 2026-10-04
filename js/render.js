@@ -501,11 +501,6 @@ function renderHomeHero() {
   const heroPanel = document.createElement("aside");
   heroPanel.className = "hero-panel";
 
-  const panelLabel = document.createElement("h2");
-  panelLabel.className = "hero-panel-label";
-  panelLabel.textContent = "대표 글 · Featured";
-  heroPanel.appendChild(panelLabel);
-
   const feature = createPostLink(featuredEntry.post, featuredEntry.info);
   feature.classList.add("hero-feature");
 

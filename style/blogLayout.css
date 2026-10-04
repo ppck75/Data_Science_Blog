@@ -578,11 +578,6 @@ body.blog-page {
   font-weight: 700;
 }
 
-.hero-action:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
 .blog-post-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
