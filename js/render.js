@@ -452,31 +452,34 @@ function renderHomeHero() {
   const heroCard = document.createElement("section");
   heroCard.className = "hero-card";
 
-  const kicker = document.createElement("p");
-  kicker.className = "hero-kicker";
-  kicker.textContent = "Personal Data Science Archive";
-  heroCard.appendChild(kicker);
-
   const title = document.createElement("h2");
   title.className = "hero-title";
   title.textContent = siteConfig.blogTitle || "Data Science Blog";
   heroCard.appendChild(title);
 
+  const introImage = document.createElement("img");
+  introImage.className = "hero-intro-image";
+  introImage.src = "img/블로그대표사진.png";
+  introImage.alt = "코딩과 데이터 분석, 연구를 하는 박찬규의 블로그 대표 이미지";
+  introImage.width = 1536;
+  introImage.height = 1024;
+  heroCard.appendChild(introImage);
+
+  const updated = document.createElement("p");
+  updated.className = "hero-updated";
+  const updatedLabel = document.createElement("strong");
+  updatedLabel.textContent = "최근 업데이트 · ";
+  const updatedDate = document.createElement("time");
+  const date = latestEntry.info.date;
+  updatedDate.dateTime = `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`;
+  updatedDate.textContent = formatDate(date);
+  updated.append(updatedLabel, updatedDate);
+  heroCard.appendChild(updated);
+
   const summary = document.createElement("p");
   summary.className = "hero-summary";
   summary.textContent = getHomeIntro();
   heroCard.appendChild(summary);
-
-  const statGrid = document.createElement("div");
-  statGrid.className = "hero-stat-grid";
-  statGrid.appendChild(createHeroStat(blogList.length, "발행된 글"));
-  statGrid.appendChild(
-    createHeroStat(Object.keys(counts).length, "카테고리")
-  );
-  statGrid.appendChild(
-    createHeroStat(formatDate(latestEntry.info.date), "최근 업데이트")
-  );
-  heroCard.appendChild(statGrid);
 
   const categoryList = document.createElement("div");
   categoryList.className = "hero-category-list";
