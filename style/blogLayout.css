@@ -329,6 +329,7 @@ body.blog-page {
 .hero-kicker {
   margin: 0 0 0.8rem;
   font-size: 0.78rem;
+  line-height: 1.5;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -462,7 +463,7 @@ body.blog-page {
 }
 
 .hero-panel {
-  padding: 0;
+  padding: 2rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -470,9 +471,10 @@ body.blog-page {
 
 .hero-panel-label {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -486,11 +488,26 @@ body.blog-page {
 
 
 .hero-feature-thumb {
+  display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: auto;
   border-radius: 0;
-  object-fit: contain;
-  background: #ecf1f8;
+  background: transparent;
+}
+
+.hero-feature-thumb.media-placeholder {
+  display: flex;
+  min-height: 10rem;
+}
+
+.hero-feature-title,
+.blog-card-title,
+.blog-card-featured-title,
+.post-title,
+.related-card-title,
+.post-pager-title {
+  font-family: var(--font-blog-sans);
+  font-weight: 600;
 }
 
 .hero-feature-category {
@@ -1174,7 +1191,7 @@ body.blog-page {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 0.86rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.35;
   color: var(--text-soft);
 }
@@ -1437,6 +1454,10 @@ body.blog-page {
     padding: 1.4rem;
   }
 
+  .hero-panel {
+    padding-top: 1.4rem;
+  }
+
   .hero-title {
     white-space: normal;
     overflow-wrap: anywhere;
@@ -1596,7 +1617,6 @@ body.blog-page {
   background: var(--surface-strong);
 }
 
-:root[data-theme="dark"] .hero-feature-thumb,
 :root[data-theme="dark"] .blog-card-image,
 :root[data-theme="dark"] .blog-card-featured-image {
   background: #101722;
