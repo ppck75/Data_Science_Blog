@@ -457,13 +457,17 @@ function renderHomeHero() {
   title.textContent = siteConfig.homeTitle || siteConfig.blogTitle || "Data Science Blog";
   heroCard.appendChild(title);
 
+  const introBody = document.createElement("div");
+  introBody.className = "hero-intro-body";
+  heroCard.appendChild(introBody);
+
   const introImage = document.createElement("img");
   introImage.className = "hero-intro-image";
   introImage.src = "img/블로그대표사진.png";
   introImage.alt = "코딩과 데이터 분석, 연구를 하는 박찬규의 블로그 대표 이미지";
   introImage.width = 1536;
   introImage.height = 1024;
-  heroCard.appendChild(introImage);
+  introBody.appendChild(introImage);
 
   const updated = document.createElement("p");
   updated.className = "hero-updated";
@@ -474,12 +478,12 @@ function renderHomeHero() {
   updatedDate.dateTime = `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`;
   updatedDate.textContent = formatDate(date);
   updated.append(updatedLabel, updatedDate);
-  heroCard.appendChild(updated);
+  introBody.appendChild(updated);
 
   const summary = document.createElement("p");
   summary.className = "hero-summary";
   summary.textContent = getHomeIntro();
-  heroCard.appendChild(summary);
+  introBody.appendChild(summary);
 
   const categoryList = document.createElement("div");
   categoryList.className = "hero-category-list";
