@@ -5,10 +5,11 @@ const siteConfig = {
   repositoryName: "Data_Science_Blog", // GitHub 저장소 이름
   mainColor: "#3498db", // 사이트의 주 색상
   textColor: "#333333", // 기본 텍스트 색상
-  blogTitle: "Data Science Blog | Changyu", // 블로그 제목
+  blogTitle: "Changyu Park", // 블로그 제목
+  homeTitle: "My Personal Blog", // 홈 소개 영역의 제목
   // 대표 글: blog 폴더의 파일명 전체를 확장자까지 복사하세요 (blog/ 경로 제외).
   // 비워 두거나 목록에 없는 파일을 지정하면 최신 글을 표시합니다.
-  featuredPost: "",
+  featuredPost: "[20260801]_[인문사회연구자를 위한 XAI_SHAP_종합정리]_[XAI]_[XAI3.png]_[계산사회과학]_[].md",
 };
 
 // 여러명의 저자가 글을 쓸 경우 프로필 설정, default는 0번째 사용자

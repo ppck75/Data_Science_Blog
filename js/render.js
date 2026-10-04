@@ -454,7 +454,7 @@ function renderHomeHero() {
 
   const title = document.createElement("h2");
   title.className = "hero-title";
-  title.textContent = siteConfig.blogTitle || "Data Science Blog";
+  title.textContent = siteConfig.homeTitle || siteConfig.blogTitle || "Data Science Blog";
   heroCard.appendChild(title);
 
   const introImage = document.createElement("img");
