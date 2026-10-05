@@ -131,12 +131,15 @@ function buildPostHeader(titleInfo, rawText) {
   const category = document.createElement("a");
   category.classList.add(...postcategoryStyle.split(" "));
   category.textContent = titleInfo.category;
+  const categoryUrl = new URL(origin);
+  categoryUrl.searchParams.set("category", titleInfo.category);
+  category.href = categoryUrl.href;
   category.onclick = (event) => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
+    window.history.pushState({}, "", categoryUrl);
     search(titleInfo.category, "category");
-    const nextUrl = new URL(origin);
-    nextUrl.searchParams.set("search", titleInfo.category);
-    window.history.pushState({}, "", nextUrl);
+    window.scrollTo({ top: 0 });
   };
   titleSection.appendChild(category);
 
@@ -197,11 +200,6 @@ function buildPostHeader(titleInfo, rawText) {
     countChip.textContent = `같은 카테고리 글 ${countCategoryPosts(titleInfo.category)}개`;
     infoRow.appendChild(countChip);
   }
-
-  const kindChip = document.createElement("span");
-  kindChip.className = "post-info-chip";
-  kindChip.textContent = titleInfo.fileType === "ipynb" ? "Notebook Post" : "Article";
-  infoRow.appendChild(kindChip);
 
   titleSection.appendChild(infoRow);
 

@@ -279,7 +279,7 @@ function resolveMenuDownloadUrl(menu) {
   return menu.download_url;
 }
 
-const hiddenMenuItems = ["about_me.md"];
+const hiddenMenuItems = [];
 
 function isHiddenMenuItem(menuName = "") {
   return hiddenMenuItems.includes(menuName);
@@ -417,8 +417,9 @@ function setBlogLayoutMode(mode = "detail") {
     return;
   }
 
-  const isWideMode = mode === "list" || mode === "about-me";
+  const isWideMode = mode === "list" || mode === "about-me" || mode === "post";
   shell.classList.toggle("is-wide-view", isWideMode);
+  shell.classList.toggle("is-post-view", mode === "post");
   contents?.classList.toggle("is-about-me-view", mode === "about-me");
   sidebar.hidden = isWideMode;
   syncCategoryToggleVisibility(mode);
@@ -690,7 +691,7 @@ async function renderMenu() {
     link.dataset.menuName = menu.name;
     link.dataset.menuDownloadUrl = menu.download_url;
     link.href = menu.download_url;
-    link.innerText = menu.name.split(".")[0];
+    link.innerText = menu.name === "about_me.md" ? "About" : menu.name.split(".")[0];
 
     link.onclick = (event) => {
       event.preventDefault();
@@ -884,13 +885,13 @@ function createEmptyState(message) {
 }
 
 function openPost(post, postInfo = extractFileInfo(post.name), shouldPushState = true) {
-  setBlogLayoutMode("detail");
+  setBlogLayoutMode("post");
   document.getElementById("contents").style.display = "block";
   document.getElementById("blog-posts").style.display = "none";
   document.getElementById("pagination").style.display = "none";
   document.getElementById("home-hero").classList.add("is-hidden");
   renderBlogCategory(postInfo.category);
-  renderSidebarExtras({ currentPost: postInfo });
+  document.getElementById("sidebar-extras").replaceChildren();
   window.scrollTo({ top: 0, behavior: "smooth" });
 
   fetch(resolvePostDownloadUrl(post))
@@ -924,13 +925,13 @@ function renderPostByName(postName, shouldPushState = false) {
     return;
   }
 
-  setBlogLayoutMode("detail");
+  setBlogLayoutMode("post");
   document.getElementById("contents").style.display = "block";
   document.getElementById("blog-posts").style.display = "none";
   document.getElementById("pagination").style.display = "none";
   document.getElementById("home-hero").classList.add("is-hidden");
   renderBlogCategory(postInfo.category);
-  renderSidebarExtras({ currentPost: postInfo });
+  document.getElementById("sidebar-extras").replaceChildren();
 
   fetch(origin + "blog/" + postName)
     .then((response) => response.text())
@@ -960,6 +961,7 @@ function renderBlogList(source = null, currentPage = 1) {
 
   // Preserve the current results/page when returning from a post.
   const listUrl = new URL(origin);
+  if (source !== null && activeCategory) listUrl.searchParams.set("category", activeCategory);
   window.history.replaceState({
     blogListView: {
       postNames: source === null ? null : targetList.map((post) => post.name),
@@ -1116,9 +1118,8 @@ function createCategoryStreamItem(entry) {
 }
 
 function createRelatedCard(entry) {
-  const card = document.createElement("article");
-  card.className = "related-card";
-  card.addEventListener("click", () => openPost(entry.post, entry.info));
+  const card = createPostLink(entry.post, entry.info);
+  card.classList.add("related-card");
 
   const thumb = createThumbnailNode({
     src: entry.info.thumbnail,
@@ -1198,11 +1199,11 @@ function getAdjacentPostEntries(currentPost) {
 }
 
 function createPostPagerItem(direction, entry) {
-  const item = document.createElement("button");
-  item.type = "button";
-  item.className = "post-pager-item";
+  const item = entry ? createPostLink(entry.post, entry.info) : document.createElement("button");
+  item.classList.add("post-pager-item");
 
   if (!entry) {
+    item.type = "button";
     item.classList.add("is-disabled");
     item.disabled = true;
     item.setAttribute("aria-hidden", "true");
@@ -1215,7 +1216,6 @@ function createPostPagerItem(direction, entry) {
     "aria-label",
     `${isPrevious ? "\uC774\uC804 \uAE00" : "\uB2E4\uC74C \uAE00"}: ${entry.info.title}`
   );
-  item.addEventListener("click", () => openPost(entry.post, entry.info));
 
   const arrow = document.createElement("span");
   arrow.className = "post-pager-arrow";
@@ -1260,17 +1260,14 @@ function createPostPager(currentPost) {
   return pager;
 }
 
-function getRelatedEntries(currentPost, limit = 4) {
-  const entries = getPostEntries().filter(
-    ({ info }) => info.title !== currentPost.title
-  );
-  const sameCategory = entries.filter(
-    ({ info }) => info.category === currentPost.category
-  );
-  const recentDifferent = entries.filter(
-    ({ info }) => info.category !== currentPost.category
-  );
-  return [...sameCategory, ...recentDifferent].slice(0, limit);
+function getRelatedEntries(currentPost) {
+  return getPostEntries()
+    .filter(({ info }) => info.category === currentPost.category && !(
+      info.title === currentPost.title && info.date === currentPost.date &&
+      info.fileType === currentPost.fileType
+    ))
+    .sort((a, b) => b.info.date.localeCompare(a.info.date) || b.post.name.localeCompare(a.post.name))
+    .slice(0, 6);
 }
 
 function appendPostDetailModules(contentsDiv, currentPost) {
@@ -1287,7 +1284,7 @@ function appendPostDetailModules(contentsDiv, currentPost) {
     footer.appendChild(pager);
   }
 
-  const relatedPosts = getRelatedEntries(currentPost, 4);
+  const relatedPosts = getRelatedEntries(currentPost);
   if (relatedPosts.length > 0) {
     const relatedModule = document.createElement("section");
     relatedModule.className = "post-module";
@@ -1431,6 +1428,11 @@ async function initialize() {
   }
 
   const view = window.history.state?.blogListView;
+  const category = url.searchParams.get("category");
+  if (!view && category) {
+    search(category, "category");
+    return;
+  }
   const names = view?.postNames ? new Set(view.postNames) : null;
   renderBlogList(names ? blogList.filter((post) => names.has(post.name)) : null,
     view?.currentPage || 1);

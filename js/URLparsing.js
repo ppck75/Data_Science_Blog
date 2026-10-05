@@ -56,6 +56,11 @@ window.addEventListener("popstate", (event) => {
   }
 
   const view = event.state?.blogListView;
+  const category = currentUrl.searchParams.get("category");
+  if (!view && category) {
+    search(category, "category");
+    return;
+  }
   const names = view?.postNames ? new Set(view.postNames) : null;
   renderBlogList(names ? blogList.filter((post) => names.has(post.name)) : null,
     view?.currentPage || 1);
