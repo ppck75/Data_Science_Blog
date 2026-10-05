@@ -714,7 +714,7 @@ async function renderMenu() {
   let searchInputShow = false;
 
   window.addEventListener("click", (event) => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth >= 768) {
       return;
     }
 
@@ -726,15 +726,16 @@ async function renderMenu() {
       return;
     }
 
-    if (event.target !== searchCont) {
+    if (!searchCont.contains(event.target)) {
       searchButton.classList.remove("active");
       searchCont.classList.add("hidden");
+      searchCont.classList.remove("block");
       searchInputShow = false;
     }
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth >= 768) {
       searchButton.classList.add("active");
       searchCont.classList.remove("hidden");
       searchInputShow = true;
@@ -743,6 +744,8 @@ async function renderMenu() {
 
     searchButton.classList.remove("active");
     searchCont.classList.add("hidden");
+    searchCont.classList.remove("block");
+    searchInputShow = false;
   });
 
   const searchInput = document.getElementById("search-input");

@@ -72,6 +72,61 @@ body.blog-page {
   gap: 1.25rem;
 }
 
+@media (max-width: 767px) {
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .site-nav #menu {
+    display: flex;
+    order: 3;
+    flex-basis: 100%;
+    gap: 1.5rem;
+  }
+
+  .site-nav #menu .site-nav-link {
+    margin: 0;
+    padding: 0.35rem 0;
+  }
+
+  .site-nav .site-nav-actions,
+  .site-nav .site-search-shell {
+    position: static;
+  }
+
+  .site-nav .search-cont {
+    position: absolute;
+    top: 100%;
+    bottom: auto;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    max-width: none;
+    transform: none;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    background: var(--surface-strong);
+  }
+
+  .site-nav .search-cont label {
+    display: block;
+    width: 100%;
+  }
+
+  .site-nav .search-input {
+    min-width: 0;
+    width: 100%;
+    padding-right: 5rem;
+    font-size: 16px;
+  }
+
+  .site-nav .search-cont .btn-cont {
+    right: 1.5rem;
+  }
+}
+
 .site-nav-link {
   position: relative;
   color: var(--text-subtle);
