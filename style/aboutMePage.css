@@ -19,7 +19,8 @@
 }
 
 #contents [data-about-me-page] .about-introduction {
-  padding-bottom: 0;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
 }
 
 #contents [data-about-me-page] .about-introduction p:last-child {
