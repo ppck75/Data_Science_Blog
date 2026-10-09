@@ -710,43 +710,42 @@ async function renderMenu() {
   });
 
   const searchButton = document.getElementById("search-button");
-  const searchCont = document.querySelector(".search-cont");
-  let searchInputShow = false;
-
-  window.addEventListener("click", (event) => {
-    if (window.innerWidth >= 768) {
-      return;
+  const searchDialog = document.getElementById("mobile-search-dialog");
+  const mobileInput = document.getElementById("mobile-search-input");
+  const closeSearch = () => searchDialog.close();
+  searchButton.onclick = () => {
+    const topics = document.getElementById("mobile-search-topics");
+    topics.replaceChildren();
+    sortCategoriesByCount(getCategoryCounts()).forEach((category) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = category;
+      button.onclick = () => { closeSearch(); search(category, "category"); window.scrollTo(0, 0); };
+      topics.appendChild(button);
+    });
+    mobileInput.value = document.getElementById("search-input").value;
+    searchDialog.showModal();
+    document.body.classList.add("mobile-search-open");
+    mobileInput.focus();
+  };
+  document.getElementById("mobile-search-close").onclick = closeSearch;
+  searchDialog.onkeydown = (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeSearch();
     }
-
-    if (event.target === searchButton || searchButton.contains(event.target)) {
-      searchInputShow = !searchInputShow;
-      searchButton.classList.toggle("active", searchInputShow);
-      searchCont.classList.toggle("hidden", !searchInputShow);
-      searchCont.classList.toggle("block", searchInputShow);
-      return;
-    }
-
-    if (!searchCont.contains(event.target)) {
-      searchButton.classList.remove("active");
-      searchCont.classList.add("hidden");
-      searchCont.classList.remove("block");
-      searchInputShow = false;
-    }
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) {
-      searchButton.classList.add("active");
-      searchCont.classList.remove("hidden");
-      searchInputShow = true;
-      return;
-    }
-
-    searchButton.classList.remove("active");
-    searchCont.classList.add("hidden");
-    searchCont.classList.remove("block");
-    searchInputShow = false;
-  });
+  };
+  searchDialog.onclose = () => {
+    document.body.classList.remove("mobile-search-open");
+    searchButton.focus();
+  };
+  document.getElementById("mobile-search-form").onsubmit = (event) => {
+    event.preventDefault();
+    document.getElementById("search-input").value = mobileInput.value;
+    closeSearch();
+    search();
+    window.scrollTo(0, 0);
+  };
 
   const searchInput = document.getElementById("search-input");
   searchInput.onkeyup = (event) => {

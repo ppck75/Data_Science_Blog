@@ -107,11 +107,6 @@
           var storedTheme = window.localStorage.getItem(storageKey);
           if (storedTheme === "light" || storedTheme === "dark") {
             theme = storedTheme;
-          } else if (
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-          ) {
-            theme = "dark";
           }
         } catch (error) {}
 
@@ -146,12 +141,12 @@
 
         <div class="site-nav-actions">
           <div class="site-search-shell">
-            <button id="search-button" class="md:hidden flex">
+            <button id="search-button" class="flex" type="button" aria-haspopup="dialog" aria-controls="mobile-search-dialog">
               <span class="sr-only">검색창 열기</span>
             </button>
 
             <div
-              class="search-cont w-80 hidden md:block md:relative absolute z-10 rounded-2xl p-4 border border-graylv2 bottom-[-12px] right-0 translate-y-full bg-background w-96 max-w-full box-border md:p-0 md:top-0 md:right-0 md:border-0 md:translate-y-0 md:w-80"
+              class="search-cont hidden"
             >
               <label for="search-input">
                 <input
@@ -203,6 +198,16 @@
         class="absolute bg-background w-full max-w-[1240px] border-b border-graylv2 z-10 md:hidden"
       ></div>
     </header>
+    <dialog id="mobile-search-dialog" aria-labelledby="mobile-search-title">
+      <div class="mobile-search-head"><h2 id="mobile-search-title">검색</h2><button type="button" id="mobile-search-close" aria-label="검색 닫기">✕</button></div>
+      <form id="mobile-search-form" role="search">
+        <label class="sr-only" for="mobile-search-input">검색어</label>
+        <input id="mobile-search-input" type="search" placeholder="검색어를 입력하세요" enterkeyhint="search" autocomplete="off" />
+        <button type="submit">검색</button>
+      </form>
+      <h3 class="mobile-search-topics-title">주제별로 찾아보기</h3>
+      <div id="mobile-search-topics"></div>
+    </dialog>
 
     <div
       id="category-overview-overlay"
@@ -221,6 +226,7 @@
             aria-label="Close"
           ></button>
         </header>
+
         <div id="category-overview-list" class="category-overview-list"></div>
       </aside>
     </div>
@@ -245,6 +251,7 @@
                 <h2 class="sidebar-card-title">Categories</h2>
               </div>
             </header>
+
             <aside id="category-list"></aside>
           </section>
 
